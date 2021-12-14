@@ -5,6 +5,7 @@ class Hike(db.Model):
     __tablename__ = 'hikes'
 
     id= db.Column(db.Integer, primary_key=True)
+    hike_name = db.Column(db.String(50), nullable=False)
     park_id = db.Column(db.Integer, db.ForeignKey('parks.id'), nullable=False)
     lat = db.Column(db.Float(precision=32, asdecimal=True, decimal_return_scale=None), nullable=False)
     long = db.Column(db.Float(precision=32, asdecimal=True, decimal_return_scale=None), nullable=False)
