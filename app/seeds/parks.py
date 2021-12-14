@@ -3,7 +3,7 @@ from app.models import db, Park
 
 
 def seed_parks():
-    tahoe = Park(park_name='Desolation Wilderness', lat=38.934614, long=-120.134402, description='Welcome to Desolation Wilderness, 63,960 acres of subalpine and alpine forest, granitic peaks, and glacially-formed valleys and lakes. It is located west of Lake Tahoe and north of Highway 50 in El Dorado County. Desolation Wilderness is jointly administered by both the Eldorado National Forest and Lake Tahoe Basin Management Unit.', country='United States', state='CA')
+    tahoe = Park(park_name='Desolation Wilderness', lat=38.934614, long=-120.134402, description='Welcome to Desolation Wilderness, 63,960 acres of subalpine and alpine forest, granitic peaks, and glacially-formed valleys and lakes. It is located west of Lake Tahoe and north of Highway 50 in El Dorado County.', country='United States', state='CA')
 
 
     db.session.add(tahoe)
