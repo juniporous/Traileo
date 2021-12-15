@@ -17,8 +17,8 @@ class Park(db.Model):
         return {
             'id': self.id,
             'park_name': self.park_name,
-            'lat': self.lat,
-            'long': self.long,
+            'lat': float(self.lat),
+            'long': float(self.long),
             'description': self.description,
             'country': self.country,
             'state': self.state
