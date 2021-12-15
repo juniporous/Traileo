@@ -4,3 +4,4 @@ from .parks import Park
 from .hikes import Hike
 from .photos import Photo
 from .reviews import Review
+from .keywords import Keyword

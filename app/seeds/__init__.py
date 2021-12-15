@@ -4,6 +4,7 @@ from .parks import seed_parks, undo_parks
 from .hikes import seed_hikes, undo_hikes
 from .photos import seed_photos, undo_photos
 from .reviews import seed_reviews, undo_reviews
+from .keywords import seed_keywords, undo_keywords
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -17,7 +18,8 @@ def seed():
     # seed_parks()
     # seed_hikes()
     # seed_photos()
-    seed_reviews()
+    # seed_reviews()
+    seed_keywords()
     # Add other seed functions here
 
 
@@ -28,5 +30,6 @@ def undo():
     undo_parks()
     undo_hikes()
     undo_photos()
-    undo_reviews
+    undo_reviews()
+    undo_keywords()
     # Add other undo functions here
