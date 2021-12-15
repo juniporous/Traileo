@@ -28,3 +28,5 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email
         }
+
+    photos = db.relationship('Photo', back_populates='users', cascade='all, delete-orphan')

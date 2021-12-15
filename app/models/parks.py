@@ -11,7 +11,6 @@ class Park(db.Model):
     description = db.Column(db.String(255), nullable=False)
     country = db.Column(db.String(40), nullable=False)
     state = db.Column(db.String(20), nullable=False)
-
     
 
     def to_dict(self):
@@ -24,3 +23,5 @@ class Park(db.Model):
             'country': self.country,
             'state': self.state
     }
+
+    hikes = db.relationship('Hike', back_populates='parks', cascade='all, delete-orphan')
