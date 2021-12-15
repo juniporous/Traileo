@@ -51,6 +51,6 @@ def seed_keywords():
 # TRUNCATE Removes all the data from the table, and RESET IDENTITY
 # resets the auto incrementing primary key, CASCADE deletes any
 # dependent entities
-def undo_parks():
+def undo_keywords():
     db.session.execute('TRUNCATE keywords RESTART IDENTITY CASCADE;')
     db.session.commit()
