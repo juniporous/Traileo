@@ -9,9 +9,9 @@ class Photo(db.Model):
     hike_id = db.Column(db.Integer, db.ForeignKey('hikes.id'), nullable=False)
     img_url = db.Column(db.String(255), nullable=False)
 
-    user = db.relationship('User', back_populates='photos')
+    users = db.relationship('User', back_populates='photos')
 
-    hike = db.relationship('Hike', back_populates='photos')
+    hikes = db.relationship('Hike', back_populates='photos')
 
     def to_dict(self):
         return {
