@@ -1,7 +1,6 @@
 from flask import Blueprint, jsonify, session, request
 from app.models import Photo, db
-from app.forms import CreatePhotoForm
-# from app.forms import ReviewForm, UpdateReviewForm
+from app.forms import CreatePhotoForm, UpdatePhotoForm
 
 
 photo_routes = Blueprint('photo', __name__)
@@ -46,14 +45,13 @@ def create_review():
     return {'message': 'unable to create photo'}, 401
 
 
-# @review_routes.route('/<int:id>', methods=['PUT'])
-# def update_review(id):
-#     form = UpdateReviewForm()
-#     review = Review.query.get(id)
-#     if not review:
-#         return jsonify({'message': f'Review Id {id} Cannot Be Found'}), 404
+@photo_routes.route('/<int:id>', methods=['PUT'])
+def update_photo(id):
+    form = UpdatePhotoForm()
+    photo = Photo.query.get(id)
+    if not photo:
+        return jsonify({'message': f'Photo Id {id} Cannot Be Found'}), 404
 
-#     review.description = form.data['description']
-#     review.rating = form.data['rating']
-#     db.session.commit()
-#     return review.to_dict()
+    photo.img_url = form.data['img_url']
+    db.session.commit()
+    return photo.to_dict()
