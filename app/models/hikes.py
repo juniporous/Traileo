@@ -26,8 +26,8 @@ class Hike(db.Model):
         return {
             'id': self.id,
             'hike_name': self.hike_name,
-            'lat': self.lat,
-            'long': self.long,
+            'lat': float(self.lat),
+            'long': float(self.long),
             'description': self.description,
             'length': self.length,
             'eta': self.eta,
