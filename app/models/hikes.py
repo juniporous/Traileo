@@ -1,4 +1,5 @@
 from .db import db
+from .hike_keywords import hike_keywords
 
 
 class Hike(db.Model):
@@ -18,6 +19,8 @@ class Hike(db.Model):
 
     photos = db.relationship('Photo', back_populates='hikes', cascade='all, delete-orphan')
     reviews = db.relationship('Review', back_populates='hike', cascade='all, delete-orphan')
+
+    keywords = db.relationship('Keyword', back_populates='hikes', secondary=hike_keywords)
 
     def to_dict(self):
         return {
