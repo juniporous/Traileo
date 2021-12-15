@@ -16,12 +16,12 @@ class Hike(db.Model):
 
     parks = db.relationship('Park', back_populates='hikes')
 
-    
+    photos = db.relationship('Photo', back_populates='hikes', cascade='all, delete-orphan')
 
     def to_dict(self):
         return {
             'id': self.id,
-            'park_name': self.park_name,
+            'hike_name': self.hike_name,
             'lat': self.lat,
             'long': self.long,
             'description': self.description,
