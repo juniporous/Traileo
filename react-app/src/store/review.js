@@ -1,6 +1,6 @@
 const GET_REVIEWS = 'reviews/GET_REVIEWS'
 const REMOVE_ONE_REVIEW = 'reviews/REMOVE_ONE_REVIEW';
-
+const ADD_ONE_REVIEW = 'reviews/ADD_ONE_REVIEW'
 // Action Creators
 
 const showReviews = (data) => {
@@ -16,6 +16,13 @@ const showReviews = (data) => {
         payload: id
     };
 };
+
+const addOneReview = payload => {
+    return {
+        type: ADD_ONE_REVIEW,
+        payload
+    }
+}
   
 
 // Thunk Creators
@@ -38,6 +45,18 @@ export const deleteReview = id => async dispatch => {
     }
 };
 
+export const addReview = review => async dispatch => {
+    const response = await fetch('/api/reviews/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(review),
+    });
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(addOneReview(data));
+    }
+};
+
 
 
 const initialState = {};
@@ -52,6 +71,9 @@ switch (action.type) {
     case REMOVE_ONE_REVIEW:
       newState = { ...state };
       delete newState[action.payload];
+      return newState;
+    case ADD_ONE_REVIEW:
+      newState = { ...state, [action.payload.id]: action.payload};
       return newState;
     default:
       return state;
