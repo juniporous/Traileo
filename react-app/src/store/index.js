@@ -5,6 +5,7 @@ import review from './review'
 
 const rootReducer = combineReducers({
   session,
+  review
 });
 
 
