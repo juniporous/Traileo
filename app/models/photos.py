@@ -10,7 +10,6 @@ class Photo(db.Model):
     img_url = db.Column(db.String(255), nullable=False)
 
     users = db.relationship('User', back_populates='photos')
-
     hikes = db.relationship('Hike', back_populates='photos')
 
     def to_dict(self):

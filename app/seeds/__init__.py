@@ -3,6 +3,7 @@ from .users import seed_users, undo_users
 from .parks import seed_parks, undo_parks
 from .hikes import seed_hikes, undo_hikes
 from .photos import seed_photos, undo_photos
+from .reviews import seed_reviews, undo_reviews
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -15,7 +16,8 @@ def seed():
     # seed_users()
     # seed_parks()
     # seed_hikes()
-    seed_photos()
+    # seed_photos()
+    seed_reviews
     # Add other seed functions here
 
 
@@ -26,4 +28,5 @@ def undo():
     undo_parks()
     undo_hikes()
     undo_photos()
+    undo_reviews
     # Add other undo functions here
