@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getReviews, deleteReview, addReview } from '../store/review'
+import { getReviews, deleteReview, addReview, updateReview } from '../store/review'
+import UpdateReviewForm from './UpdateReview'
 
 function Review() {
     const dispatch = useDispatch()
@@ -26,6 +27,7 @@ function Review() {
         }));
     };
 
+
     return (
         <>
             <div>
@@ -36,6 +38,7 @@ function Review() {
                         <button onClick={() => handleDelete(review.id)}>
                             Delete Review
                         </button>
+                        <UpdateReviewForm reviewId={review.id}/>
                     </div>
                     
 

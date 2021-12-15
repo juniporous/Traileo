@@ -1,6 +1,7 @@
 const GET_REVIEWS = 'reviews/GET_REVIEWS'
 const REMOVE_ONE_REVIEW = 'reviews/REMOVE_ONE_REVIEW';
 const ADD_ONE_REVIEW = 'reviews/ADD_ONE_REVIEW'
+const UPDATE_ONE_REVIEW = 'reviews/UPDATE_ONE_REVIEW'
 // Action Creators
 
 const showReviews = (data) => {
@@ -23,6 +24,11 @@ const addOneReview = payload => {
         payload
     }
 }
+
+const updateOneReview = payload => ({
+    type: UPDATE_ONE_REVIEW,
+    payload
+})
   
 
 // Thunk Creators
@@ -58,6 +64,25 @@ export const addReview = review => async dispatch => {
 };
 
 
+export const updateReview = data => async (dispatch) => {
+    const response = await fetch(`/api/reviews/${data.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+
+    if (response.ok) {
+      const review = await response.json();
+      dispatch(updateOneReview(review));
+      return review;
+    }
+  };
+
+
+
 
 const initialState = {};
   // Define reducer
@@ -74,6 +99,9 @@ switch (action.type) {
       return newState;
     case ADD_ONE_REVIEW:
       newState = { ...state, [action.payload.id]: action.payload};
+      return newState;
+    case UPDATE_ONE_REVIEW:
+      newState = { ...state, [action.payload.id]: action.payload }
       return newState;
     default:
       return state;
