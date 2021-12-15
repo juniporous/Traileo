@@ -1,5 +1,7 @@
-from flask import Blueprint, jsonify, session
+from flask import Blueprint, jsonify, session, request
 from app.models import Review, db
+from datetime import datetime
+from app.forms import ReviewForm
 
 
 review_routes = Blueprint('review', __name__)
@@ -26,3 +28,35 @@ def delete_review(id):
     db.session.delete(review)
     db.session.commit()
     return jsonify({'message': f'Review {id} has been deleted'}), 200
+
+
+@review_routes.route('/', methods=['POST'])
+def create_review():
+    form = ReviewForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        review = Review(
+            user_id=form.data['user_id'],
+            hike_id=form.data['hike_id'],
+            description=form.data['description'],
+            rating=form.data['rating'],
+            trip_date=datetime.now()
+        )
+        db.session.add(review)
+        db.session.commit()
+        return review.to_dict()
+    return {'message': 'unable to create review'}, 401
+
+
+@review_routes.route('/<int:id>', methods=['PUT'])
+def update_review(id):
+
+    data = request.get_json()
+    review = Review.query.get(id)
+    if not review:
+        return jsonify({'message': f'Review Id {id} Cannot Be Found'}), 404
+
+    review.description = data['description']
+    review.rating = data['rating']
+    db.session.commit()
+    return review.to_dict()
