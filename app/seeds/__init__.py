@@ -17,7 +17,7 @@ def seed():
     # seed_parks()
     # seed_hikes()
     # seed_photos()
-    seed_reviews
+    seed_reviews()
     # Add other seed functions here
 
 
