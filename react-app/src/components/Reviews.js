@@ -1,10 +1,11 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getReviews, deleteReview } from '../store/review'
+import { getReviews, deleteReview, addReview } from '../store/review'
 
 function Review() {
     const dispatch = useDispatch()
-
+    const sessionUser = useSelector((state) => state.session.user)
+    const userId = sessionUser.id
     const reviews = useSelector(state => Object.values(state.review))
     useEffect(() => {
         dispatch(getReviews())
@@ -14,7 +15,19 @@ function Review() {
         dispatch(deleteReview(id));
     };
 
+
+    const handlePost = () => {
+        dispatch(addReview({
+            user_id: userId,
+            hike_id: 7,
+            description: 'testing POST from front end',
+            rating: 4
+
+        }));
+    };
+
     return (
+        <>
             <div>
                 REVIEWS
                 {reviews?.map(review => (
@@ -28,6 +41,8 @@ function Review() {
 
                 ))}
             </div>
+            <button onClick={() => handlePost()}>Post Review</button>
+        </>
     )
 }
 
