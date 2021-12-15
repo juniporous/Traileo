@@ -51,7 +51,6 @@ def create_review():
 @review_routes.route('/<int:id>', methods=['PUT'])
 def update_review(id):
     form = UpdateReviewForm()
-    # data = request.get_json()
     review = Review.query.get(id)
     if not review:
         return jsonify({'message': f'Review Id {id} Cannot Be Found'}), 404

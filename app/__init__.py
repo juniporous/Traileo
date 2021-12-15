@@ -11,6 +11,7 @@ from .api.auth_routes import auth_routes
 from .api.hike_routes import hike_routes
 from .api.park_routes import park_routes
 from .api.review_routes import review_routes
+from .api.photo_routes import photo_routes
 
 from .seeds import seed_commands
 
@@ -37,6 +38,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(hike_routes, url_prefix='/api/hikes')
 app.register_blueprint(park_routes, url_prefix='/api/parks')
 app.register_blueprint(review_routes, url_prefix='/api/reviews')
+app.register_blueprint(photo_routes, url_prefix='/api/photos')
 db.init_app(app)
 Migrate(app, db)
 
