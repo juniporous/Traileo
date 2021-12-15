@@ -17,6 +17,7 @@ class Hike(db.Model):
     parks = db.relationship('Park', back_populates='hikes')
 
     photos = db.relationship('Photo', back_populates='hikes', cascade='all, delete-orphan')
+    reviews = db.relationship('Review', back_populates='hike', cascade='all, delete-orphan')
 
     def to_dict(self):
         return {

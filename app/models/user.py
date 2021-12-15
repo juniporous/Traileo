@@ -30,3 +30,4 @@ class User(db.Model, UserMixin):
         }
 
     photos = db.relationship('Photo', back_populates='users', cascade='all, delete-orphan')
+    reviews = db.relationship('Review', back_populates='user', cascade='all, delete-orphan')
