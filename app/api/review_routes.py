@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, session, request
 from app.models import Review, db
 from datetime import datetime
-from app.forms import ReviewForm
+from app.forms import ReviewForm, UpdateReviewForm
 
 
 review_routes = Blueprint('review', __name__)
@@ -50,13 +50,13 @@ def create_review():
 
 @review_routes.route('/<int:id>', methods=['PUT'])
 def update_review(id):
-
-    data = request.get_json()
+    form = UpdateReviewForm()
+    # data = request.get_json()
     review = Review.query.get(id)
     if not review:
         return jsonify({'message': f'Review Id {id} Cannot Be Found'}), 404
 
-    review.description = data['description']
-    review.rating = data['rating']
+    review.description = form.data['description']
+    review.rating = form.data['rating']
     db.session.commit()
     return review.to_dict()
