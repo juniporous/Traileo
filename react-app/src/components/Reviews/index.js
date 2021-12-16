@@ -1,15 +1,23 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getReviews, deleteReview, addReview, updateReview } from '../store/review'
-import UpdateReviewForm from './UpdateReview'
+import { getReviews, deleteReview, addReview, updateReview } from '../../store/review'
+import UpdateReviewForm from '../UpdateReview'
+import { getHikes } from '../../store/hike'
+import "./Reviews.css"
 
 function Review() {
     const dispatch = useDispatch()
     const sessionUser = useSelector((state) => state.session.user)
     const userId = sessionUser.id
     const reviews = useSelector(state => Object.values(state.review))
+    const hikes = useSelector(state => Object.values(state.hike))
+    console.log('@#$%@#$%@#$%', hikes)
     useEffect(() => {
         dispatch(getReviews())
+    }, [dispatch])
+
+    useEffect(() => {
+        dispatch(getHikes())
     }, [dispatch])
 
     const handleDelete = (id) => {
@@ -30,7 +38,7 @@ function Review() {
 
     return (
         <>
-            <div>
+            <div className="navbarMargin">
                 REVIEWS
                 {reviews?.map(review => (
                     <div key={review.id}>
@@ -45,6 +53,13 @@ function Review() {
                 ))}
             </div>
             <button onClick={() => handlePost()}>Post Review</button>
+            <div>
+                {hikes.map(hike => (
+                    <div key={hike.id}>
+                        {hike.id} hike
+                    </div>
+                ))}
+            </div>
         </>
     )
 }
