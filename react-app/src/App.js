@@ -8,6 +8,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import Review from './components/Reviews';
+import Splash from './components/Splash';
 import { authenticate } from './store/session';
 
 function App() {
@@ -29,8 +30,10 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+      <Route path='/home' exact={true}>
+          <Splash />
+        </Route>
         <Route path='/login' exact={true}>
-          
           <LoginForm />
         </Route>
         <Route path='/sign-up' exact={true}>
