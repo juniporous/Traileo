@@ -1,0 +1,167 @@
+nav {
+    font-family: 'Readex Pro', sans-serif;
+    max-width: 100%;
+    font-size: 1.5vh;
+    
+}
+
+.nav-container {
+    max-width: 100%;
+    padding: 2vh 0vw 2vh 0vw;
+    display: flex;
+    flex-direction: row;
+    gap: 25vw;
+}
+
+.nav-container > .link > a, a:visited {
+    color: black;
+}
+
+/* slideout css */
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 5vw;
+    width: 90%;
+    max-width: 100%;
+    box-shadow: none;
+    background-color: white;
+    position: absolute;
+    top: 0px;
+    left: 5vw;
+    height: 50px!important;
+    overflow: hidden;
+    z-index: 10;
+    /* border-radius: 0px 0px 20px 20px; */
+}
+
+
+#sidebarMenu {
+    min-width: 25%;
+    position: absolute;
+    text-align: center;
+    top: 45px;
+    right: 125px;
+    transform: translateY(-900px);
+    transition: transform 250ms ease-in-out;
+    background: white;
+    background: #0e1849;
+    padding-bottom: 2vh;
+    padding-top: 3vh;
+}
+
+input[type="checkbox"]:checked ~ #sidebarMenu {
+    transform: translateX(0);
+}
+
+input[type=checkbox] {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    display: none;
+}
+.sidebarIconToggle { /* base class */
+    color: #FFF;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+    top: 22px;
+    left: 80vw;
+    height: 22px;
+    width: 22px;
+}
+
+.logo {
+    position: absolute;
+    z-index: 99;
+    top: -1vh;
+    left: 9vw;
+    width: auto;
+    height: 6vh;
+}
+
+.logoText {
+    position: absolute;
+    font-family: 'Gabriela';
+    font-size: 3vh;
+    z-index: 99;
+    top: 0.5vh;;
+    left: 14vw;
+    /* color: white; */
+    color: Black;
+}
+
+.homeLink {
+    color: black;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+    top: 15px;
+    left: 65vw;
+    text-decoration: none;
+}
+
+.songLink {
+    color: #FFF;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+    top: 15px;
+    left: 75vw;
+    text-decoration: none;
+}
+
+.signUpButton {
+    border: none;
+    color: black;
+    background-color: transparent;
+    z-index: 99;
+    position: absolute;
+    z-index: 99;
+    top: 15px;
+    left: 74vw;
+    font-family: 'Readex Pro', sans-serif;
+    font-size: 1.5vh;
+}
+
+.signupLink {
+    color: black;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+    top: 1vh;
+    left: 80vw;
+    text-decoration: none;
+}
+
+.loginLink {
+    color: black;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+    top: 15px;
+    left: 85vw;
+    text-decoration: none;
+}
+
+input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    opacity: 0;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(135deg);
+    margin-top: 8px;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(-135deg);
+    margin-top: -9px;
+}

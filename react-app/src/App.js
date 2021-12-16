@@ -30,6 +30,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route path='/login' exact={true}>
+          
           <LoginForm />
         </Route>
         <Route path='/sign-up' exact={true}>
@@ -42,7 +43,6 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
           <Review/>
         </ProtectedRoute>
       </Switch>

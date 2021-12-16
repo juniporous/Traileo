@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateReview } from '../store/review';
+import { updateReview } from '../../store/review';
 
 
 const UpdateReviewForm = ({ reviewId }) => {

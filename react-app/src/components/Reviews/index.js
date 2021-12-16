@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getReviews, deleteReview, addReview, updateReview } from '../store/review'
-import UpdateReviewForm from './UpdateReview'
+import { getReviews, deleteReview, addReview, updateReview } from '../../store/review'
+import UpdateReviewForm from '../UpdateReview'
+import "./Reviews.css"
 
 function Review() {
     const dispatch = useDispatch()
@@ -30,7 +31,7 @@ function Review() {
 
     return (
         <>
-            <div>
+            <div className="navbarMargin">
                 REVIEWS
                 {reviews?.map(review => (
                     <div key={review.id}>
