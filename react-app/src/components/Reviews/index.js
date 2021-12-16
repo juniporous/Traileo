@@ -26,10 +26,10 @@ function Review() {
     }, [dispatch])
 
     // to display hikes
-    // const hikes = useSelector(state => Object.values(state.hike))
-    // useEffect(() => {
-    //     dispatch(getHikes())
-    // }, [dispatch])
+    const hikes = useSelector(state => Object.values(state.hike))
+    useEffect(() => {
+        dispatch(getHikes())
+    }, [dispatch])
 
     const handleDelete = (id) => {
         dispatch(deleteReview(id));
