@@ -9,28 +9,27 @@ const showHikes = (data) => {
 
 export const getHikes = () => async dispatch => {
   const response = await fetch('/api/hikes/')
-    if (response.ok) {
-      const data = await response.json();
-      dispatch(showHikes(data));
-    }
+    const data = await response.json();
+    dispatch(showHikes(data));
+    
 }
 
-// export const searchHikes = (searchParam) => async dispatch => {
-//   const response = await fetch('/api/hikes/search', {
-//     method: 'POST',
-//     headers: {'Content-Type':'application/json'},
-//     body: JSON.stringify(searchParam)
-//   })
-//   const data = await response.json();
-//   dispatch(showHikes(data))
-// }
+export const searchHikes = (searchParam) => async dispatch => {
+  const response = await fetch('/api/hikes/search', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify(searchParam)
+  })
+  const data = await response.json();
+  dispatch(showHikes(data))
+}
 
 const initialState = {};
 export default function reducer(state = initialState, action) {
   let newState = {};
   switch (action.type) {
     case GET_HIKES:
-      newState = {...state};
+      newState = {};
       action.data.hikes.forEach(hike => newState[hike.id] = hike)
       return newState;
     default:
