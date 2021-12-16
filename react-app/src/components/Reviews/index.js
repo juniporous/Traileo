@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getReviews, deleteReview, addReview, updateReview } from '../../store/review'
 import UpdateReviewForm from '../UpdateReview'
+import SearchBar from '../SearchBar'
 import { getHikes, searchHikes } from '../../store/hike'
 import "./Reviews.css"
 
@@ -63,32 +64,7 @@ function Review() {
                 ))}
             </div>
             <button onClick={() => handlePost()}>Post Review</button>
-            {/* <div>
-                {hikes.map(hike => (
-                    <div key={hike.id}>
-                        {hike.id} hike
-                    </div>
-                ))}
-            </div> */}
-            <form>
-          <div className="SearchContainer">
-            <div className="pageTitle">
-              <div>Search</div>
-            </div>
-            <input
-              className="subTitleSearch"
-              type="text"
-              value={search}
-              placeholder="Find a song or artist..."
-              onChange={(e) => setSearch(e.target.value)}
-            />{" "}
-            <span
-              className={search.length == 0 ? "hideText" : "subTitleSearch1"}
-            >
-              
-            </span>
-          </div>
-        </form>
+            <SearchBar/>
         </>
     )
 }
