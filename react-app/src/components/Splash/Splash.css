@@ -6,7 +6,6 @@
     grid-template-rows: repeat(6, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    background-color: black;
     position:absolute;
     top: 8vh;
     

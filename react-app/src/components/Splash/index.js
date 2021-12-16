@@ -16,7 +16,7 @@ const Splash = () => {
         return (
           <>
             <div class="parent"> test
-                <div class="div1">test1 </div>
+                <div class="div1"></div>
                 <div class="div2"> test2</div>
                 <div class="div3"> test</div>
             </div>
