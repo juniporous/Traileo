@@ -60,16 +60,19 @@ function Hike() {
     return (
         <>
           <div class="parent">
-            <div class="container1">{hike.difficulty}</div>
-            <div class="div2">Distance: {hike.length} miles     Trip Length: {hike.eta} hours</div>
+            <div class="container1">{hike?.difficulty}</div>
+            <div class="div2">Distance: {hike?.length} miles Trip Length: {hike?.eta} hours</div>
             <div class="div3">
 
             </div>
             <div class="div4">
-                {reviews.map(review => ( review.hike_id == hikeId ?
+                {reviews.map(review => ( review?.hike_id == hikeId ?
                     <div key={review.id}>
                         <div>
-                            Rating: {review.rating}
+                            Rating: {review?.rating}
+                        </div>
+                        <div>
+                            {review?.description}
                         </div>
                     </div>
                     : null
