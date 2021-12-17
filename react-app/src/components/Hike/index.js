@@ -13,9 +13,11 @@ function Hike() {
     const userId = sessionUser.id
     const history = useHistory();
     const reviews = useSelector(state => Object.values(state.review))
+    const { hikeId } = useParams()
 
     const [search, setSearch] = useState('')
     const hikeResult = useSelector(state => Object.values(state.hike))
+    const hike = hikeResult.hikeId
     useEffect(()=>{
         dispatch(searchHikes(search))
     }, [dispatch, search])
@@ -47,7 +49,7 @@ function Hike() {
     return (
         <>
           <div class="parent">
-            <div class="div1"> </div>
+            <div class="container1"> </div>
             <div class="div2"> </div>
             <div class="div3"> </div>
             <div class="div4"> </div>
