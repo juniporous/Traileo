@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getReviews, deleteReview, addReview } from '../../store/review'
 import UpdateReviewForm from '../UpdateReview'
 import SearchBar from '../SearchBar'
-import { getHikes, searchHikes } from '../../store/hike'
+import { getHikes, searchHikes, getHikesForDisplay } from '../../store/hike'
 import { useHistory, useParams } from 'react-router'
 import './hike.css'
 
@@ -15,13 +15,23 @@ function Hike() {
     const reviews = useSelector(state => Object.values(state.review))
     const { hikeId } = useParams()
 
+
+    
     const [search, setSearch] = useState('')
     const hikeResult = useSelector(state => Object.values(state.hike))
-    const hike = hikeResult.hikeId
+    const hike = hikeResult[hikeId-1]
+    console.log('@#$%@$%', hike)
+    useEffect(() => {
+        dispatch(getHikesForDisplay())
+    }, [dispatch])
+
+
     useEffect(()=>{
         dispatch(searchHikes(search))
     }, [dispatch, search])
 
+    
+    
 
     useEffect(() => {
         dispatch(getReviews())
@@ -29,6 +39,7 @@ function Hike() {
 
     // to display hikes
     const hikes = useSelector(state => Object.values(state.hike))
+    
     useEffect(() => {
         dispatch(getHikes())
     }, [dispatch])
@@ -49,10 +60,18 @@ function Hike() {
     return (
         <>
           <div class="parent">
-            <div class="container1"> </div>
-            <div class="div2"> </div>
-            <div class="div3"> </div>
-            <div class="div4"> </div>
+            <div class="container1">{hike.difficulty}</div>
+            <div class="div2">Distance: {hike.length} miles     Trip Length: {hike.eta} hours</div>
+            <div class="div3">
+
+            </div>
+            <div class="div4">
+                {reviews.map
+
+                }
+            </div>
+            <div class="div5"> </div>
+            <div class="div6"> </div>
           </div>
         </>
     )
