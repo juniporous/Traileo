@@ -1,25 +1,37 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getReviews, deleteReview, addReview, updateReview } from '../../store/review'
+import { getReviews, deleteReview, addReview } from '../../store/review'
 import UpdateReviewForm from '../UpdateReview'
 import SearchBar from '../SearchBar'
-import { getHikes, searchHikes } from '../../store/hike'
-import "./Reviews.css"
+import { getHikes, searchHikes, getHikesForDisplay } from '../../store/hike'
+import { useHistory, useParams } from 'react-router'
+import './hike.css'
 
-function Review() {
+function Hike() {
     const dispatch = useDispatch()
     const sessionUser = useSelector((state) => state.session.user)
     const userId = sessionUser.id
+    const history = useHistory();
     const reviews = useSelector(state => Object.values(state.review))
-    
+    const { hikeId } = useParams()
 
+
+    
     const [search, setSearch] = useState('')
     const hikeResult = useSelector(state => Object.values(state.hike))
+    const hike = hikeResult[hikeId-1]
+    console.log('@#$%@$%', hike)
+    useEffect(() => {
+        dispatch(getHikesForDisplay())
+    }, [dispatch])
+
+
     useEffect(()=>{
         dispatch(searchHikes(search))
     }, [dispatch, search])
-    console.log('######', hikeResult)
 
+    
+    
 
     useEffect(() => {
         dispatch(getReviews())
@@ -27,13 +39,11 @@ function Review() {
 
     // to display hikes
     const hikes = useSelector(state => Object.values(state.hike))
+    
     useEffect(() => {
         dispatch(getHikes())
     }, [dispatch])
 
-    const handleDelete = (id) => {
-        dispatch(deleteReview(id));
-    };
 
 
     const handlePost = () => {
@@ -49,24 +59,29 @@ function Review() {
 
     return (
         <>
-            <div className="navbarMargin">
-                REVIEWS
-                {reviews?.map(review => (
-                    <div key={review.id}>
-                        {review.user_id} -- {review.description}
-                        <button onClick={() => handleDelete(review.id)}>
-                            Delete Review
-                        </button>
-                        <UpdateReviewForm reviewId={review.id}/>
-                    </div>
-                    
+          <div class="parent">
+            <div class="container1">{hike.difficulty}</div>
+            <div class="div2">Distance: {hike.length} miles     Trip Length: {hike.eta} hours</div>
+            <div class="div3">
 
-                ))}
             </div>
-            <button onClick={() => handlePost()}>Post Review</button>
-            <SearchBar/>
+            <div class="div4">
+                {reviews.map(review => ( review.hike_id == hikeId ?
+                    <div key={review.id}>
+                        <div>
+                            Rating: {review.rating}
+                        </div>
+                    </div>
+                    : null
+                ))
+
+                }
+            </div>
+            <div class="div5"> </div>
+            <div class="div6"> </div>
+          </div>
         </>
     )
 }
 
-export default Review;
+export default Hike;

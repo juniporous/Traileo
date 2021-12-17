@@ -49,6 +49,7 @@ nav {
     background: #0e1849;
     padding-bottom: 2vh;
     padding-top: 3vh;
+    z-index: 1000;
 }
 
 input[type="checkbox"]:checked ~ #sidebarMenu {
