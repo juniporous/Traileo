@@ -4,7 +4,9 @@ import { getReviews, deleteReview, addReview } from '../../store/review'
 import UpdateReviewForm from '../UpdateReview'
 import SearchBar from '../SearchBar'
 import { getHikes, searchHikes, getHikesForDisplay } from '../../store/hike'
+import PostReviewForm from '../PostReview'
 import { useHistory, useParams } from 'react-router'
+import { Modal } from '../../context/Modal'
 import './hike.css'
 
 function Hike() {
@@ -69,10 +71,17 @@ function Hike() {
             <div class="div4">
                 {sessionUser ? 
                     <div className='review-button-container'>
-                        <button >Post A Review</button>
+                        <button onClick={() => setShowModal(true)}>Post A Review</button>
                     </div>
                     : null
                 }
+            {showModal && (
+                    <Modal onClose={() => setShowModal(false)}>
+                        <div className='modal-box'>
+                            <PostReviewForm userId={userId} hikeId={hikeId} setShowModal={setShowModal} />
+                        </div>
+                    </Modal>
+                )}
                 {reviews.map(review => ( review.hike_id == hikeId ?
                     <div key={review.id}>
                         <div>
