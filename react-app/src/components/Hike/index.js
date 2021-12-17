@@ -9,6 +9,7 @@ import './hike.css'
 
 function Hike() {
     const dispatch = useDispatch()
+    const [showModal, setShowModal] = useState(false);
     const sessionUser = useSelector((state) => state.session.user)
     const userId = sessionUser.id
     const history = useHistory();
@@ -19,7 +20,7 @@ function Hike() {
     
     const [search, setSearch] = useState('')
     const hikeResult = useSelector(state => Object.values(state.hike))
-    const hike = hikeResult[hikeId-1]
+    const hike = hikeResult[hikeId-1] ? hikeResult[hikeId-1] : {}
     console.log('@#$%@$%', hike)
     useEffect(() => {
         dispatch(getHikesForDisplay())
@@ -49,7 +50,7 @@ function Hike() {
     const handlePost = () => {
         dispatch(addReview({
             user_id: userId,
-            hike_id: 7,
+            hike_id: hike.id,
             description: 'testing POST from front end',
             rating: 4
 
@@ -60,19 +61,25 @@ function Hike() {
     return (
         <>
           <div class="parent">
-            <div class="container1">{hike?.difficulty}</div>
-            <div class="div2">Distance: {hike?.length} miles Trip Length: {hike?.eta} hours</div>
+            <div class="container1">{hike.difficulty}</div>
+            <div class="div2">Distance: {hike.length} miles Trip Length: {hike.eta} hours</div>
             <div class="div3">
 
             </div>
             <div class="div4">
-                {reviews.map(review => ( review?.hike_id == hikeId ?
+                {sessionUser ? 
+                    <div className='review-button-container'>
+                        <button >Post A Review</button>
+                    </div>
+                    : null
+                }
+                {reviews.map(review => ( review.hike_id == hikeId ?
                     <div key={review.id}>
                         <div>
-                            Rating: {review?.rating}
+                            Rating: {review.rating}
                         </div>
                         <div>
-                            {review?.description}
+                            {review.description}
                         </div>
                     </div>
                     : null
