@@ -7,6 +7,7 @@ import { getHikes, searchHikes, getHikesForDisplay } from '../../store/hike'
 import PostReviewForm from '../PostReview'
 import { useHistory, useParams } from 'react-router'
 import { Modal } from '../../context/Modal'
+import HikeReview from '../HikeReview'
 import './hike.css'
 
 function Hike() {
@@ -75,26 +76,14 @@ function Hike() {
                     </div>
                     : null
                 }
-            {showModal && (
+                {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
                         <div className='modal-box'>
                             <PostReviewForm userId={userId} hikeId={hikeId} setShowModal={setShowModal} />
                         </div>
                     </Modal>
                 )}
-                {reviews.map(review => ( review.hike_id == hikeId ?
-                    <div key={review.id}>
-                        <div>
-                            Rating: {review.rating}
-                        </div>
-                        <div>
-                            {review.description}
-                        </div>
-                    </div>
-                    : null
-                ))
-
-                }
+                <HikeReview reviews={reviews} hikeId={hikeId}/>
             </div>
             <div class="div5"> </div>
             <div class="div6"> </div>
