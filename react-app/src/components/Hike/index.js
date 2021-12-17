@@ -66,7 +66,14 @@ function Hike() {
 
             </div>
             <div class="div4">
-                {reviews.map
+                {reviews.map(review => ( review.hike_id == hikeId ?
+                    <div key={review.id}>
+                        <div>
+                            Rating: {review.rating}
+                        </div>
+                    </div>
+                    : null
+                ))
 
                 }
             </div>
