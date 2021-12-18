@@ -18,3 +18,7 @@
 .card:hover {
 box-shadow: 0 8px 16px 0 darkgrey;
 }
+
+.ul > li:not(:last-child) {
+    border-bottom: 1px solid darkgrey;
+}

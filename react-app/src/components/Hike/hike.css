@@ -18,7 +18,16 @@
     background-size: cover;
 }
 .div2 { grid-area: 5 / 1 / 6 / 4; }
-.div3 { grid-area: 6 / 1 / 7 / 4; }
+
+.div3 { 
+    grid-area: 6 / 1 / 7 / 4;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
 .div4 { grid-area: 7 / 1 / 12 / 4; }
 .div5 { grid-area: 5 / 4 / 8 / 6; }
 .div6 { grid-area: 8 / 4 / 12 / 6; }
