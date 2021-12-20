@@ -10,6 +10,7 @@ import User from './components/User';
 import Review from './components/Reviews';
 import Splash from './components/Splash';
 import Hike from './components/Hike';
+import Dashboard from './components/Dashboard';
 import { authenticate } from './store/session';
 
 function App() {
@@ -45,6 +46,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
+        </ProtectedRoute>
+        <ProtectedRoute path='/users/:userId/dashboard' exact={true} >
+          <Dashboard />
         </ProtectedRoute>
         <ProtectedRoute path='/hikes/:hikeId' exact={true} >
           <Hike />
