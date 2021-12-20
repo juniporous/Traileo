@@ -1,0 +1,24 @@
+.ul {
+    list-style-type: none
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 95%;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    padding: 4px 16px;
+  }
+
+.card:hover {
+box-shadow: 0 8px 16px 0 darkgrey;
+}
+
+.ul > li:not(:last-child) {
+    border-bottom: 1px solid darkgrey;
+}

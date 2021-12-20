@@ -1,0 +1,19 @@
+.ul {
+    list-style-type: none
+} 
+
+ .review-list-item {
+    position: relative;
+    height: 8vh;
+    padding-top: 2vh;
+}
+
+.delete-button {
+    float: right;
+    padding-right: 5%; 
+    position: absolute;
+    right: 6vw;
+    top: 2vh;
+    z-index: 10;
+    
+}
