@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getReviews, deleteReview, addReview, updateReview } from '../../store/review'
+import { getPhotos, deletePhoto, addPhoto, updateReview } from '../../store/photo'
 import UpdateReviewForm from '../UpdateReview'
 import SearchBar from '../SearchBar'
 import { getHikes, searchHikes } from '../../store/hike'
@@ -10,7 +10,7 @@ function Review() {
     const dispatch = useDispatch()
     const sessionUser = useSelector((state) => state.session.user)
     const userId = sessionUser.id
-    const reviews = useSelector(state => Object.values(state.review))
+    const photos = useSelector(state => Object.values(state.photo))
     
 
     const [search, setSearch] = useState('')
@@ -22,7 +22,7 @@ function Review() {
 
 
     useEffect(() => {
-        dispatch(getReviews())
+        dispatch(getPhotos())
     }, [dispatch])
 
     // to display hikes
@@ -32,12 +32,12 @@ function Review() {
     }, [dispatch])
 
     const handleDelete = (id) => {
-        dispatch(deleteReview(id));
+        dispatch(deletePhoto(id));
     };
 
 
     const handlePost = () => {
-        dispatch(addReview({
+        dispatch(addPhoto({
             user_id: userId,
             hike_id: 7,
             description: 'testing POST from front end',
@@ -51,13 +51,13 @@ function Review() {
         <>
             <div className="navbarMargin">
                 REVIEWS
-                {reviews?.map(review => (
-                    <div key={review.id}>
-                        {review.user_id} -- {review.description}
-                        <button onClick={() => handleDelete(review.id)}>
-                            Delete Review
+                {photos?.map(photo => (
+                    <div key={photo.id}>
+                        PhotoUserId {photo.user_id} -- {photo.img_url}
+                        <button onClick={() => handleDelete(photo.id)}>
+                            Delete Photo
                         </button>
-                        <UpdateReviewForm reviewId={review.id}/>
+                        {/* <UpdateReviewForm reviewId={rev.id}/> */}
                     </div>
                     
 

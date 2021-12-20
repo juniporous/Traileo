@@ -21,12 +21,12 @@ def get_photo(id):
 
 
 
-# @review_routes.route('/<int:id>', methods=['DELETE'])
-# def delete_review(id):
-#     review = Review.query.get(id)
-#     db.session.delete(review)
-#     db.session.commit()
-#     return jsonify({'message': f'Review {id} has been deleted'}), 200
+@photo_routes.route('/<int:id>', methods=['DELETE'])
+def delete_review(id):
+    photo = Photo.query.get(id)
+    db.session.delete(photo)
+    db.session.commit()
+    return jsonify({'message': f'Review {id} has been deleted'}), 200
 
 
 @photo_routes.route('/', methods=['POST'])

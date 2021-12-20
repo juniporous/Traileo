@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session'
 import review from './review'
 import hike from './hike'
+import photo from './photo'
 
 const rootReducer = combineReducers({
   session,
   review,
-  hike
+  hike,
+  photo
 });
 
 
