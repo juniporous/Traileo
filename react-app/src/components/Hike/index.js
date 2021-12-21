@@ -6,6 +6,7 @@ import SearchBar from '../SearchBar'
 import { getHikes, searchHikes, getHikesForDisplay } from '../../store/hike'
 import { getPhotos } from '../../store/photo'
 import PostReviewForm from '../PostReview'
+import PostPhotoForm from '../PostPhoto'
 import { useHistory, useParams } from 'react-router'
 import { Modal } from '../../context/Modal'
 import HikeReview from '../HikeReview'
@@ -68,12 +69,16 @@ function Hike() {
                 <button onClick={seePhotos}>Photos</button>
             </div>
             <div class="div4">
-                {sessionUser ? 
+                {sessionUser && showReviews ? 
                     <div className='review-button-container'>
                         {/* line 77 for if showModal == true */}
                         <button onClick={() => setShowModal(true)}>Post A Review</button>
                     </div>
-                    : null
+                    : 
+                    <div className='review-button-container'>
+                        {/* line 77 for if showModal == true */}
+                        <button onClick={() => setShowModal(true)}>Post A Photo</button>
+                    </div>
                 }
 
                 {showReviews ? <HikeReview reviews={reviews} hikeId={hikeId}/> : <HikePhotos hikeId={hikeId} photos={photos}/>}
@@ -83,13 +88,21 @@ function Hike() {
           </div>
 
 
-          {showModal && (
-                    <Modal onClose={() => setShowModal(false)}>
-                        <div className='modal-box'>
-                            <PostReviewForm userId={userId} hikeId={hikeId} setShowModal={setShowModal} />
-                        </div>
-                    </Modal>
-                )}
+          {showModal && showReviews && (
+            <Modal onClose={() => setShowModal(false)}>
+                <div className='modal-box'>
+                    <PostReviewForm userId={userId} hikeId={hikeId} setShowModal={setShowModal} />
+                </div>
+            </Modal>
+          )}
+
+          {showModal && !showReviews && (
+            <Modal onClose={() => setShowModal(false)}>
+                <div className='modal-box'>
+                    <PostPhotoForm userId={userId} hikeId={hikeId} setShowModal={setShowModal} />
+                </div>
+            </Modal>
+          )}
         </>
     )
 }
