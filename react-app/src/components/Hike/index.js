@@ -4,10 +4,12 @@ import { getReviews, deleteReview, addReview } from '../../store/review'
 import UpdateReviewForm from '../UpdateReview'
 import SearchBar from '../SearchBar'
 import { getHikes, searchHikes, getHikesForDisplay } from '../../store/hike'
+import { getPhotos } from '../../store/photo'
 import PostReviewForm from '../PostReview'
 import { useHistory, useParams } from 'react-router'
 import { Modal } from '../../context/Modal'
 import HikeReview from '../HikeReview'
+import HikePhotos from '../HikePhotos'
 import './hike.css'
 
 function Hike() {
@@ -18,6 +20,7 @@ function Hike() {
     const userId = sessionUser.id
     const history = useHistory();
     const reviews = useSelector(state => Object.values(state.review)).reverse()
+    const photos = useSelector(state => Object.values(state.photo))
     const { hikeId } = useParams()
     
     const [search, setSearch] = useState('')
@@ -46,6 +49,10 @@ function Hike() {
         dispatch(getHikes())
     }, [dispatch])
 
+    useEffect(() => {
+        dispatch(getPhotos())
+    }, [dispatch])
+
 
     const seeReviews = () => setShowReviews(true)
     const seePhotos = () => setShowReviews(false)
@@ -63,12 +70,13 @@ function Hike() {
             <div class="div4">
                 {sessionUser ? 
                     <div className='review-button-container'>
-                        {/* line 77 for showModal == true */}
+                        {/* line 77 for if showModal == true */}
                         <button onClick={() => setShowModal(true)}>Post A Review</button>
                     </div>
                     : null
                 }
-                {showReviews ? <HikeReview reviews={reviews} hikeId={hikeId}/> : <div>Photos Stand In</div>}
+
+                {showReviews ? <HikeReview reviews={reviews} hikeId={hikeId}/> : <HikePhotos hikeId={hikeId} photos={photos}/>}
             </div>
             <div class="div5"> </div>
             <div class="div6"> </div>

@@ -40,9 +40,7 @@ function Review() {
         dispatch(addPhoto({
             user_id: userId,
             hike_id: 7,
-            description: 'testing POST from front end',
-            rating: 4
-
+            img_url: 'https://res.cloudinary.com/dfy0z2yzj/image/upload/v1639529160/Traileo/echo1_sgy0vj.png'
         }));
     };
 
@@ -50,7 +48,7 @@ function Review() {
     return (
         <>
             <div className="navbarMargin">
-                REVIEWS
+                PHOTOS
                 {photos?.map(photo => (
                     <div key={photo.id}>
                         PhotoUserId {photo.user_id} -- {photo.img_url}
@@ -63,7 +61,7 @@ function Review() {
 
                 ))}
             </div>
-            <button onClick={() => handlePost()}>Post Review</button>
+            <button onClick={() => handlePost()}>Post Photo</button>
             <SearchBar/>
         </>
     )
