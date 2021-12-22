@@ -14,5 +14,9 @@
         overflow-y: scroll;
     }
     .div4 { grid-area: 7 / 1 / 8 / 6; }
-    .div5 { grid-area: 8 / 1 / 12 / 6; }
+    .dashboard-photos { 
+        grid-area: 8 / 1 / 12 / 6; 
+        display: block;
+        overflow-y: scroll;
+    }
     .div6 { grid-area: 12 / 1 / 13 / 6; }

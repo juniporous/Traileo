@@ -28,8 +28,17 @@
 
 
 
-.div4 { grid-area: 7 / 1 / 12 / 4; }
-.div5 { grid-area: 5 / 4 / 8 / 6; }
+.div4 { 
+    grid-area: 7 / 1 / 12 / 4; 
+    width: 45vw;
+    height: 30vh;
+    overflow-y: scroll;
+    padding-left: 6vw;
+}
+.div5 { 
+    grid-area: 5 / 4 / 8 / 6; 
+    height: 5vh;
+}
 .div6 { grid-area: 8 / 4 / 12 / 6; }
 
 .review-button-container {

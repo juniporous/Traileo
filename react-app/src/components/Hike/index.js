@@ -4,10 +4,13 @@ import { getReviews, deleteReview, addReview } from '../../store/review'
 import UpdateReviewForm from '../UpdateReview'
 import SearchBar from '../SearchBar'
 import { getHikes, searchHikes, getHikesForDisplay } from '../../store/hike'
+import { getPhotos } from '../../store/photo'
 import PostReviewForm from '../PostReview'
+import PostPhotoForm from '../PostPhoto'
 import { useHistory, useParams } from 'react-router'
 import { Modal } from '../../context/Modal'
 import HikeReview from '../HikeReview'
+import HikePhotos from '../HikePhotos'
 import './hike.css'
 
 function Hike() {
@@ -18,6 +21,7 @@ function Hike() {
     const userId = sessionUser.id
     const history = useHistory();
     const reviews = useSelector(state => Object.values(state.review)).reverse()
+    const photos = useSelector(state => Object.values(state.photo))
     const { hikeId } = useParams()
     
     const [search, setSearch] = useState('')
@@ -46,6 +50,10 @@ function Hike() {
         dispatch(getHikes())
     }, [dispatch])
 
+    useEffect(() => {
+        dispatch(getPhotos())
+    }, [dispatch])
+
 
     const seeReviews = () => setShowReviews(true)
     const seePhotos = () => setShowReviews(false)
@@ -61,27 +69,40 @@ function Hike() {
                 <button onClick={seePhotos}>Photos</button>
             </div>
             <div class="div4">
-                {sessionUser ? 
+                {sessionUser && showReviews ? 
                     <div className='review-button-container'>
-                        {/* line 77 for showModal == true */}
+                        {/* line 77 for if showModal == true */}
                         <button onClick={() => setShowModal(true)}>Post A Review</button>
                     </div>
-                    : null
+                    : 
+                    <div className='review-button-container'>
+                        {/* line 77 for if showModal == true */}
+                        <button onClick={() => setShowModal(true)}>Post A Photo</button>
+                    </div>
                 }
-                {showReviews ? <HikeReview reviews={reviews} hikeId={hikeId}/> : <div>Photos Stand In</div>}
+
+                {showReviews ? <HikeReview reviews={reviews} hikeId={hikeId}/> : <HikePhotos hikeId={hikeId} photos={photos}/>}
             </div>
             <div class="div5"> </div>
             <div class="div6"> </div>
           </div>
 
 
-          {showModal && (
-                    <Modal onClose={() => setShowModal(false)}>
-                        <div className='modal-box'>
-                            <PostReviewForm userId={userId} hikeId={hikeId} setShowModal={setShowModal} />
-                        </div>
-                    </Modal>
-                )}
+          {showModal && showReviews && (
+            <Modal onClose={() => setShowModal(false)}>
+                <div className='modal-box'>
+                    <PostReviewForm userId={userId} hikeId={hikeId} setShowModal={setShowModal} />
+                </div>
+            </Modal>
+          )}
+
+          {showModal && !showReviews && (
+            <Modal onClose={() => setShowModal(false)}>
+                <div className='modal-box'>
+                    <PostPhotoForm userId={userId} hikeId={hikeId} setShowModal={setShowModal} />
+                </div>
+            </Modal>
+          )}
         </>
     )
 }
