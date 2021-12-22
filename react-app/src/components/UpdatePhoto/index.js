@@ -18,12 +18,11 @@ const UpdatePhotoForm = ({ photoId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const payload = {
       ...photo,
-      imgUrl
+      img_url: imgUrl
     };
-
+    console.log('!!PAYLOARD!!!!', payload)
     const updatedPhoto = await dispatch(updatePhoto(payload));
 
   };

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getPhotos, deletePhoto, addPhoto, updateReview } from '../../store/photo'
-import UpdateReviewForm from '../UpdateReview'
+import { getPhotos, deletePhoto, addPhoto, updateReview, updatePhoto } from '../../store/photo'
+import UpdatePhotoForm from '../UpdatePhoto'
 import SearchBar from '../SearchBar'
 import { getHikes, searchHikes } from '../../store/hike'
 import "./Reviews.css"
@@ -45,6 +45,7 @@ function Review() {
     };
 
 
+
     return (
         <>
             <div className="navbarMargin">
@@ -55,6 +56,7 @@ function Review() {
                         <button onClick={() => handleDelete(photo.id)}>
                             Delete Photo
                         </button>
+                        <UpdatePhotoForm photoId={photo.id}/>
                         {/* <UpdateReviewForm reviewId={rev.id}/> */}
                     </div>
                     
