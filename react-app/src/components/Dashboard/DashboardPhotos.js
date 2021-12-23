@@ -5,6 +5,7 @@ import { useState } from "react";
 import UpdateReviewForm from "../UpdateReview";
 import { useEffect } from "react";
 import UpdatePhotoForm from "../UpdatePhoto";
+import './DashboardPhotos.css'
 
 
 const DashboardPhotos = ({ userId, photos }) => {
@@ -22,11 +23,11 @@ const DashboardPhotos = ({ userId, photos }) => {
 
 
     return (
-        <div className='photo-container'>
+        <div className='dashboard-photo-container'>
             
             {photos.map(photo => ( photo.user_id == userId ?
-                    <div className='item'>
-                    <img key={photo.id} src={photo.img_url} onClick={() => {setShowModal(true); setPhotoId(photo.id)}} alt='No Image For This Spot'/>
+                    <div className='photo-tile'>
+                    <img key={photo.id} className="photo-image" src={photo.img_url} onClick={() => {setShowModal(true); setPhotoId(photo.id)}} alt='No Image For This Spot'/>
                     <p>{photo.id}</p>
                     {showModal && (
                         <Modal onClose={() => setShowModal(false)}>

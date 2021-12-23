@@ -1,22 +1,48 @@
-.parent {
+.dashboard-parent {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(12, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    position:absolute;
+    top: 8vh;
+    width: 100vw;
+    height: 100vh;
     }
     
     .search { grid-area: 1 / 1 / 2 / 6; }
-    .div2 { grid-area: 2 / 1 / 3 / 6; }
+
+    .dashboard-div2 { 
+        grid-area: 2 / 1 / 3 / 6; 
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        justify-content: center;
+        height: 5vh;
+    }
+
+    .dashboard-review-text {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        border-bottom: thin solid black;
+    }
+
     .dashboard-reviews { 
         grid-area: 3 / 1 / 7 / 6;
         display: block;
         overflow-y: scroll;
     }
-    .div4 { grid-area: 7 / 1 / 8 / 6; }
+    .dashboard-div4 { 
+        grid-area: 7 / 1 / 8 / 6; 
+        height: 6vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
     .dashboard-photos { 
         grid-area: 8 / 1 / 12 / 6; 
-        display: block;
+        display: flex;
+        justify-content: center;
         overflow-y: scroll;
     }
     .div6 { grid-area: 12 / 1 / 13 / 6; }

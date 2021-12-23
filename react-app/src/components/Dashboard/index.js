@@ -24,14 +24,21 @@ function Dashboard () {
 
     return (
         <>
-            <div class="parent">
+            <div class="dashboard-parent">
                 <div class="search"> </div>
-                <div class="div2">My Reviews</div>
+                <div class="dashboard-div2">
+                    <div className='dashboard-review-text'>
+                       My Reviews
+                    </div>
+                    
+                </div>
                 <div class="dashboard-reviews"> 
                     <DashboardReviews reviews={reviews} userId={userId}/>
                 </div>
-                <div class="div4">
-                    My Photos
+                <div class="dashboard-div4">
+                    <div>
+                        Photos
+                    </div>
                 </div>
                 <div class="dashboard-photos">
                 <DashboardPhotos photos={photos} userId={userId}/>
