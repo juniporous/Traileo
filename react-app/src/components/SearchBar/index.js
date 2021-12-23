@@ -16,6 +16,10 @@ function SearchBar() {
         dispatch(searchHikes(search))
     }, [dispatch, search])
 
+    window.onclick = () => {
+        setSearch('')
+    }
+
     return (
         <>
           <form>
@@ -54,7 +58,7 @@ function SearchBar() {
                                     {res.hike_name}
                                 </NavLink>
                                 <div>
-                                    
+
                                 </div>
                             </div>
                         ))}
