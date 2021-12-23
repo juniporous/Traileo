@@ -8,6 +8,7 @@ import './SearchBar.css'
 
 function SearchBar() {
     const dispatch = useDispatch()
+    const homePage = window.location.href.includes('home')
     const ulRef = useRef();
     const inputRef = useRef();
     const [search, setSearch] = useState('')
@@ -30,7 +31,7 @@ function SearchBar() {
                 <div>
                     <div>
                         <input
-                        className='search-window'
+                        className={homePage ? 'homepage-search-window' : 'search-window'}
                         type="text"
                         value={search}
                         placeholder="Find a hike..."
@@ -53,7 +54,7 @@ function SearchBar() {
                         );
                       })}
                     </ul> */}
-                    <div className ={search.length == 0 ? "hide-text" : "dropdown"}>
+                    <div className ={search.length == 0 ? "hide-text" : homePage ? "homepage-dropdown" : "dropdown"}>
                         {hikeResult.map(res => (
                             <div className="nav-search-container">
         

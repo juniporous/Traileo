@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import SearchBar from '../SearchBar';
 import './Splash.css'
 
 
@@ -11,13 +12,15 @@ const Splash = () => {
     
     const user = useSelector((state) => state.session.user);
     
-    
+    console.log('!!!!!!!', window.location.href)
 
         return (
           <>
             <div class="splash-parent">
                 <div class="splash-image-wrapper">
-                  <div class="splash-div1"></div>
+                  <div class="splash-div1">
+                    <SearchBar/>
+                  </div>
                 </div>
                 
                 <div class="splash-div2">
