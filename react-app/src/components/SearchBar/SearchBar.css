@@ -1,3 +1,24 @@
 .hide-text {
     display: none;
 }
+
+.dropdown {
+    position: absolute;
+    background-color: white;
+    z-index: 1000;
+    width: 10vw
+}
+
+.search-text {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-search-container:hover {
+    box-shadow: 0 4px 8px 0 darkgrey;
+}
+
+.nav-search-container {
+    padding: 1px 0 1px 8px;
+}

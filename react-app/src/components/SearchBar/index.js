@@ -48,10 +48,14 @@ function SearchBar() {
                     </ul> */}
                     <div className ={search.length == 0 ? "hide-text" : "dropdown"}>
                         {hikeResult.map(res => (
-                            <div>
-                            <NavLink to={`/hikes/${res?.id}`} exact={true} activeClassName="active">
-                                {res.hike_name}
-                            </NavLink>
+                            <div className="nav-search-container">
+        
+                                <NavLink to={`/hikes/${res?.id}`} exact={true} activeClassName="active" className="search-text">
+                                    {res.hike_name}
+                                </NavLink>
+                                <div>
+                                    
+                                </div>
                             </div>
                         ))}
                     </div>

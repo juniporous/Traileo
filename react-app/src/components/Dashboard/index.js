@@ -7,6 +7,7 @@ import { useParams } from 'react-router'
 import { Modal } from '../../context/Modal'
 import DashboardReviews from './DashboardReviews'
 import DashboardPhotos from './DashboardPhotos'
+import SearchBar from '../SearchBar'
 import './Dashboard.css'
 
 
@@ -25,7 +26,12 @@ function Dashboard () {
     return (
         <>
             <div class="dashboard-parent">
-                <div class="search"> </div>
+                <div class="search-container">
+                    <div className="searchbar">
+                        <SearchBar/>
+                    </div>
+                    
+                </div>
                 <div class="dashboard-div2">
                     <div className='dashboard-review-text'>
                        My Reviews
