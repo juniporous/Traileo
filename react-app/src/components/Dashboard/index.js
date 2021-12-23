@@ -36,8 +36,10 @@ function Dashboard () {
                     <DashboardReviews reviews={reviews} userId={userId}/>
                 </div>
                 <div class="dashboard-div4">
-                    <div>
-                        Photos
+                    <div className="dashboard-photo-header">
+                        <div className='photo-header-text'>
+                            My Photos
+                        </div>
                     </div>
                 </div>
                 <div class="dashboard-photos">

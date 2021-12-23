@@ -11,7 +11,7 @@ const HikeReview = ({ hikeId, reviews }) => {
                             <div>
                                 Rating: {review.rating}
                             </div>
-                            <div>
+                            <div className="description-text">
                                 {review.description}
                             </div>
                         </div>

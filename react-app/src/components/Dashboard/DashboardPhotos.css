@@ -6,8 +6,8 @@
   }
   
 .photo-tile {
-    width: 25vw;
-    height: 25vw;
+    width: 21vw;
+    height: 21vw;
     padding-bottom: 10px; /* 32:18, i.e. 16:9 */
     margin-bottom: 10px; /* (100-32*3)/2 */
     object-fit: cover;

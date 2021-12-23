@@ -43,7 +43,7 @@ const DashboardReviews = ({ reviews, userId }) => {
                             <div>
                                 Rating: {review.rating}
                             </div>
-                            <div>
+                            <div className="dashboard-desc-text">
                                 {review.description}
                             </div>
                         </div>

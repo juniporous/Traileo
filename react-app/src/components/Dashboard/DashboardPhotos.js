@@ -28,7 +28,6 @@ const DashboardPhotos = ({ userId, photos }) => {
             {photos.map(photo => ( photo.user_id == userId ?
                     <div className='photo-tile'>
                     <img key={photo.id} className="photo-image" src={photo.img_url} onClick={() => {setShowModal(true); setPhotoId(photo.id)}} alt='No Image For This Spot'/>
-                    <p>{photo.id}</p>
                     {showModal && (
                         <Modal onClose={() => setShowModal(false)}>
                             <div className='modal-box'>
