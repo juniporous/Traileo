@@ -40,6 +40,7 @@ function Dashboard () {
                         <div className='photo-header-text'>
                             My Photos
                         </div>
+                        <div className="dashboard-photo-border"></div>
                     </div>
                 </div>
                 <div class="dashboard-photos">

@@ -47,11 +47,19 @@
         border-top: black solid thin;
         display: flex;
         justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 
     .photo-header-text {
         font-family: Arial, Helvetica, sans-serif;
+        margin: 4vh 0vh 2vh 0vh;
     }
+
+.dashboard-photo-border {
+    border-bottom: thin black solid;
+    width: 100%;
+}
 
     .dashboard-photos { 
         grid-area: 8 / 1 / 12 / 6; 
