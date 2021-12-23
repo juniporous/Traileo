@@ -16,4 +16,10 @@
 .photo-image {
     width: inherit;
     height: inherit;
+    transition: transform .2s;
+    filter: grayscale(100%)
+}
+
+.photo-image:hover {
+    transform: scale(1.05)
 }

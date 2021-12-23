@@ -28,12 +28,15 @@ function SearchBar() {
                   <div>Search</div>
                 </div>
                 <div>
-                    <input
-                    type="text"
-                    value={search}
-                    placeholder="Find a hike..."
-                    onChange={(e) => setSearch(e.target.value)}
-                    />{" "}
+                    <div>
+                        <input
+                        className='search-window'
+                        type="text"
+                        value={search}
+                        placeholder="Find a hike..."
+                        onChange={(e) => setSearch(e.target.value)}
+                        />{" "}
+                    </div>
                     {/* <ul id='results' className='list-group' ref={ulRef}>
                     {results?.map((result, index) => {
                         return (

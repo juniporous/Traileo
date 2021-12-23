@@ -22,3 +22,12 @@
 .nav-search-container {
     padding: 1px 0 1px 8px;
 }
+
+
+.search-window {
+  border-color: black;
+  border: black solid;
+  border-width: 3px;
+  border-radius: 3px;
+  padding: 2px;
+}
