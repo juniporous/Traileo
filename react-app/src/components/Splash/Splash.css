@@ -1,4 +1,4 @@
-.parent {
+.splash-parent {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(10, 1fr);
@@ -10,26 +10,34 @@
     height: 100vh;
     
     }
-    
-    .div1 { 
+
+    .splash-image-wrapper {
         grid-area: 1 / 1 / 5 / 4;
+        display: flex;
+        justify-content: center;
+        width: 99%;
+    }
+
+    .splash-div1 { 
+        
         background-image: url("https://res.cloudinary.com/dfy0z2yzj/image/upload/v1639710215/Traileo/Screen_Shot_2021-12-16_at_7.03.07_PM_canoav.png");
-        height: 100%;
+        height: 500px;
+        width: 90%;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
 
     }
-    .div2 { 
+    .splash-div2 { 
         grid-area: 5 / 1 / 6 / 4;
         display: flex;
         justify-content: space-around;
         align-items: center;
     }
-    .div3 { grid-area: 6 / 1 / 8 / 4; }
+    .splash-div3 { grid-area: 6 / 1 / 8 / 4; }
 
-    .div4 { grid-area: 8 / 1 / 10 / 4; }
-    .div5 { 
+    .splash-div4 { grid-area: 8 / 1 / 10 / 4; }
+    .splash-div5 { 
         grid-area: 10 / 1 / 11 / 8;
         width: 100%; 
     }

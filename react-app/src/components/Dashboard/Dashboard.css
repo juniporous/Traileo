@@ -38,6 +38,11 @@
     grid-area: 3 / 1 / 7 / 6;
     display: block;
     overflow-y: scroll;
+    border: thin black solid;
+    border-radius: 7px;
+    width: 90%;
+    margin-left: 5vw;
+
 }
 
 .dashboard-div4 { 
