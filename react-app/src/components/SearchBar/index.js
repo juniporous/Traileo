@@ -26,7 +26,6 @@ function SearchBar() {
           <form>
             <div>
                 <div>
-                  <div>Search</div>
                 </div>
                 <div>
                     <div>
