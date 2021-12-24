@@ -1,3 +1,51 @@
 .hide-text {
     display: none;
 }
+
+.dropdown {
+    position: absolute;
+    background-color: white;
+    z-index: 1000;
+    width: 10vw
+}
+
+.homepage-dropdown {
+    position: absolute;
+    background-color: rgba(255,255,255,0.5);
+    z-index: 1000;
+    width: 10vw
+}
+
+.search-text {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.nav-search-container:hover {
+    box-shadow: 0 4px 8px 0 darkgrey;
+}
+
+.nav-search-container {
+    padding: 1px 0 1px 8px;
+}
+
+
+.search-window {
+  border-color: black;
+  border: black solid;
+  border-width: 3px;
+  border-radius: 3px;
+  padding: 2px;
+}
+
+.homepage-search-window {
+  background-color: rgba(255,255,255,0.5);
+  border-color: black;
+  border: black solid;
+  border-width: 3px;
+  border-radius: 3px;
+  padding: 2px;
+}

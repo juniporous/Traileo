@@ -18,7 +18,7 @@ function Hike() {
     const [showModal, setShowModal] = useState(false);
     const [showReviews, setShowReviews] = useState(true)
     const sessionUser = useSelector((state) => state.session.user)
-    const userId = sessionUser.id
+    const userId = sessionUser?.id
     const history = useHistory();
     const reviews = useSelector(state => Object.values(state.review)).reverse()
     const photos = useSelector(state => Object.values(state.photo))
@@ -60,31 +60,42 @@ function Hike() {
     
     return (
         <>
-          <div class="parent">
-            <div class="container1">{hike.difficulty}</div>
-            <div class="div2">Distance: {hike.length} miles Trip Length: {hike.eta} hours</div>
-            <div class="div3">
+          <div class="hike-parent">
+            <div class="hike-container1">
+                <div className='hike-difficulty'>
+                  {hike.difficulty}
+                </div>
+                
+            </div>
+            <div class="hike-div2">
+                <div>
+                  Distance: {hike.length} miles
+                </div>
+                <div>
+                  Trip Length: {hike.eta} hours
+                </div>
+            </div>
+            <div class="hike-div3">
                 <button onClick={seeReviews}>Reviews</button>
                 <div>|</div>
                 <button onClick={seePhotos}>Photos</button>
             </div>
-            <div class="div4">
+            <div class="hike-div4">
                 {sessionUser && showReviews ? 
                     <div className='review-button-container'>
-                        {/* line 77 for if showModal == true */}
                         <button onClick={() => setShowModal(true)}>Post A Review</button>
                     </div>
-                    : 
+                : sessionUser && !showReviews ?
                     <div className='review-button-container'>
-                        {/* line 77 for if showModal == true */}
                         <button onClick={() => setShowModal(true)}>Post A Photo</button>
-                    </div>
+                    </div> 
+                : null
                 }
 
                 {showReviews ? <HikeReview reviews={reviews} hikeId={hikeId}/> : <HikePhotos hikeId={hikeId} photos={photos}/>}
             </div>
-            <div class="div5"> </div>
-            <div class="div6"> </div>
+            <div class="hike-div5"> </div>
+            <div class="hike-div6"> </div>
           </div>
 
 

@@ -8,6 +8,7 @@ import './SearchBar.css'
 
 function SearchBar() {
     const dispatch = useDispatch()
+    const homePage = window.location.href.includes('home')
     const ulRef = useRef();
     const inputRef = useRef();
     const [search, setSearch] = useState('')
@@ -15,6 +16,10 @@ function SearchBar() {
     useEffect(()=>{
         dispatch(searchHikes(search))
     }, [dispatch, search])
+
+    window.onclick = () => {
+        setSearch('')
+    }
 
     return (
         <>
@@ -24,12 +29,15 @@ function SearchBar() {
                   <div>Search</div>
                 </div>
                 <div>
-                    <input
-                    type="text"
-                    value={search}
-                    placeholder="Find a hike..."
-                    onChange={(e) => setSearch(e.target.value)}
-                    />{" "}
+                    <div>
+                        <input
+                        className={homePage ? 'homepage-search-window' : 'search-window'}
+                        type="text"
+                        value={search}
+                        placeholder="Find a hike..."
+                        onChange={(e) => setSearch(e.target.value)}
+                        />{" "}
+                    </div>
                     {/* <ul id='results' className='list-group' ref={ulRef}>
                     {results?.map((result, index) => {
                         return (
@@ -46,12 +54,15 @@ function SearchBar() {
                         );
                       })}
                     </ul> */}
-                    <div className ={search.length == 0 ? "hide-text" : "dropdown"}>
+                    <div className ={search.length == 0 ? "hide-text" : homePage ? "homepage-dropdown" : "dropdown"}>
                         {hikeResult.map(res => (
-                            <div>
-                            <NavLink to={`/hikes/${res?.id}`} exact={true} activeClassName="active">
-                                {res.hike_name}
-                            </NavLink>
+                            <div className="nav-search-container">
+        
+                                <NavLink to={`/hikes/${res?.id}`} exact={true} activeClassName="active" className="search-text">
+                                    {res.hike_name}
+                                </NavLink>
+                                <div>
+                                </div>
                             </div>
                         ))}
                     </div>

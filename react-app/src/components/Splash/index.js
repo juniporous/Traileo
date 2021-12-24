@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import SearchBar from '../SearchBar';
 import './Splash.css'
 
 
@@ -11,20 +12,25 @@ const Splash = () => {
     
     const user = useSelector((state) => state.session.user);
     
-    
+    console.log('!!!!!!!', window.location.href)
 
         return (
           <>
-            <div class="parent">
-                <div class="div1"></div>
-                <div class="div2">
+            <div class="splash-parent">
+                <div class="splash-image-wrapper">
+                  <div class="splash-div1">
+                    <SearchBar/>
+                  </div>
+                </div>
+                
+                <div class="splash-div2">
                   <div>Find a Trail</div>
                   <div>Kiss the Sky</div>
                   <div>Have Fun</div>
                 </div>
-                <div class="div3"> div3</div>
-                <div class="div4"> div4</div>
-                <div class="div5"> div5
+                <div class="splash-div3"> div3</div>
+                <div class="splash-div4"> div4</div>
+                <div class="splash-div5"> div5
                 <div class='link-container'>
                   <div>
                     <a href="https://github.com/juniporous">

@@ -1,0 +1,25 @@
+.dashboard-photo-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 80vw;
+  }
+  
+.photo-tile {
+    width: 21vw;
+    height: 21vw;
+    padding-bottom: 10px; /* 32:18, i.e. 16:9 */
+    margin-bottom: 10px; /* (100-32*3)/2 */
+    object-fit: cover;
+}
+
+.photo-image {
+    width: inherit;
+    height: inherit;
+    transition: transform .2s;
+    filter: grayscale(100%)
+}
+
+.photo-image:hover {
+    transform: scale(1.05)
+}

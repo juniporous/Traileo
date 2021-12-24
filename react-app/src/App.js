@@ -50,9 +50,9 @@ function App() {
         <ProtectedRoute path='/users/:userId/dashboard' exact={true} >
           <Dashboard />
         </ProtectedRoute>
-        <ProtectedRoute path='/hikes/:hikeId' exact={true} >
+        <Route path='/hikes/:hikeId' exact={true} >
           <Hike />
-        </ProtectedRoute>
+        </Route>
         <ProtectedRoute path='/' exact={true} >
           <Review/>
         </ProtectedRoute>

@@ -10,10 +10,27 @@
 
 .delete-button {
     float: right;
-    padding-right: 5%; 
+    /* padding-right: 3%;  */
     position: absolute;
     right: 6vw;
     top: 2vh;
     z-index: 10;
     
+}
+
+.dashboard-desc-text {
+    width: 70%;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+.ul > li:not(:last-child) {
+    border-bottom: 1px solid darkgrey;
+}
+
+.ul > li {
+    width: 85%;
+    margin-left: 4vw;
+    padding-left: 4vw;
+    margin-bottom: 1vh;
 }
