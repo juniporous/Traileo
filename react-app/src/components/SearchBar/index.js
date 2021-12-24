@@ -62,7 +62,6 @@ function SearchBar() {
                                     {res.hike_name}
                                 </NavLink>
                                 <div>
-
                                 </div>
                             </div>
                         ))}
