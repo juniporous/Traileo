@@ -7,6 +7,24 @@
     text-align: center;
 }
 
+.signup-field {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0 10px 0;
+}
+
+div > label {
+    margin-right: auto;
+    padding-bottom: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div > input {
+    border-radius: 3px;
+    margin: 3px 1px 8px 1px;
+    height: 4vh;
+}
+
 .signUpContent {
     display: flex;
     flex-direction: column;
