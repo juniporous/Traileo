@@ -85,6 +85,7 @@ input[type=checkbox] {
     left: 9vw;
     width: auto;
     height: 6vh;
+    filter: grayscale(100%);
 }
 
 .logoText {
