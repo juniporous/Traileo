@@ -1,5 +1,5 @@
 nav {
-    font-family: 'Readex Pro', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     max-width: 100%;
     font-size: 1.5vh;
     
@@ -41,15 +41,17 @@ nav {
     min-width: 25%;
     position: absolute;
     text-align: center;
+    color: white;
     top: 45px;
     right: 125px;
     transform: translateY(-900px);
     transition: transform 250ms ease-in-out;
     background: white;
-    background: #0e1849;
+    background: black;
     padding-bottom: 2vh;
     padding-top: 3vh;
     z-index: 1000;
+    border-radius: 6px;
 }
 
 input[type="checkbox"]:checked ~ #sidebarMenu {
@@ -87,7 +89,7 @@ input[type=checkbox] {
 
 .logoText {
     position: absolute;
-    font-family: 'Gabriela';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 3vh;
     z-index: 99;
     top: 0.5vh;;
@@ -125,7 +127,7 @@ input[type=checkbox] {
     z-index: 99;
     top: 15px;
     left: 74vw;
-    font-family: 'Readex Pro', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5vh;
 }
 
