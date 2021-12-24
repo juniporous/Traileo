@@ -19,7 +19,26 @@
     padding-top: 6vh;
     margin-top: 5vh;
 }
-.hike-div2 { grid-area: 5 / 1 / 6 / 4; }
+
+.hike-difficulty {
+    display: inline-block;
+    background-color: rgba(255,255,255,0.7);
+    border: thin black solid;
+    margin: 10px;
+    padding: 2px;
+    border-radius: 3px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: smaller;
+    position: absolute;
+    bottom: 0px;
+    
+}
+
+.hike-div2 { 
+    grid-area: 5 / 1 / 6 / 4; 
+    padding: 10px 0px 0px 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 .hike-div3 { 
     grid-area: 6 / 1 / 7 / 4;

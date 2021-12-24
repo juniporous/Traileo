@@ -61,8 +61,20 @@ function Hike() {
     return (
         <>
           <div class="hike-parent">
-            <div class="hike-container1">{hike.difficulty}</div>
-            <div class="hike-div2">Distance: {hike.length} miles Trip Length: {hike.eta} hours</div>
+            <div class="hike-container1">
+                <div className='hike-difficulty'>
+                  {hike.difficulty}
+                </div>
+                
+            </div>
+            <div class="hike-div2">
+                <div>
+                  Distance: {hike.length} miles
+                </div>
+                <div>
+                  Trip Length: {hike.eta} hours
+                </div>
+            </div>
             <div class="hike-div3">
                 <button onClick={seeReviews}>Reviews</button>
                 <div>|</div>

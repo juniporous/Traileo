@@ -1,0 +1,27 @@
+.signUpForm {
+    color: white;
+    border-radius: 20px;
+    min-width: 35vw;
+    background: black;
+    padding: 2vh 3vw 2vh 3vw;
+    text-align: center;
+}
+
+.signUpContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.signUpContent-btn {
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 15px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #0d1230;
+    border: thin white solid;
+}
