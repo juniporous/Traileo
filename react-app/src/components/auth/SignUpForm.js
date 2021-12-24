@@ -10,8 +10,21 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+  const [validationErrors, setValidationErrors] = useState([]);
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+
+  const validate = () => {
+    const validateErrors = [];
+
+    if (!email || !email.toLocaleLowerCase().match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    )) validateErrors.push("Please enter a valid e-mail");
+    if (!username) validateErrors.push('Please enter a valid username')
+    if (!password) validateErrors.push("Please enter a valid password");
+    if (password !== repeatPassword) validateErrors.push("Password and Confirm Password must match");
+    return validateErrors;
+  };
 
   const demoLogin = async (e) => {
     e.preventDefault();
@@ -20,6 +33,9 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
+    const errors = validate();
+    if (errors.length > 0) return setValidationErrors(errors);
+
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
@@ -50,12 +66,19 @@ const SignUpForm = () => {
 
   return (
     <form className='signUpForm' onSubmit={onSignUp}>
-      <div>
-        <div className="signUpContent">
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
+      <div className="signUpContent">
+        {validationErrors.length > 0 && (
+          <div className="validationErrors">
+            The following errors were found:
+            <ul>
+              {validationErrors.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
+          </div>
+        )}
         </div>
+      <div>
           <div className='signup-field'>
             <label className='label'>User Name</label>
             <input

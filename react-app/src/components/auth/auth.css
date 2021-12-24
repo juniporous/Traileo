@@ -7,6 +7,10 @@
     text-align: center;
 }
 
+.validationErrors > ul {
+    list-style: none;
+}
+
 .signup-field {
     display: flex;
     flex-direction: column;
