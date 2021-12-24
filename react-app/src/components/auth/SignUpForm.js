@@ -69,7 +69,9 @@ const SignUpForm = () => {
       <div className="signUpContent">
         {validationErrors.length > 0 && (
           <div className="validationErrors">
+            <p className='error-header'>
             The following errors were found:
+            </p>
             <ul>
               {validationErrors.map((error) => (
                 <li key={error}>{error}</li>

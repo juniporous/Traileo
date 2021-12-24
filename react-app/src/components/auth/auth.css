@@ -9,6 +9,11 @@
 
 .validationErrors > ul {
     list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.error-header {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .signup-field {
