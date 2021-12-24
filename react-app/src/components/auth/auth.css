@@ -7,6 +7,15 @@
     text-align: center;
 }
 
+.validationErrors > ul {
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.error-header {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .signup-field {
     display: flex;
     flex-direction: column;
@@ -31,6 +40,26 @@ div > input {
 }
 
 .signUpContent-btn {
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 15px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #0d1230;
+    border: thin white solid;
+}
+
+.login-input {
+    display: flex;
+    flex-direction: column;
+    margin: 0 2vw 0 2vw;
+}
+
+.login-button {
     color: #fff;
     width: 100%;
     padding: 10px;

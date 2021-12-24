@@ -52,7 +52,7 @@ const NavBar = () => {
   const userSplash = (
     <nav>
       <div class="header"></div>
-      <NavLink to={`/users/${user?.id}/dashboard`} exact={true} activeClassName="active">
+      <NavLink to={`/home`} exact={true} activeClassName="active">
         <img
           alt="logo"
           className="logo"
