@@ -10,9 +10,9 @@ const AllHikesMap = ({hikes}) => {
         googleMapsApiKey: process.env.REACT_APP_MAPS_API
     })
     
-    console.log('#$%#$', process.env.NODE_ENV)
+
     const center={lat: 38.905065, lng: -120.098954}
-    const containerStyle={height: '400px', width: '400px'}
+    const containerStyle={height: '35vw', width: '35vw'}
     useEffect(() => {
         const listener = e => {
            if (e.key === "Escape") {
