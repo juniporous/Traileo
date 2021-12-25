@@ -9,9 +9,7 @@ const AllHikesMap = ({hikes}) => {
         id: 'google-map-script',
         googleMapsApiKey: process.env.REACT_APP_MAPS_API
     })
-    // TODO: unable to retrieve maps-api-key from dotenv.
-    // key has 'REACT_APPS_'prefix, restarted server and confirmed
-    // api key validity by writing key in directly.
+    
     console.log('#$%#$', process.env.NODE_ENV)
     const center={lat: 38.905065, lng: -120.098954}
     const containerStyle={height: '400px', width: '400px'}
