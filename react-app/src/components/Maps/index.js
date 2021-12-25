@@ -44,10 +44,14 @@ const AllHikesMap = ({hikes}) => {
                     {hikes.map((center, idx) => (
                         <Marker
                             key={idx}
+                            icon={{
+                                url: 'https://res.cloudinary.com/dfy0z2yzj/image/upload/v1640476624/Traileo/map_icon_y5nix8.png'
+                            }}
                             position={{
                             lat: center.lat,
                             lng: center.long
                             }}
+                        
                             
                             onClick={() => {
                                 setSelectedCenter(center);
