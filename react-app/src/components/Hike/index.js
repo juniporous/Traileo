@@ -28,7 +28,6 @@ function Hike() {
     const [search, setSearch] = useState('')
     const hikeResult = useSelector(state => Object.values(state.hike))
     const hike = hikeResult[hikeId-1] ? hikeResult[hikeId-1] : {}
-    
     // useEffect(() => {
     //     setShowReviews(false)
     // }, [])
@@ -96,9 +95,10 @@ function Hike() {
                 {showReviews ? <HikeReview reviews={reviews} hikeId={hikeId}/> : <HikePhotos hikeId={hikeId} photos={photos}/>}
             </div>
             <div class="hike-div5">
+                <AllHikesMap hikes={hikeResult}/>
             </div>
             <div class="hike-div6">
-              <AllHikesMap hikes={hikeResult}/>
+              
             </div>
           </div>
 

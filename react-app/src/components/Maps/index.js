@@ -1,9 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api'
-
+import './map.css'
 
 const AllHikesMap = ({hikes}) => {
+    const styles = require('./mapStyles.json')
     const [selectedCenter, setSelectedCenter] = useState(null);
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
@@ -13,6 +14,7 @@ const AllHikesMap = ({hikes}) => {
 
     const center={lat: 38.905065, lng: -120.098954}
     const containerStyle={height: '35vw', width: '35vw'}
+    const mapTypeId={}
     useEffect(() => {
         const listener = e => {
            if (e.key === "Escape") {
@@ -27,12 +29,17 @@ const AllHikesMap = ({hikes}) => {
 
     return (
         <>
-            <div>
+            <div className='map-container'>
                 {isLoaded && (
                 <GoogleMap
+                options={{
+                    styles: styles,
+                    mapTypeId:'terrain'
+                }}
                 zoom={10}
                 center={center}
                 mapContainerStyle={containerStyle}
+            
                 >
                     {hikes.map((center, idx) => (
                         <Marker
