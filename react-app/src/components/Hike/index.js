@@ -76,18 +76,18 @@ function Hike() {
                 </div>
             </div>
             <div class="hike-div3">
-                <button onClick={seeReviews}>Reviews</button>
+                <button className='hike-toggle-button' onClick={seeReviews}>Reviews</button>
                 <div>|</div>
-                <button onClick={seePhotos}>Photos</button>
+                <button className='hike-toggle-button' onClick={seePhotos}>Photos</button>
             </div>
             <div class="hike-div4">
                 {sessionUser && showReviews ? 
                     <div className='review-button-container'>
-                        <button onClick={() => setShowModal(true)}>Post A Review</button>
+                        <button className='hike-post-button' onClick={() => setShowModal(true)}>Post A Review</button>
                     </div>
                 : sessionUser && !showReviews ?
                     <div className='review-button-container'>
-                        <button onClick={() => setShowModal(true)}>Post A Photo</button>
+                        <button className='hike-post-button' onClick={() => setShowModal(true)}>Post A Photo</button>
                     </div> 
                 : null
                 }
