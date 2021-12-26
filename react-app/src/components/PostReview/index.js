@@ -51,12 +51,13 @@ const PostReviewForm = ({ userId, hikeId, setShowModal }) => {
         </select>
         </div>
         <div className='hike-review-field'>
-          <input
-            type="textarea"
-            name="usrname"
+          <textarea
+            className='description-text'
             placeholder="Description"
             value={description}
-            onChange={updateDescription} />
+            onChange={updateDescription}
+            >
+            </textarea>
         </div>
         <div>
           {validationErrors.map(err => <div>{err}</div>)}
@@ -65,7 +66,6 @@ const PostReviewForm = ({ userId, hikeId, setShowModal }) => {
           Post Review
         </button>
       </form>
-      {/* <textarea name="comment" form="usrform">Enter text here...</textarea> */}
     </div>
     
     </>
