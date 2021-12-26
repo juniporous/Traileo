@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api'
 import './map.css'
 
@@ -68,7 +69,11 @@ const AllHikesMap = ({hikes, hike}) => {
                             lng: selectedCenter.long
                         }}
                     >
-                        <div>{selectedCenter.hike_name}</div>
+                        <div>
+                            <NavLink className='marker-navlink' to={`/hikes/${selectedCenter.id}`}>
+                                {selectedCenter.hike_name}
+                            </NavLink>
+                        </div>
                     </InfoWindow>
                     )}
 
