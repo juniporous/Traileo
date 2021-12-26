@@ -18,7 +18,7 @@ const PostReviewForm = ({ userId, hikeId, setShowModal }) => {
 
   const validate = () => {
     const validateErrors = [];
-    if (!description) validateErrors.push("Description is required");
+    if (!description) validateErrors.push("Description is required!");
     return validateErrors;
   };
 
@@ -53,14 +53,14 @@ const PostReviewForm = ({ userId, hikeId, setShowModal }) => {
         <div className='hike-review-field'>
           <textarea
             className='description-text'
-            placeholder="Description"
+            placeholder="Write description here..."
             value={description}
             onChange={updateDescription}
             >
             </textarea>
         </div>
-        <div>
-          {validationErrors.map(err => <div>{err}</div>)}
+        <div className='post-review-error-container'>
+          {validationErrors.map(err => <div className='post-review-error-text'>{err}</div>)}
         </div>
         <button className='post-review-button' onClick={handleSubmit}>
           Post Review
