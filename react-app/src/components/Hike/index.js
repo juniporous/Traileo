@@ -95,7 +95,7 @@ function Hike() {
                 {showReviews ? <HikeReview reviews={reviews} hikeId={hikeId}/> : <HikePhotos hikeId={hikeId} photos={photos}/>}
             </div>
             <div class="hike-div5">
-                <AllHikesMap hikes={hikeResult}/>
+                <AllHikesMap hikes={hikeResult} hike={hike}/>
             </div>
             <div class="hike-div6">
               
