@@ -11,6 +11,7 @@ import { useHistory, useParams } from 'react-router'
 import { Modal } from '../../context/Modal'
 import HikeReview from '../HikeReview'
 import HikePhotos from '../HikePhotos'
+import AllHikesMap from '../Maps'
 import './hike.css'
 
 function Hike() {
@@ -27,7 +28,6 @@ function Hike() {
     const [search, setSearch] = useState('')
     const hikeResult = useSelector(state => Object.values(state.hike))
     const hike = hikeResult[hikeId-1] ? hikeResult[hikeId-1] : {}
-    
     // useEffect(() => {
     //     setShowReviews(false)
     // }, [])
@@ -94,8 +94,12 @@ function Hike() {
 
                 {showReviews ? <HikeReview reviews={reviews} hikeId={hikeId}/> : <HikePhotos hikeId={hikeId} photos={photos}/>}
             </div>
-            <div class="hike-div5"> </div>
-            <div class="hike-div6"> </div>
+            <div class="hike-div5">
+                <AllHikesMap hikes={hikeResult} hike={hike}/>
+            </div>
+            <div class="hike-div6">
+              
+            </div>
           </div>
 
 
