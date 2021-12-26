@@ -62,10 +62,12 @@ function Hike() {
         <>
           <div class="hike-parent">
             <div class="hike-container1">
-                <div className='hike-difficulty'>
-                  {hike.difficulty}
+                <div>
+                    <div className='hike-difficulty'>
+                    {hike.difficulty}
+                    </div>
+                    
                 </div>
-                
             </div>
             <div class="hike-div2">
                 <div>
