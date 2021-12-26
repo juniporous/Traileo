@@ -85,11 +85,11 @@ function Hike() {
             <div class="hike-div4">
                 {sessionUser && showReviews ? 
                     <div className='review-button-container'>
-                        <button className='hike-post-button' onClick={() => setShowModal(true)}>Post A Review</button>
+                        <button className={showModal ? 'hike-post-button-modal' : 'hike-post-button-no-modal'} onClick={() => setShowModal(true)}>Post A Review</button>
                     </div>
                 : sessionUser && !showReviews ?
                     <div className='review-button-container'>
-                        <button className='hike-post-button' onClick={() => setShowModal(true)}>Post A Photo</button>
+                        <button className={showModal ? 'hike-post-button-modal' : 'hike-post-button-no-modal'} onClick={() => setShowModal(true)}>Post A Photo</button>
                     </div> 
                 : null
                 }

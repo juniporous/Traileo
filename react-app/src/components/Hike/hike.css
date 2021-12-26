@@ -100,7 +100,7 @@
     border: thin white solid;
 }
 
-.hike-post-button {
+.hike-post-button-no-modal {
     color: #fff;
     width: 8%;
     padding: 5px;
@@ -113,6 +113,21 @@
     background-color: #0d1230;
     position: absolute;
     z-index: 1;
+}
+
+.hike-post-button-modal {
+    color: #fff;
+    width: 8%;
+    padding: 5px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin: 1vh 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #0d1230;
+    position: absolute;
+    z-index: 0;
 }
 
 
