@@ -43,8 +43,11 @@
 
 .hike-div2 { 
     grid-area: 5 / 1 / 6 / 4; 
+    margin: 0 3vw 0 3vw;
     padding: 10px 0px 0px 10px;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: smaller;
+    border-bottom: black solid thin;
 }
 
 .hike-div3 { 
@@ -53,8 +56,12 @@
     justify-content: space-around;
     align-items: center;
     border-bottom: thin black solid;
-    margin: 0 2vw 0 2vw;
-    padding: 0 2vw 0 2vw;
+    margin: 0 3vw 0 3vw;
+    padding: 0 3vw 0 3vw;
+}
+
+.hike-toggle-divider {
+    font-size: larger
 }
 
 
@@ -94,16 +101,17 @@
 
 .hike-post-button {
     color: #fff;
-        width: 15%;
+        width: 8%;
         padding: 5px;
         border-radius: 20px;
         font-size: 12px;
-        margin: 8px 0;
+        margin: 8px 30px;
         border: none;
         outline: none;
         cursor: pointer;
         background-color: #0d1230;
-        border: thin white solid;
+        position: absolute;
+        z-index: 1;
 }
 
 

@@ -79,7 +79,7 @@ function Hike() {
             </div>
             <div class="hike-div3">
                 <button className='hike-toggle-button' onClick={seeReviews}>Reviews</button>
-                <div>|</div>
+                <div className='hike-toggle-divider'>|</div>
                 <button className='hike-toggle-button' onClick={seePhotos}>Photos</button>
             </div>
             <div class="hike-div4">
