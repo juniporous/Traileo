@@ -8,27 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 const AllHikesMap = ({hikes, hike, apiKey}) => {
     const dispatch = useDispatch()
-    // const key = useSelector(state => Object.values(state.key))[0]?.key
     
-    // const [apiKey, setApiKey] = useState();
-
-    // useEffect(() => {
-    //     dispatch(getKey())
-    // }, [])
-
-    
-    // useEffect(() => {
-    //     if (!key || apiKey === key) {
-    //         return
-    //     }
-    //     else {
-    //         setApiKey(key)
-    //         console.log('count')
-    //     }
-    // }, [key])
-    
-    // const key2 = key
-    // console.log('!#@$KEY@#$', apiKey)
     const styles = require('./mapStyles.json')
     const [selectedCenter, setSelectedCenter] = useState(null);
 
@@ -37,7 +17,10 @@ const AllHikesMap = ({hikes, hike, apiKey}) => {
         id: 'google-map-script',
         googleMapsApiKey: apiKey
     }) 
-//process.env.REACT_APP_MAPS_API
+    //process.env.REACT_APP_MAPS_API
+    //important, heroku is unable to read config vars for
+    // google maps api key. process.env.VARIABLE works for local
+    // for heroku, api key is passed up through back end
     
    
 
