@@ -12,10 +12,39 @@ import { Modal } from '../../context/Modal'
 import HikeReview from '../HikeReview'
 import HikePhotos from '../HikePhotos'
 import AllHikesMap from '../Maps'
+import { getKey } from '../../store/key'
 import './hike.css'
 
 function Hike() {
     const dispatch = useDispatch()
+
+    const key = useSelector(state => Object.values(state.key))[0]?.key
+    
+    const [apiKey, setApiKey] = useState();
+
+    useEffect(() => {
+        dispatch(getKey())
+    }, [])
+
+    
+    useEffect(() => {
+        if (!key || apiKey === key) {
+            return
+        }
+        else {
+            setApiKey(key)
+            console.log('count')
+        }
+    }, [key])
+
+
+    console.log('#$%^#%$^apiKey', apiKey)
+
+
+
+
+
+
     const [showModal, setShowModal] = useState(false);
     const [showReviews, setShowReviews] = useState(true)
     const sessionUser = useSelector((state) => state.session.user)
@@ -97,7 +126,10 @@ function Hike() {
                 {showReviews ? <HikeReview reviews={reviews} hikeId={hikeId}/> : <HikePhotos hikeId={hikeId} photos={photos}/>}
             </div>
             <div className="hike-div5">
-                <AllHikesMap hikes={hikeResult} hike={hike}/>
+                {apiKey ? 
+                <AllHikesMap hikes={hikeResult} hike={hike} apiKey={apiKey}/> :
+                null
+                }
             </div>
             <div className="hike-div6">
               

@@ -2,16 +2,44 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api'
+import { getKey } from "../../store/key";
 import './map.css'
+import { useSelector, useDispatch } from "react-redux";
 
-const AllHikesMap = ({hikes, hike}) => {
+const AllHikesMap = ({hikes, hike, apiKey}) => {
+    const dispatch = useDispatch()
+    // const key = useSelector(state => Object.values(state.key))[0]?.key
+    
+    // const [apiKey, setApiKey] = useState();
+
+    // useEffect(() => {
+    //     dispatch(getKey())
+    // }, [])
+
+    
+    // useEffect(() => {
+    //     if (!key || apiKey === key) {
+    //         return
+    //     }
+    //     else {
+    //         setApiKey(key)
+    //         console.log('count')
+    //     }
+    // }, [key])
+    
+    // const key2 = key
+    // console.log('!#@$KEY@#$', apiKey)
     const styles = require('./mapStyles.json')
     const [selectedCenter, setSelectedCenter] = useState(null);
+
+    
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: process.env.REACT_APP_MAPS_API
-    })
+        googleMapsApiKey: apiKey
+    }) 
+//process.env.REACT_APP_MAPS_API
     
+   
 
     const center={lat: parseFloat(hike.lat), lng: parseFloat(hike.long)}
 

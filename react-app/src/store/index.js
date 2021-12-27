@@ -4,12 +4,14 @@ import session from './session'
 import review from './review'
 import hike from './hike'
 import photo from './photo'
+import key from './key'
 
 const rootReducer = combineReducers({
   session,
   review,
   hike,
-  photo
+  photo,
+  key
 });
 
 
