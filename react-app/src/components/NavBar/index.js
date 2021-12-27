@@ -72,15 +72,13 @@ const NavBar = () => {
       >
         Dashboard
       </NavLink>
-      <a
-        href
+      <NavLink
+        to='/home'
         onClick={onLogout}
-        exact={true}
-        // activeClassName="active"
         className="loginLink"
       >
         Logout
-      </a>
+      </NavLink>
     </nav>
   );
 
