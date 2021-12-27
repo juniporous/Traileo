@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateReview } from '../../store/review';
+import './UpdateReview.css'
 
 
 const UpdateReviewForm = ({ reviewId }) => {

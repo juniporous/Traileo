@@ -21,10 +21,11 @@
 .dashboard-desc-text {
     width: 70%;
     padding-top: 1vh;
-    padding-bottom: 1vh;
+    padding-bottom: 2vh;
 }
 
 .ul > li:not(:last-child) {
+    padding-bottom: 3vh;
     border-bottom: 1px solid darkgrey;
 }
 
