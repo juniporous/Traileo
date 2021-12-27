@@ -46,7 +46,7 @@ const PostPhotoForm = ({ userId, hikeId, setShowModal }) => {
             onChange={updatePhoto} />
         </div>
         <div className='post-photo-error-container'>
-            {validationErrors.map(err => <div key={err} className='post-photo-error-text'>{err}</div>)}
+            {validationErrors.map(err => <div className='post-photo-error-text'>{err}</div>)}
         </div>
         <button className='post-photo-button' onClick={handleSubmit}>
           Post Photo
