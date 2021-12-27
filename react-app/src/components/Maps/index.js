@@ -12,9 +12,8 @@ const AllHikesMap = ({hikes, hike}) => {
         googleMapsApiKey: process.env.REACT_APP_MAPS_API
     })
     
-    // hard coding center lat long removes console error so bug is data latency
-    // const center = {lat: 38.8687, lng: -120.13998}
-    const center={lat: parseFloat(hike.lat), lng: parseFloat(hike.long)}
+
+    const center={lat: hike.lat, lng: hike.long}
     const containerStyle={height: '35vw', width: '35vw'}
     useEffect(() => {
         const listener = e => {
@@ -31,9 +30,7 @@ const AllHikesMap = ({hikes, hike}) => {
     return (
         <>
             <div className='map-container'>
-                {/* Important, !isNan(center.lat) makes map only load when props data is available to map.
-                User will not see disruption without this logic but it stops a console error. */}
-                {isLoaded && !isNaN(center.lat) && (
+                {isLoaded && (
                 <GoogleMap
                 options={{
                     styles: styles,
@@ -51,8 +48,8 @@ const AllHikesMap = ({hikes, hike}) => {
                                 url: 'https://res.cloudinary.com/dfy0z2yzj/image/upload/v1640476624/Traileo/map_icon_y5nix8.png'
                             }}
                             position={{
-                            lat: parseFloat(center.lat),
-                            lng: parseFloat(center.long)
+                            lat: center.lat,
+                            lng: center.long
                             }}
                         
                             
@@ -68,8 +65,8 @@ const AllHikesMap = ({hikes, hike}) => {
                             setSelectedCenter(null);
                         }}
                         position={{
-                            lat: parseFloat(selectedCenter.lat),
-                            lng: parseFloat(selectedCenter.long)
+                            lat: selectedCenter.lat,
+                            lng: selectedCenter.long
                         }}
                     >
                         <div>

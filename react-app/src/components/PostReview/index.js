@@ -60,7 +60,7 @@ const PostReviewForm = ({ userId, hikeId, setShowModal }) => {
             </textarea>
         </div>
         <div className='post-review-error-container'>
-          {validationErrors.map(err => <div key={err} className='post-review-error-text'>{err}</div>)}
+          {validationErrors.map(err => <div className='post-review-error-text'>{err}</div>)}
         </div>
         <button className='post-review-button' onClick={handleSubmit}>
           Post Review
