@@ -69,6 +69,6 @@ div > input {
     border: none;
     outline: none;
     cursor: pointer;
-    background-color: #0d1230;
+    background-color: black;
     border: thin white solid;
 }

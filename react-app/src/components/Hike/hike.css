@@ -96,7 +96,7 @@
     border: none;
     outline: none;
     cursor: pointer;
-    background-color: #0d1230;
+    background-color: black;
     border: thin white solid;
 }
 
@@ -110,7 +110,7 @@
     border: none;
     outline: none;
     cursor: pointer;
-    background-color: #0d1230;
+    background-color: black;
     position: absolute;
     z-index: 1;
 }
@@ -125,7 +125,7 @@
     border: none;
     outline: none;
     cursor: pointer;
-    background-color: #0d1230;
+    background-color: black;
     position: absolute;
     z-index: 0;
 }
