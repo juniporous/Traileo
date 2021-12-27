@@ -13,7 +13,8 @@ const AllHikesMap = ({hikes, hike}) => {
     })
     
 
-    const center={lat: hike.lat, lng: hike.long}
+    const center={lat: parseFloat(hike.lat), lng: parseFloat(hike.long)}
+
     const containerStyle={height: '35vw', width: '35vw'}
     useEffect(() => {
         const listener = e => {
