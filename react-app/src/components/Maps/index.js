@@ -30,7 +30,7 @@ const AllHikesMap = ({hikes, hike}) => {
         <>
             <div className='map-container'>
                 {/* Important, !isNan(center.lat) makes map only load when props data is available to map.
-                User will not see disruption without this logic but it stops a console error. */}
+                User will not see disruption without this logic but it stops a console error.   */}
                 {isLoaded && !isNaN(center.lat) && (
                 <GoogleMap
                 options={{
