@@ -26,8 +26,8 @@ const DashboardPhotos = ({ userId, photos }) => {
         <div className='dashboard-photo-container'>
             
             {photos.map(photo => ( photo.user_id === userId ?
-                    <div className='photo-tile'>
-                    <img key={photo.id} className="photo-image" src={photo.img_url} alt='No media available' onClick={() => {setShowModal(true); setPhotoId(photo.id)}}/>
+                    <div key={photo.id} className='photo-tile'>
+                    <img className="photo-image" src={photo.img_url} alt='No media available' onClick={() => {setShowModal(true); setPhotoId(photo.id)}}/>
                     {showModal && (
                         <Modal onClose={() => setShowModal(false)}>
                             <div className='modal-box'>

@@ -51,7 +51,7 @@ const NavBar = () => {
 
   const userSplash = (
     <nav>
-      <div class="header"></div>
+      <div className="header"></div>
       <NavLink 
       to={`/home`} 
       exact={true} 
