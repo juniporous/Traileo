@@ -12,9 +12,9 @@ const AllHikesMap = ({hikes, hike}) => {
         googleMapsApiKey: process.env.REACT_APP_MAPS_API
     })
     
-    // const center = {lat: parseFloat(38.86875), lng: parseFloat(120.13998)}
+    // hard coding center lat long removes console error so bug is data latency
+    // const center = {lat: 38.8687, lng: -120.13998}
     const center={lat: parseFloat(hike.lat), lng: parseFloat(hike.long)}
-    console.log('@$$%CENTER', center)
     const containerStyle={height: '35vw', width: '35vw'}
     useEffect(() => {
         const listener = e => {
@@ -31,7 +31,9 @@ const AllHikesMap = ({hikes, hike}) => {
     return (
         <>
             <div className='map-container'>
-                {isLoaded && (
+                {/* Important, !isNan(center.lat) makes map only load when props data is available to map.
+                User will not see disruption without this logic but it stops a console error. */}
+                {isLoaded && !isNaN(center.lat) && (
                 <GoogleMap
                 options={{
                     styles: styles,
