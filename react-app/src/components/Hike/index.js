@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getReviews, deleteReview, addReview } from '../../store/review'
-import UpdateReviewForm from '../UpdateReview'
-import SearchBar from '../SearchBar'
-import { getHikes, searchHikes, getHikesForDisplay } from '../../store/hike'
+import { getReviews } from '../../store/review'
+// import UpdateReviewForm from '../UpdateReview'
+// import SearchBar from '../SearchBar'
+import { getHikes, getHikesForDisplay } from '../../store/hike'
+// import { searchHikes } from '../../store/hike'
 import { getPhotos } from '../../store/photo'
 import PostReviewForm from '../PostReview'
 import PostPhotoForm from '../PostPhoto'
-import { useHistory, useParams } from 'react-router'
+import { useParams } from 'react-router'
 import { Modal } from '../../context/Modal'
 import HikeReview from '../HikeReview'
 import HikePhotos from '../HikePhotos'
@@ -20,12 +21,11 @@ function Hike() {
     const [showReviews, setShowReviews] = useState(true)
     const sessionUser = useSelector((state) => state.session.user)
     const userId = sessionUser?.id
-    const history = useHistory();
     const reviews = useSelector(state => Object.values(state.review)).reverse()
     const photos = useSelector(state => Object.values(state.photo))
     const { hikeId } = useParams()
     
-    const [search, setSearch] = useState('')
+    // const [search, setSearch] = useState('')
     const hikeResult = useSelector(state => Object.values(state.hike))
     const hike = hikeResult[hikeId-1] ? hikeResult[hikeId-1] : {}
     // useEffect(() => {
@@ -37,9 +37,9 @@ function Hike() {
     }, [dispatch])
 
 
-    useEffect(()=>{
-        dispatch(searchHikes(search))
-    }, [dispatch, search])
+    // useEffect(()=>{
+    //     dispatch(searchHikes(search))
+    // }, [dispatch, search])
 
     useEffect(() => {
         dispatch(getReviews())
@@ -60,8 +60,8 @@ function Hike() {
     
     return (
         <>
-          <div class="hike-parent">
-            <div class="hike-container1">
+          <div className="hike-parent">
+            <div className="hike-container1">
                 <div>
                     <div className='hike-difficulty'>
                     {hike.difficulty}
@@ -69,7 +69,7 @@ function Hike() {
                     
                 </div>
             </div>
-            <div class="hike-div2">
+            <div className="hike-div2">
                 <div>
                   Distance: {hike.length} miles
                 </div>
@@ -77,12 +77,12 @@ function Hike() {
                   Trip Length: {hike.eta} hours
                 </div>
             </div>
-            <div class="hike-div3">
+            <div className="hike-div3">
                 <button className='hike-toggle-button' onClick={seeReviews}>Reviews</button>
                 <div className='hike-toggle-divider'>|</div>
                 <button className='hike-toggle-button' onClick={seePhotos}>Photos</button>
             </div>
-            <div class="hike-div4">
+            <div className="hike-div4">
                 {sessionUser && showReviews ? 
                     <div className='review-button-container'>
                         <button className={showModal ? 'hike-post-button-modal' : 'hike-post-button-no-modal'} onClick={() => setShowModal(true)}>Post A Review</button>
@@ -96,10 +96,10 @@ function Hike() {
 
                 {showReviews ? <HikeReview reviews={reviews} hikeId={hikeId}/> : <HikePhotos hikeId={hikeId} photos={photos}/>}
             </div>
-            <div class="hike-div5">
+            <div className="hike-div5">
                 <AllHikesMap hikes={hikeResult} hike={hike}/>
             </div>
-            <div class="hike-div6">
+            <div className="hike-div6">
               
             </div>
           </div>

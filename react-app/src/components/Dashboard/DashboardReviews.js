@@ -1,4 +1,4 @@
-import { deleteReview, updateReview, getReviews } from "../../store/review";
+import { deleteReview, getReviews } from "../../store/review";
 import { useDispatch } from "react-redux";
 import { Modal } from "../../context/Modal";
 import { useState } from "react";
@@ -22,7 +22,7 @@ const DashboardReviews = ({ reviews, userId }) => {
 
     return (
         <ul className='ul'>
-            {reviews.map(review => ( review.user_id == userId ?
+            {reviews.map(review => ( review.user_id === userId ?
                 <li className='review-list-item' key={review.id}>
                     <div className="delete-button">
                         <button  onClick={() => handleDelete(review.id)}>
