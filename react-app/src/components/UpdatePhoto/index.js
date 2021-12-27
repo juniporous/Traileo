@@ -22,7 +22,7 @@ const UpdatePhotoForm = ({ photoId }) => {
       ...photo,
       img_url: imgUrl
     };
-    console.log('!!PAYLOARD!!!!', payload)
+
     const updatedPhoto = await dispatch(updatePhoto(payload));
 
   };
