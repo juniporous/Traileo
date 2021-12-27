@@ -12,8 +12,9 @@ const AllHikesMap = ({hikes, hike}) => {
         googleMapsApiKey: process.env.REACT_APP_MAPS_API
     })
     
-    // const center = {lat: 38.86875, lng: 120.13998}
+    // const center = {lat: parseFloat(38.86875), lng: parseFloat(120.13998)}
     const center={lat: parseFloat(hike.lat), lng: parseFloat(hike.long)}
+    console.log('@$$%CENTER', center)
     const containerStyle={height: '35vw', width: '35vw'}
     useEffect(() => {
         const listener = e => {
