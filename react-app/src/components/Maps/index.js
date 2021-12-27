@@ -12,8 +12,6 @@ const AllHikesMap = ({hikes, hike}) => {
         googleMapsApiKey: process.env.REACT_APP_MAPS_API
     })
     
-    // hard coding center lat long removes console error so bug is data latency
-    // const center = {lat: 38.8687, lng: -120.13998}
     const center={lat: parseFloat(hike.lat), lng: parseFloat(hike.long)}
     const containerStyle={height: '35vw', width: '35vw'}
     useEffect(() => {
