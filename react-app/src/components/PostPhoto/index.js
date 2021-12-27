@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addPhoto } from '../../store/photo'
-
+import './PostPhoto.css'
 
 const PostPhotoForm = ({ userId, hikeId, setShowModal }) => {
 //   const review = useSelector(state => state.review[reviewId]);
@@ -35,20 +35,26 @@ const PostPhotoForm = ({ userId, hikeId, setShowModal }) => {
   return (
     <>
     <div>
-      <form id="usrform">
-        <input
-          type="text"
-          name="photo url"
-          placeholder="Image Url"
-          value={photo}
-          onChange={updatePhoto} />
-        <button onClick={handleSubmit}>
+      <form className='post-photo-form'>
+        <div className='post-photo-field'>
+            <input
+            className='post-photo-text'
+            type="text"
+            name="photo url"
+            placeholder="Image Url"
+            value={photo}
+            onChange={updatePhoto} />
+        </div>
+        <div className='post-photo-error-container'>
+            {validationErrors.map(err => <div className='post-photo-error-text'>{err}</div>)}
+        </div>
+        <button className='post-photo-button' onClick={handleSubmit}>
           Post Photo
         </button>
       </form>
-      {/* <textarea name="comment" form="usrform">Enter text here...</textarea> */}
     </div>
-    {validationErrors.map(err => <div>{err}</div>)}
+    
+    
     </>
   );
 };

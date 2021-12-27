@@ -39,7 +39,7 @@ const PostReviewForm = ({ userId, hikeId, setShowModal }) => {
 
   return (
     <>
-    <div className='post-review-container'>
+    <div>
       <form className='post-review-form'>
       <div className='signup-field'>
         <select name='Rating' onChange={updateRating}>

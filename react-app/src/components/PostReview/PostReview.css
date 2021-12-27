@@ -2,8 +2,6 @@
     pointer-events: none;
   }
 
-.post-review-container {
-}
 
 .post-review-form {
   color: white;
@@ -13,6 +11,12 @@
   background: black;
   padding: 2vh 3vw 0 3vw;
   text-align: center;
+}
+
+.signup-field {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 10px 0;
 }
 
 .hike-review-field {
