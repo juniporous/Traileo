@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateReview } from '../../store/review';
 import { addReview } from '../../store/review';
+import './PostReview.css'
 
 
 const PostReviewForm = ({ userId, hikeId, setShowModal }) => {
@@ -17,7 +18,7 @@ const PostReviewForm = ({ userId, hikeId, setShowModal }) => {
 
   const validate = () => {
     const validateErrors = [];
-    if (!description) validateErrors.push("Description is required");
+    if (!description) validateErrors.push("Description is required!");
     return validateErrors;
   };
 
@@ -39,13 +40,8 @@ const PostReviewForm = ({ userId, hikeId, setShowModal }) => {
   return (
     <>
     <div>
-      <form id="usrform">
-        <input
-          type="text"
-          name="usrname"
-          placeholder="Description"
-          value={description}
-          onChange={updateDescription} />
+      <form className='post-review-form'>
+      <div className='signup-field'>
         <select name='Rating' onChange={updateRating}>
             <option>5</option>
             <option>4</option>
@@ -53,13 +49,25 @@ const PostReviewForm = ({ userId, hikeId, setShowModal }) => {
             <option>2</option>
             <option>1</option>
         </select>
-        <button onClick={handleSubmit}>
+        </div>
+        <div className='hike-review-field'>
+          <textarea
+            className='description-text'
+            placeholder="Write description here..."
+            value={description}
+            onChange={updateDescription}
+            >
+            </textarea>
+        </div>
+        <div className='post-review-error-container'>
+          {validationErrors.map(err => <div className='post-review-error-text'>{err}</div>)}
+        </div>
+        <button className='post-review-button' onClick={handleSubmit}>
           Post Review
         </button>
       </form>
-      {/* <textarea name="comment" form="usrform">Enter text here...</textarea> */}
     </div>
-    {validationErrors.map(err => <div>{err}</div>)}
+    
     </>
   );
 };

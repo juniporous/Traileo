@@ -62,10 +62,12 @@ function Hike() {
         <>
           <div class="hike-parent">
             <div class="hike-container1">
-                <div className='hike-difficulty'>
-                  {hike.difficulty}
+                <div>
+                    <div className='hike-difficulty'>
+                    {hike.difficulty}
+                    </div>
+                    
                 </div>
-                
             </div>
             <div class="hike-div2">
                 <div>
@@ -76,18 +78,18 @@ function Hike() {
                 </div>
             </div>
             <div class="hike-div3">
-                <button onClick={seeReviews}>Reviews</button>
-                <div>|</div>
-                <button onClick={seePhotos}>Photos</button>
+                <button className='hike-toggle-button' onClick={seeReviews}>Reviews</button>
+                <div className='hike-toggle-divider'>|</div>
+                <button className='hike-toggle-button' onClick={seePhotos}>Photos</button>
             </div>
             <div class="hike-div4">
                 {sessionUser && showReviews ? 
                     <div className='review-button-container'>
-                        <button onClick={() => setShowModal(true)}>Post A Review</button>
+                        <button className={showModal ? 'hike-post-button-modal' : 'hike-post-button-no-modal'} onClick={() => setShowModal(true)}>Post A Review</button>
                     </div>
                 : sessionUser && !showReviews ?
                     <div className='review-button-container'>
-                        <button onClick={() => setShowModal(true)}>Post A Photo</button>
+                        <button className={showModal ? 'hike-post-button-modal' : 'hike-post-button-no-modal'} onClick={() => setShowModal(true)}>Post A Photo</button>
                     </div> 
                 : null
                 }

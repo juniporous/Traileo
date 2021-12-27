@@ -1,3 +1,68 @@
 .disabled{
     pointer-events: none;
   }
+
+
+.post-review-form {
+  color: white;
+  border-radius: 20px;
+  min-width: 30vw;
+  min-height: 40vh;
+  background: black;
+  padding: 2vh 3vw 0 3vw;
+  text-align: center;
+}
+
+.signup-field {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 10px 0;
+}
+
+.hike-review-field {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 10px 0;
+  height: 20vh;
+}
+
+.description-text {
+  height: 80%;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 8px 8px 8px 8px;
+  border-radius: 4px;
+}
+
+div > label {
+  margin-right: auto;
+  padding-bottom: 6px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div > input {
+  border-radius: 3px;
+  margin: 3px 20px 8px 1px;
+  height: 6vh;
+}
+
+.post-review-error-container {
+  height: 4vh;
+}
+
+.post-review-error-text {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white
+}
+
+.post-review-button {
+  color: white;
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: black;
+  border: thin white solid;
+}

@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-top: 6vh;
   }
   
   .item {
@@ -10,5 +11,5 @@
     margin-bottom: 2%; /* (100-32*3)/2 */
     margin-left: 6%;
     object-fit: cover;
-    filter: grayscale(100%)
+    filter: grayscale(100%);
   }
