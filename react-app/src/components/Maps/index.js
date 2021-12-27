@@ -12,8 +12,8 @@ const AllHikesMap = ({hikes, hike}) => {
         googleMapsApiKey: process.env.REACT_APP_MAPS_API
     })
     
-
-    const center={lat: hike.lat, lng: hike.long}
+    // const center = {lat: 38.86875, lng: 120.13998}
+    const center={lat: parseFloat(hike.lat), lng: parseFloat(hike.long)}
     const containerStyle={height: '35vw', width: '35vw'}
     useEffect(() => {
         const listener = e => {
@@ -48,8 +48,8 @@ const AllHikesMap = ({hikes, hike}) => {
                                 url: 'https://res.cloudinary.com/dfy0z2yzj/image/upload/v1640476624/Traileo/map_icon_y5nix8.png'
                             }}
                             position={{
-                            lat: center.lat,
-                            lng: center.long
+                            lat: parseFloat(center.lat),
+                            lng: parseFloat(center.long)
                             }}
                         
                             
@@ -65,8 +65,8 @@ const AllHikesMap = ({hikes, hike}) => {
                             setSelectedCenter(null);
                         }}
                         position={{
-                            lat: selectedCenter.lat,
-                            lng: selectedCenter.long
+                            lat: parseFloat(selectedCenter.lat),
+                            lng: parseFloat(selectedCenter.long)
                         }}
                     >
                         <div>

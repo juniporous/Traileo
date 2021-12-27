@@ -5,10 +5,10 @@ const HikeReview = ({ hikeId, reviews }) => {
     return (
         <div className='ul-container'>
             <ul className='ul'>
-                {reviews.map(review => ( review.hike_id == hikeId ?
+                {reviews.map(review => ( review.hike_id === +hikeId ?
                     <li key={review.id} className='li-review'>
-                        <div class="card">
-                            <div class="container">
+                        <div className="card">
+                            <div className="container">
                                 <div>
                                     Rating: {review.rating}
                                 </div>
