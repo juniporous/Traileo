@@ -60,8 +60,8 @@ function Hike() {
     
     return (
         <>
-          <div class="hike-parent">
-            <div class="hike-container1">
+          <div className="hike-parent">
+            <div className="hike-container1">
                 <div>
                     <div className='hike-difficulty'>
                     {hike.difficulty}
@@ -69,7 +69,7 @@ function Hike() {
                     
                 </div>
             </div>
-            <div class="hike-div2">
+            <div className="hike-div2">
                 <div>
                   Distance: {hike.length} miles
                 </div>
@@ -77,12 +77,12 @@ function Hike() {
                   Trip Length: {hike.eta} hours
                 </div>
             </div>
-            <div class="hike-div3">
+            <div className="hike-div3">
                 <button className='hike-toggle-button' onClick={seeReviews}>Reviews</button>
                 <div className='hike-toggle-divider'>|</div>
                 <button className='hike-toggle-button' onClick={seePhotos}>Photos</button>
             </div>
-            <div class="hike-div4">
+            <div className="hike-div4">
                 {sessionUser && showReviews ? 
                     <div className='review-button-container'>
                         <button className={showModal ? 'hike-post-button-modal' : 'hike-post-button-no-modal'} onClick={() => setShowModal(true)}>Post A Review</button>
@@ -96,10 +96,10 @@ function Hike() {
 
                 {showReviews ? <HikeReview reviews={reviews} hikeId={hikeId}/> : <HikePhotos hikeId={hikeId} photos={photos}/>}
             </div>
-            <div class="hike-div5">
+            <div className="hike-div5">
                 <AllHikesMap hikes={hikeResult} hike={hike}/>
             </div>
-            <div class="hike-div6">
+            <div className="hike-div6">
               
             </div>
           </div>

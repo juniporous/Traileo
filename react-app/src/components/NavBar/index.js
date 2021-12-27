@@ -18,8 +18,12 @@ const NavBar = () => {
   const guestSplash = (
     <>
       <nav>
-        <div class="header"></div>
-          <NavLink to="/home" exact={true} activeClassName="active">
+        <div className="header"></div>
+          <NavLink 
+          to="/home" 
+          exact={true} 
+          // activeClassName="active"
+          >
             <img
               alt="logo"
               className="logo"
@@ -31,14 +35,14 @@ const NavBar = () => {
         <NavLink
           to="/home"
           exact={true}
-          activeClassName="active"
+          // activeClassName="active"
           className="homeLink"
         >
           Home
         </NavLink>
         <SignUpFormModal />
-        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu" />
-        <label for="openSidebarMenu" class="loginLink">
+        <input type="checkbox" className="openSidebarMenu" id="openSidebarMenu" />
+        <label for="openSidebarMenu" className="loginLink">
           Login
         </label>
 
@@ -51,8 +55,12 @@ const NavBar = () => {
 
   const userSplash = (
     <nav>
-      <div class="header"></div>
-      <NavLink to={`/home`} exact={true} activeClassName="active">
+      <div className="header"></div>
+      <NavLink 
+      to={`/home`} 
+      exact={true} 
+      // activeClassName="active"
+      >
         <img
           alt="logo"
           className="logo"
@@ -63,20 +71,20 @@ const NavBar = () => {
       <NavLink
         to={`/users/${user?.id}/dashboard`}
         exact={true}
-        activeClassName="active"
+        // activeClassName="active"
         className="homeLink"
       >
         Dashboard
       </NavLink>
-      <a
-        href
+      <NavLink
+        to='/home'
         onClick={onLogout}
         exact={true}
-        activeClassName="active"
+        // activeClassName="active"
         className="loginLink"
       >
         Logout
-      </a>
+      </NavLink>
     </nav>
   );
 
