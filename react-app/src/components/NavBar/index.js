@@ -51,12 +51,8 @@ const NavBar = () => {
 
   const userSplash = (
     <nav>
-      <div className="header"></div>
-      <NavLink 
-      to={`/home`} 
-      exact={true} 
-      // activeClassName="active"
-      >
+      <div class="header"></div>
+      <NavLink to={`/home`} exact={true} activeClassName="active">
         <img
           alt="logo"
           className="logo"
@@ -67,18 +63,20 @@ const NavBar = () => {
       <NavLink
         to={`/users/${user?.id}/dashboard`}
         exact={true}
-        // activeClassName="active"
+        activeClassName="active"
         className="homeLink"
       >
         Dashboard
       </NavLink>
-      <NavLink
-        to='/home'
+      <a
+        href
         onClick={onLogout}
+        exact={true}
+        activeClassName="active"
         className="loginLink"
       >
         Logout
-      </NavLink>
+      </a>
     </nav>
   );
 

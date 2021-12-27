@@ -1,6 +1,6 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-// import { NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import SearchBar from '../SearchBar';
 import './Splash.css'
 
@@ -12,6 +12,7 @@ const Splash = () => {
     
     const user = useSelector((state) => state.session.user);
     
+    console.log('!!!!!!!', window.location.href)
 
         return (
           <>
