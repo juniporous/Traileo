@@ -5,6 +5,13 @@ nav {
     
 }
 
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    width: 10px;
+    height: 10px;
+}
+
 .nav-container {
     max-width: 100%;
     padding: 2vh 0vw 2vh 0vw;
@@ -93,10 +100,11 @@ input[type=checkbox] {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 3vh;
     z-index: 99;
-    top: 7px;
+    top: 9px;
     left: 12.5vw;
     /* color: white; */
     color: Black;
+    margin-left: 6px;
 }
 
 .homeLink {

@@ -18,14 +18,34 @@ const Splash = () => {
                   </div>
                 </div>
                 
-                <div className="splash-div2">
-                  <div>Find a Trail</div>
-                  <div>Kiss the Sky</div>
-                  <div>Have Fun</div>
+                <div className="splash-div2">  
+                    <div className='description'>
+                      Welcome to Traileo, a loose clone of AllTrails
+                    </div>
                 </div>
-                <div className="splash-div3"> div3</div>
-                <div className="splash-div4"> div4</div>
-                <div className="splash-div5"> div5
+                <div className="splash-div3">
+                    <div className='card-container'>
+                      <div className='desc-card'>
+                        <p>
+                          Find trails via search or map.
+                        </p>
+                      </div>
+                      <div className='divider'></div>
+                      <div className='desc-card'>
+                        <p>
+                          Post reviews.
+                        </p>
+                      </div>
+                      <div className='divider'></div>
+                      <div className='desc-card'>
+                        <p>
+                          Upload photos of your trip.
+                        </p>
+                      </div>
+                  </div>
+                </div>
+                <div className="splash-div4"></div>
+                <div className="splash-div5">
                 <div className='link-container'>
                   <div>
                     <a href="https://github.com/juniporous">

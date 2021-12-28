@@ -24,12 +24,16 @@ const NavBar = () => {
           exact={true} 
           // activeClassName="active"
           >
-            <img
-              alt="logo"
-              className="logo"
-              src="https://user-images.githubusercontent.com/33510714/146314247-7ab006df-4b72-412e-8833-4775105cb9d4.png"
-            />
-            <span className="logoText">Traileo</span>
+            
+                <img
+                  alt="logo"
+                  className="logo"
+                  src="https://user-images.githubusercontent.com/33510714/146314247-7ab006df-4b72-412e-8833-4775105cb9d4.png"
+                />
+          
+            
+              <span className="logoText">Traileo</span>
+            
             
           </NavLink>
         <NavLink
