@@ -42,7 +42,7 @@ const NavBar = () => {
         </NavLink>
         <SignUpFormModal />
         <input type="checkbox" className="openSidebarMenu" id="openSidebarMenu" />
-        <label for="openSidebarMenu" className="loginLink">
+        <label htmlFor="openSidebarMenu" className="loginLink">
           Login
         </label>
 

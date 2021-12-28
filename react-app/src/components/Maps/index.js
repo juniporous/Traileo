@@ -2,12 +2,10 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api'
-import { getKey } from "../../store/key";
+// import { getKey } from "../../store/key";
 import './map.css'
-import { useSelector, useDispatch } from "react-redux";
 
 const AllHikesMap = ({hikes, hike, apiKey}) => {
-    const dispatch = useDispatch()
     
     const styles = require('./mapStyles.json')
     const [selectedCenter, setSelectedCenter] = useState(null);
