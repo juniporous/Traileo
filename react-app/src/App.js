@@ -54,7 +54,7 @@ function App() {
           <Hike />
         </Route>
         <ProtectedRoute path='/' exact={true} >
-          <Review/>
+          <Splash />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
