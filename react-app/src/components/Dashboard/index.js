@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getReviews } from '../../store/review'
 import { getPhotos } from '../../store/photo'
-import UpdateReviewForm from '../UpdateReview'
-import { useParams } from 'react-router'
-import { Modal } from '../../context/Modal'
+// import UpdateReviewForm from '../UpdateReview'
+// import { useParams } from 'react-router'
+// import { Modal } from '../../context/Modal'
 import DashboardReviews from './DashboardReviews'
 import DashboardPhotos from './DashboardPhotos'
 import SearchBar from '../SearchBar'
@@ -13,7 +13,6 @@ import './Dashboard.css'
 
 function Dashboard () {
     const dispatch = useDispatch()
-    const [showModal, setShowModal] = useState(false);
     const sessionUser = useSelector((state) => state.session.user)
     const userId = sessionUser.id
     const reviews = useSelector(state => Object.values(state.review)).reverse()
