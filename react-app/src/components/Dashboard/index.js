@@ -25,23 +25,23 @@ function Dashboard () {
 
     return (
         <>
-            <div class="dashboard-parent">
-                <div class="search-container">
+            <div className="dashboard-parent">
+                <div className="search-container">
                     <div className="searchbar">
                         <SearchBar/>
                     </div>
                     
                 </div>
-                <div class="dashboard-div2">
+                <div className="dashboard-div2">
                     <div className='dashboard-review-text'>
                        My Reviews
                     </div>
                     
                 </div>
-                <div class="dashboard-reviews"> 
+                <div className="dashboard-reviews"> 
                     <DashboardReviews reviews={reviews} userId={userId}/>
                 </div>
-                <div class="dashboard-div4">
+                <div className="dashboard-div4">
                     <div className="dashboard-photo-header">
                         <div className='photo-header-text'>
                             My Photos
@@ -49,10 +49,10 @@ function Dashboard () {
                         <div className="dashboard-photo-border"></div>
                     </div>
                 </div>
-                <div class="dashboard-photos">
+                <div className="dashboard-photos">
                 <DashboardPhotos photos={photos} userId={userId}/>
                 </div>
-                <div class="div6"> </div>
+                <div className="div6"> </div>
             </div>
         </>
     )

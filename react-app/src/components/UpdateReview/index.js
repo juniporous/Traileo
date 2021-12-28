@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateReview } from '../../store/review';
+import { deleteReview } from '../../store/review';
+import './UpdateReview.css'
 
 
-const UpdateReviewForm = ({ reviewId }) => {
+const UpdateReviewForm = ({ reviewId, setShowModal }) => {
   const review = useSelector(state => state.review[reviewId]);
   const dispatch = useDispatch();
 
@@ -24,28 +26,48 @@ const UpdateReviewForm = ({ reviewId }) => {
 
     const updatedName = await dispatch(updateReview(payload));
 
+    setShowModal(false);
   };
 
+  const handleDelete = (id) => {
+    setDescription('');
+    setRating('');
+    setShowModal(false);
+    dispatch(deleteReview(id));
+};
+
   return (
-    <>
-    <section>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Description"
-          value={description}
-          onChange={updateDescription} />
-        <input
-          type="text"
-          placeholder="Rating"
-          value={rating}
-          onChange={updateRating} />
-        <button type="submit">
+    
+    <section className='edit-review-container'>
+      <form className='edit-review-form' onSubmit={handleSubmit}>
+      <div className='edit-hike-rating'>
+      <select name='Rating' onChange={updateRating}>
+            <option>5</option>
+            <option>4</option>
+            <option>3</option>
+            <option>2</option>
+            <option>1</option>
+        </select>
+        </div>
+      <div className='edit-hike-review-field'>
+          <textarea
+            className='edit-description-text'
+            placeholder="Write description here..."
+            value={description}
+            onChange={updateDescription}
+            >
+            </textarea>
+        </div>
+        
+        <button className='edit-review-button' type="submit">
           Update Review
+        </button>
+        <button className='edit-review-button'  onClick={() => handleDelete(reviewId)}>
+            Delete Review
         </button>
       </form>
     </section>
-    </>
+  
   );
 };
 

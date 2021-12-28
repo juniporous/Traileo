@@ -24,11 +24,12 @@ const DashboardReviews = ({ reviews, userId }) => {
         <ul className='ul'>
             {reviews.map(review => ( review.user_id == userId ?
                 <li className='review-list-item' key={review.id}>
-                    <div className="delete-button">
-                        <button  onClick={() => handleDelete(review.id)}>
+                    <div className={showModal ? 'delete-button-no-modal' : 'delete-button-modal'}>
+                    
+                        {/* <button  onClick={() => handleDelete(review.id)}>
                                 Delete Review
-                        </button>
-                        <button onClick={() => {setShowModal(true); setRevId(review.id)}}>Edit Review</button>
+                        </button> */}
+                        <button className='edit-review-button' onClick={() => {setShowModal(true); setRevId(review.id)}}>Edit Review</button>
                         {showModal && (
                             <Modal onClose={() => setShowModal(false)}>
                                 <div className='modal-box'>
@@ -38,8 +39,8 @@ const DashboardReviews = ({ reviews, userId }) => {
                             </Modal>
                         )}
                     </div>
-                    <div class="card">
-                        <div class="container">
+                    <div className="card">
+                        <div className="container">
                             <div>
                                 Rating: {review.rating}
                             </div>

@@ -8,23 +8,52 @@
     padding-top: 2vh;
 }
 
-.delete-button {
+.delete-button-modal {
     float: right;
     /* padding-right: 3%;  */
     position: absolute;
     right: 6vw;
     top: 2vh;
-    z-index: 10;
+    z-index: 1;
     
+}
+
+.delete-button-no-modal {
+    float: right;
+    /* padding-right: 3%;  */
+    position: absolute;
+    right: 6vw;
+    top: 2vh;
+    z-index: 0;
+    
+}
+
+.card {
+    margin-bottom: 0px;
+}
+
+.edit-review-button {
+    color: #fff;
+    width: 100%;
+    padding: 6px 9px 6px 9px;
+    border-radius: 20px;
+    font-size: 15px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: black;
+    border: thin white solid;
 }
 
 .dashboard-desc-text {
     width: 70%;
     padding-top: 1vh;
-    padding-bottom: 1vh;
+    /* padding-bottom: 1vh; */
 }
 
 .ul > li:not(:last-child) {
+    padding-bottom: 5vh;
     border-bottom: 1px solid darkgrey;
 }
 
@@ -33,4 +62,5 @@
     margin-left: 4vw;
     padding-left: 4vw;
     margin-bottom: 1vh;
+    
 }

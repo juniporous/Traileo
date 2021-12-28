@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updatePhoto, deletePhoto } from '../../store/photo';
-
+import './UpdatePhoto.css'
 
 const UpdatePhotoForm = ({ photoId }) => {
   const photo = useSelector(state => state.photo[photoId]);
@@ -29,20 +29,30 @@ const UpdatePhotoForm = ({ photoId }) => {
 
   return (
     <>
-    <section>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Image URL"
-          value={imgUrl}
-          onChange={updateImgUrl} />
-        <button type="submit">
-          Update Photo 
+    <section className='edit-photo-container'>
+      <div className='edit-photo-form'>
+        <form  onSubmit={handleSubmit}>
+            <div className='edit-hike-photo-field'>
+                <div>
+                    <p className='edit-label'>
+                        Enter URL
+                    </p>
+                </div>
+                <input
+                type="text"
+                placeholder="Image URL"
+                value={imgUrl}
+                onChange={updateImgUrl} />
+            </div>
+            <button className='edit-photo-button' type="submit">
+                Update Photo 
+            </button>
+        </form>
+        <button className='delete-photo-button' onClick={() => handleDelete(photo.id)}>
+            Delete Photo
         </button>
-      </form>
-      <button onClick={() => handleDelete(photo.id)}>
-        Delete Photo
-      </button>
+      </div>
+      
     </section>
     </>
   );

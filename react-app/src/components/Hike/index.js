@@ -38,9 +38,6 @@ function Hike() {
     }, [key])
 
 
-    console.log('#$%^#%$^apiKey', apiKey)
-
-
 
 
 
