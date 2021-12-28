@@ -26,9 +26,9 @@ const DashboardReviews = ({ reviews, userId }) => {
                 <li className='review-list-item' key={review.id}>
                     <div className={showModal ? 'delete-button-no-modal' : 'delete-button-modal'}>
                     
-                        <button  onClick={() => handleDelete(review.id)}>
+                        {/* <button  onClick={() => handleDelete(review.id)}>
                                 Delete Review
-                        </button>
+                        </button> */}
                         <button className='edit-review-button' onClick={() => {setShowModal(true); setRevId(review.id)}}>Edit Review</button>
                         {showModal && (
                             <Modal onClose={() => setShowModal(false)}>
