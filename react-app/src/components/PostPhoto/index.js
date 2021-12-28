@@ -34,14 +34,12 @@ const PostPhotoForm = ({ userId, hikeId, setShowModal }) => {
         validateErrors.push("This photo URL is not valid. Ex: http://....png")
         return validateErrors;
     }
-    
-    
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     const errors = validate();
-    if (errors.length > 0) return setValidationErrors(errors);
+    if (errors?.length > 0) return setValidationErrors(errors);
     
     const review = await dispatch(addPhoto({
         user_id: userId,

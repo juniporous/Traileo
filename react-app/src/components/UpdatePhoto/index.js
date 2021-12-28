@@ -7,8 +7,8 @@ const UpdatePhotoForm = ({ photoId }) => {
   const photo = useSelector(state => state.photo[photoId]);
   const dispatch = useDispatch();
 
-  const [imgUrl, setImgUrl] = useState(photo?.img_url);
-
+  const [imgUrl, setImgUrl] = useState('');
+  const [validationErrors, setValidationErrors] = useState([]);
   const updateImgUrl = (e) => setImgUrl(e.target.value);
 
   const handleDelete = (id) => {
@@ -16,8 +16,37 @@ const UpdatePhotoForm = ({ photoId }) => {
     dispatch(deletePhoto(id));
  }; 
 
+ function validURL(str) {
+    var pattern = new RegExp(
+      "^(https?:\\/\\/)?" + // either http or https protcol
+        "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // the domain name
+        "((\\d{1,3}\\.){3}\\d{1,3}))" + // or ip v4 address
+        "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // the port & the path
+        "(\\?[;&a-z\\d%_.~+=-]*)?" + // the query
+        "(\\#[-a-z\\d_]*)?$",
+      "i"
+    ); // fragment locator?
+    return !!pattern.test(str);
+  }
+
+  const validate = () => {
+    const validateErrors = [];
+    if (!imgUrl) {
+        validateErrors.push("Photo url is required");
+        return validateErrors;
+    }
+    if (!validURL(imgUrl)) {
+        validateErrors.push("This photo URL is not valid. Ex: http://....png")
+        return validateErrors;
+    }
+  };
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const errors = validate();
+    if (errors?.length > 0) return setValidationErrors(errors);
+
     const payload = {
       ...photo,
       img_url: imgUrl
@@ -40,9 +69,13 @@ const UpdatePhotoForm = ({ photoId }) => {
                 </div>
                 <input
                 type="text"
+                name="photo url"
                 placeholder="Image URL"
                 value={imgUrl}
                 onChange={updateImgUrl} />
+            </div>
+            <div className='post-photo-error-container'>
+                {validationErrors.map(err => <div className='post-photo-error-text'>{err}</div>)}
             </div>
             <button className='edit-photo-button' type="submit">
                 Update Photo 

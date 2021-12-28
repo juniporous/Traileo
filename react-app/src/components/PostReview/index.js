@@ -18,14 +18,28 @@ const PostReviewForm = ({ userId, hikeId, setShowModal }) => {
 
   const validate = () => {
     const validateErrors = [];
-    if (!description) validateErrors.push("Description is required!");
-    return validateErrors;
+    if (!description) {
+      validateErrors.push("Description is required!");
+      return validateErrors;
+    } 
+    
+    if (description.length < 8) {
+      validateErrors.push("Please provide a longer description.");
+      return validateErrors;
+    } 
+
+    if (description.length > 200) {
+      validateErrors.push("Please provide a shorter description.")
+      return validateErrors;
+    }
+
+
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     const errors = validate();
-    if (errors.length > 0) return setValidationErrors(errors);
+    if (errors?.length > 0) return setValidationErrors(errors);
     
     const review = await dispatch(addReview({
         user_id: userId,

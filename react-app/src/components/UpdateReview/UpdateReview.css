@@ -40,6 +40,10 @@
     border-radius: 4px;
   }
 
+  .edit-review-error-container {
+    height: 4vh;
+  }
+
 
   div > label {
     margin-right: auto;
