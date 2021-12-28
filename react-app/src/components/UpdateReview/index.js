@@ -39,27 +39,30 @@ const UpdateReviewForm = ({ reviewId, setShowModal }) => {
   return (
     
     <section className='edit-review-container'>
-      <form className='post-review-form' onSubmit={handleSubmit}>
-      <div className='hike-review-field'>
+      <form className='edit-review-form' onSubmit={handleSubmit}>
+      <div className='edit-hike-rating'>
+      <select name='Rating' onChange={updateRating}>
+            <option>5</option>
+            <option>4</option>
+            <option>3</option>
+            <option>2</option>
+            <option>1</option>
+        </select>
+        </div>
+      <div className='edit-hike-review-field'>
           <textarea
-            className='description-text'
+            className='edit-description-text'
             placeholder="Write description here..."
             value={description}
             onChange={updateDescription}
             >
             </textarea>
         </div>
-        <div className='hike-review-field'>
-        <input
-          type="text"
-          placeholder="Rating"
-          value={rating}
-          onChange={updateRating} />
-        </div>
-        <button className='post-review-button' type="submit">
+        
+        <button className='edit-review-button' type="submit">
           Update Review
         </button>
-        <button  onClick={() => handleDelete(reviewId)}>
+        <button className='edit-review-button'  onClick={() => handleDelete(reviewId)}>
             Delete Review
         </button>
       </form>
