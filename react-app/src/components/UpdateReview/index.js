@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateReview } from '../../store/review';
+import { deleteReview } from '../../store/review';
 import './UpdateReview.css'
 
 
-const UpdateReviewForm = ({ reviewId }) => {
+const UpdateReviewForm = ({ reviewId, setShowModal }) => {
   const review = useSelector(state => state.review[reviewId]);
   const dispatch = useDispatch();
 
@@ -25,7 +26,15 @@ const UpdateReviewForm = ({ reviewId }) => {
 
     const updatedName = await dispatch(updateReview(payload));
 
+    setShowModal(false);
   };
+
+  const handleDelete = (id) => {
+    setDescription('');
+    setRating('');
+    setShowModal(false);
+    dispatch(deleteReview(id));
+};
 
   return (
     
@@ -49,6 +58,9 @@ const UpdateReviewForm = ({ reviewId }) => {
         </div>
         <button className='post-review-button' type="submit">
           Update Review
+        </button>
+        <button  onClick={() => handleDelete(reviewId)}>
+            Delete Review
         </button>
       </form>
     </section>
