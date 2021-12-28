@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updatePhoto, deletePhoto } from '../../store/photo';
 import './UpdatePhoto.css'
 
-const UpdatePhotoForm = ({ photoId }) => {
+const UpdatePhotoForm = ({ photoId, setShowModal }) => {
   const photo = useSelector(state => state.photo[photoId]);
   const dispatch = useDispatch();
 
@@ -14,6 +14,7 @@ const UpdatePhotoForm = ({ photoId }) => {
   const handleDelete = (id) => {
     setImgUrl('')
     dispatch(deletePhoto(id));
+    setShowModal(false)
  }; 
 
  function validURL(str) {
@@ -39,6 +40,8 @@ const UpdatePhotoForm = ({ photoId }) => {
         validateErrors.push("This photo URL is not valid. Ex: http://....png")
         return validateErrors;
     }
+
+    
   };
 
 
@@ -51,8 +54,9 @@ const UpdatePhotoForm = ({ photoId }) => {
       ...photo,
       img_url: imgUrl
     };
-    console.log('!!PAYLOARD!!!!', payload)
+    
     const updatedPhoto = await dispatch(updatePhoto(payload));
+    setShowModal(false)
 
   };
 
