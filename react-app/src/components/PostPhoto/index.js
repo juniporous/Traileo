@@ -11,11 +11,31 @@ const PostPhotoForm = ({ userId, hikeId, setShowModal }) => {
   const [validationErrors, setValidationErrors] = useState([]);
   const updatePhoto = (e) => setPhoto(e.target.value);
   
+  function validURL(str) {
+    var pattern = new RegExp(
+      "^(https?:\\/\\/)?" + // either http or https protcol
+        "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // the domain name
+        "((\\d{1,3}\\.){3}\\d{1,3}))" + // or ip v4 address
+        "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // the port & the path
+        "(\\?[;&a-z\\d%_.~+=-]*)?" + // the query
+        "(\\#[-a-z\\d_]*)?$",
+      "i"
+    ); // fragment locator?
+    return !!pattern.test(str);
+  }
 
   const validate = () => {
     const validateErrors = [];
-    if (!photo) validateErrors.push("Photo url is required");
-    return validateErrors;
+    if (!photo) {
+        validateErrors.push("Photo url is required");
+        return validateErrors;
+    }
+    if (!validURL(photo)) {
+        validateErrors.push("This photo URL is not valid. Ex: http://....png")
+        return validateErrors;
+    }
+    
+    
   };
 
   const handleSubmit = async (e) => {
