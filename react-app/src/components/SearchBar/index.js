@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getHikes, searchHikes } from '../../store/hike'
+import { searchHikes } from '../../store/hike'
 import { NavLink } from 'react-router-dom';
 
 import './SearchBar.css'
@@ -9,8 +9,8 @@ import './SearchBar.css'
 function SearchBar() {
     const dispatch = useDispatch()
     const homePage = window.location.href.includes('home')
-    const ulRef = useRef();
-    const inputRef = useRef();
+    // const ulRef = useRef();
+    // const inputRef = useRef();
     const [search, setSearch] = useState('')
     const hikeResult = useSelector(state => Object.values(state.hike))
     useEffect(()=>{
@@ -53,7 +53,7 @@ function SearchBar() {
                         );
                       })}
                     </ul> */}
-                    <div className ={search.length == 0 ? "hide-text" : homePage ? "homepage-dropdown" : "dropdown"}>
+                    <div className ={search.length === 0 ? "hide-text" : homePage ? "homepage-dropdown" : "dropdown"}>
                         {hikeResult.map(res => (
                             <div key={res.id} className="nav-search-container">
         

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { updateReview } from '../../store/review';
+import { useDispatch } from 'react-redux';
+// import { updateReview } from '../../store/review';
 import { addReview } from '../../store/review';
 import './PostReview.css'
 
