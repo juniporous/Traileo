@@ -20,7 +20,8 @@ const SignUpForm = () => {
     if (!email || !email.toLocaleLowerCase().match(
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     )) validateErrors.push("Please enter a valid e-mail");
-    if (!username) validateErrors.push('Please enter a valid username')
+    if (username?.length < 5 || username?.length > 20) validateErrors.push('Username must be between 5 and 20 characters.')
+    if (password?.length < 8 || password?.length > 25) validateErrors.push('Password must be between 8 and 25 characters.')
     if (!password) validateErrors.push("Please enter a valid password");
     if (password !== repeatPassword) validateErrors.push("Password and Confirm Password must match");
     return validateErrors;
@@ -118,7 +119,7 @@ const SignUpForm = () => {
               name='repeat_password'
               onChange={updateRepeatPassword}
               value={repeatPassword}
-              required={true}
+              // required={true}
               placeholder='  Write your password again.'
             ></input>
           </div>
