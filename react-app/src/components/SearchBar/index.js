@@ -15,7 +15,7 @@ function SearchBar() {
     const hikeResult = useSelector(state => Object.values(state.hike))
     useEffect(()=>{
         dispatch(searchHikes(search))
-    }, [dispatch, search])
+    }, [dispatch])
 
     window.onclick = () => {
         setSearch('')
