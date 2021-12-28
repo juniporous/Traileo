@@ -28,6 +28,10 @@
     
 }
 
+.card {
+    margin-bottom: 0px;
+}
+
 .edit-review-button {
     color: #fff;
     width: 100%;
@@ -45,11 +49,11 @@
 .dashboard-desc-text {
     width: 70%;
     padding-top: 1vh;
-    padding-bottom: 2vh;
+    /* padding-bottom: 1vh; */
 }
 
 .ul > li:not(:last-child) {
-    padding-bottom: 3vh;
+    padding-bottom: 5vh;
     border-bottom: 1px solid darkgrey;
 }
 
@@ -58,4 +62,5 @@
     margin-left: 4vw;
     padding-left: 4vw;
     margin-bottom: 1vh;
+    
 }
