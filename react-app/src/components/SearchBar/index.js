@@ -15,7 +15,9 @@ function SearchBar() {
     const hikeResult = useSelector(state => Object.values(state.hike))
     useEffect(()=>{
         dispatch(searchHikes(search))
-    }, [dispatch])
+    }, [search])
+    // Memory leak behavior tentatively fixed. Dependency array originally held dispatch/search
+    // search alone appears to fix but pending heroku push
 
     window.onclick = () => {
         setSearch('')
