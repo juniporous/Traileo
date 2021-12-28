@@ -54,6 +54,11 @@
     height: 6vh;
   }
 
+  .post-photo-error-container {
+    height: 4vh;
+    margin-top: 10px;
+}
+
   .edit-photo-button {
     color: white;
     width: 100%;
