@@ -28,25 +28,31 @@ const UpdateReviewForm = ({ reviewId }) => {
   };
 
   return (
-    <>
-    <section>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Description"
-          value={description}
-          onChange={updateDescription} />
+    
+    <section className='edit-review-container'>
+      <form className='post-review-form' onSubmit={handleSubmit}>
+      <div className='hike-review-field'>
+          <textarea
+            className='description-text'
+            placeholder="Write description here..."
+            value={description}
+            onChange={updateDescription}
+            >
+            </textarea>
+        </div>
+        <div className='hike-review-field'>
         <input
           type="text"
           placeholder="Rating"
           value={rating}
           onChange={updateRating} />
-        <button type="submit">
+        </div>
+        <button className='post-review-button' type="submit">
           Update Review
         </button>
       </form>
     </section>
-    </>
+  
   );
 };
 
