@@ -39,8 +39,8 @@ const DashboardReviews = ({ reviews, userId }) => {
                             </Modal>
                         )}
                     </div>
-                    <div class="card">
-                        <div class="container">
+                    <div className="card">
+                        <div className="container">
                             <div>
                                 Rating: {review.rating}
                             </div>

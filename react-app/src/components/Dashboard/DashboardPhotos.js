@@ -26,16 +26,16 @@ const DashboardPhotos = ({ userId, photos }) => {
         <div className='dashboard-photo-container'>
             
             {photos.map(photo => ( photo.user_id == userId ?
-                    <div className='photo-tile'>
-                    <img key={photo.id} className="photo-image" src={photo.img_url} onClick={() => {setShowModal(true); setPhotoId(photo.id)}} alt='No Image For This Spot'/>
-                    {showModal && (
-                        <Modal onClose={() => setShowModal(false)}>
-                            <div className='modal-box'>
-                                <UpdatePhotoForm photoId={photoId} setShowModal={setShowModal} />
-            
-                            </div>
-                        </Modal>
-                    )}
+                    <div key={photo.id} className='photo-tile'>
+                        <img className="photo-image" src={photo.img_url} onClick={() => {setShowModal(true); setPhotoId(photo.id)}} alt='No Image For This Spot'/>
+                        {showModal && (
+                            <Modal onClose={() => setShowModal(false)}>
+                                <div className='modal-box'>
+                                    <UpdatePhotoForm photoId={photoId} setShowModal={setShowModal} />
+                
+                                </div>
+                            </Modal>
+                        )}
                     </div>
                     
                 : null
