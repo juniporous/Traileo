@@ -8,7 +8,7 @@ import './map.css'
 const AllHikesMap = ({hikes, hike, apiKey}) => {
     
     const styles = require('./mapStyles.json')
-    const [selectedCenter, setSelectedCenter] = useState(null);
+    const [selectedCenter, setSelectedCenter] = useState();
 
     
     const { isLoaded } = useJsApiLoader({

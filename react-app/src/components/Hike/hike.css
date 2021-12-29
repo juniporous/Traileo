@@ -25,6 +25,20 @@
     zoom: 90%;
 }
 
+.hike-name {
+    display: inline-block;
+    background-color: rgba(255,255,255,0.7);
+    border: thin black solid;
+    margin: 10px;
+    padding: 2px;
+    border-radius: 3px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    position: absolute;
+    top: 0px;
+    
+}
+
 
 
 .hike-difficulty {

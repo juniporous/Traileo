@@ -33,7 +33,6 @@ function Hike() {
         }
         else {
             setApiKey(key)
-            console.log('count')
         }
     }, [key])
 
@@ -88,6 +87,9 @@ function Hike() {
           <div className="hike-parent">
             <div className="hike-container1">
                 <div>
+                    <div className='hike-name'>
+                        {hike.hike_name}
+                    </div>
                     <div className='hike-difficulty'>
                     {hike.difficulty}
                     </div>
