@@ -9,6 +9,8 @@ function SignUpFormModal() {
 
   if (isLoginOpen && showModal === true) isLoginOpen.checked = false;
 
+  
+
   return (
     <>
       <button className="signUpButton pointer" onClick={() => setShowModal(true)}>Sign Up</button>
