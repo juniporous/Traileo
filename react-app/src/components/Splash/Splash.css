@@ -92,7 +92,7 @@
 
     .github_icon {
         height: auto;
-        width: 2vw;
+        width: 4vw;
         /* background-color: white; */
         border-radius: 5px;
     }
@@ -100,7 +100,7 @@
     
     .linkedin_icon {
         height: auto;
-        width: 4vw;
+        width: 8vw;
         /* background-color: white; */
         padding: 1px;
         border-radius: 5px;
