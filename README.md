@@ -68,6 +68,14 @@ Anyone can search for a hike and go to that hike's page, but only logged in user
 
 Logged in users can edit/delete their posted media via the dashboard.
 
+<p align="center">
+  <a href="https://user-images.githubusercontent.com/33510714/147788176-13b26123-34cd-4e57-b3a2-85ffb6747010.png" target="_blank"><img src="https://user-images.githubusercontent.com/33510714/147788176-13b26123-34cd-4e57-b3a2-85ffb6747010.png"
+  /></a>
+  <br> 
+</p>
+
+
+
 
 
 # Flask React Project
@@ -92,7 +100,9 @@ This is the starter for the Flask React project.
    development environment
 4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
 
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+5. The map requires a Google Maps API key. The map will kinda/sorta work without it but will lose styling and won't render Markers. Once obtained, that key should go in the app's root .env of your cloned repo under the key name REACT_APP_MAPS_API. The Google Maps API key is routed through the application in an idiosyncratic way to allow Heroku to read it. Long story...
+
+6. Get into your pipenv, migrate your database, seed your database, and run your flask app
 
    ```bash
    pipenv shell
