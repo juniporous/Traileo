@@ -37,6 +37,22 @@ The front end utlizes React, Redux, and Google Maps. The css relies heavily on g
 - SQLAlchemy
 - Docker
 
+### Components
+
+#### User Auth
+
+Login is handled via backend login route. Python library Werkzeug is used to hash the password sent in the request and compare the value against the hashed password in the db.
+
+#### Search
+
+The search bar, a React component, is nested across several parent components in the application. 
+
+<p align="center">
+  <a href="https://user-images.githubusercontent.com/33510714/147787460-f6dc8478-2a58-40e5-88d2-b871635c6435.png" target="_blank"><img src="https://user-images.githubusercontent.com/33510714/147787460-f6dc8478-2a58-40e5-88d2-b871635c6435.png"
+  /></a>
+  <br> 
+</p>
+
 
 
 
