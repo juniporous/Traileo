@@ -12,6 +12,33 @@ Traileo is a fullstack app the lets users find hiking trails via text search or 
   <br> 
 </p>
 
+Users can visually explore the map, click on map markers of various hike, and navigate to those respective pages.
+
+## Application Architecture
+
+The backend relies on Flask as a REST api server, SQLAlchemcy as an SQL toolkit, and postgreSQL for the db. I'd considered using Express as a back-end framework, which I've used more in the past, but went with Python to get practice with a framework I'm less familiar with.
+
+The front end utlizes React, Redux, and Google Maps. The css relies heavily on grid and flexbox.
+
+### Frontend Overview
+- Javascript
+- React
+- Redux
+- HTML
+- CSS
+- Node.js
+- react-google-maps/api
+- google-maps-react
+
+### Backend Overview
+- Python
+- Flask
+- PostgreSQL
+- SQLAlchemy
+- Docker
+
+
+
 
 # Flask React Project
 
