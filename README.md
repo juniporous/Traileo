@@ -45,7 +45,7 @@ Login is handled via backend login route. Python library Werkzeug is used to has
 
 #### Search
 
-The search bar, a React component, is nested across several parent components in the application. 
+The search bar, a React component, is nested across several parent components in the application. Search results are dynamically rendered and handled by a back end route. 
 
 <p align="center">
   <a href="https://user-images.githubusercontent.com/33510714/147787460-f6dc8478-2a58-40e5-88d2-b871635c6435.png" target="_blank"><img src="https://user-images.githubusercontent.com/33510714/147787460-f6dc8478-2a58-40e5-88d2-b871635c6435.png"
@@ -53,6 +53,20 @@ The search bar, a React component, is nested across several parent components in
   <br> 
 </p>
 
+#### Hikes
+
+Anyone can search for a hike and go to that hike's page, but only logged in users can post reviews/photos. Grid css made for a tidy layout that allows for all of a hike's info/map to fit into a single view without much scrolling. The map component contains NavLink markers for all of the other hikes in the db. The map is heavily styled to match the greyed-out aesthetic of the site and set to Terrain by default.
+
+<p align="center">
+  <a href="https://user-images.githubusercontent.com/33510714/147784660-3d2f6997-0d3a-4a53-b245-e0f523ccde56.png" target="_blank"><img src="https://user-images.githubusercontent.com/33510714/147784660-3d2f6997-0d3a-4a53-b245-e0f523ccde56.png"
+  /></a>
+  <br> 
+</p>
+
+
+#### Dashboard
+
+Logged in users can edit/delete their posted media via the dashboard.
 
 
 
