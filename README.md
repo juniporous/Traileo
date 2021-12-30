@@ -7,8 +7,7 @@ Traileo is a fullstack app the lets users find hiking trails via text search or 
 
 #### Traileo at a glance
 <p align="center">
-  <a href="https://github.com/juniporous/Traileo/issues/31#issue-1091283863
-  " target="_blank"><img src="https://github.com/juniporous/Traileo/issues/31#issue-1091283863"
+  <a href="https://user-images.githubusercontent.com/33510714/147784660-3d2f6997-0d3a-4a53-b245-e0f523ccde56.png" target="_blank"><img src="https://user-images.githubusercontent.com/33510714/147784660-3d2f6997-0d3a-4a53-b245-e0f523ccde56.png"
   /></a>
   <br> 
 </p>
