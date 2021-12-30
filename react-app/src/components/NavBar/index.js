@@ -5,9 +5,12 @@ import SignUpFormModal from '../auth/SignUpFormModal';
 import LoginForm from '../auth/LoginForm';
 import { logout } from '../../store/session';
 import './NavBar.css'
+import { useState } from 'react';
+
+import { Modal } from '../../context/Modal';
+import SignUpForm from '../auth/SignUpForm';
 
 const NavBar = () => {
-
   const user = useSelector((state) => state.session.user);
 
   const dispatch = useDispatch();
@@ -15,9 +18,17 @@ const NavBar = () => {
     await dispatch(logout());
   };
 
+
+  const [showModal, setShowModal] = useState(false);
+
+  const isLoginOpen = document.querySelector("#openSidebarMenu");
+  console.log('loginopen?', isLoginOpen)
+
+  if (isLoginOpen && showModal === true) isLoginOpen.checked = false;
+
   const guestSplash = (
     <>
-      <nav>
+      <nav onClick={() => showModal ? setShowModal(false) : null} id="nav-bar">
         <div className="header"></div>
           <NavLink 
           to="/home" 
@@ -44,7 +55,12 @@ const NavBar = () => {
         >
           Home
         </NavLink>
-        <SignUpFormModal />
+        <button className="signUpButton pointer" onClick={() => setShowModal(true)}>Sign Up</button>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <SignUpForm setShowModal={setShowModal} />
+        </Modal>
+      )}
         <input type="checkbox" className="openSidebarMenu" id="openSidebarMenu" />
         <label htmlFor="openSidebarMenu" className="loginLink">
           Login

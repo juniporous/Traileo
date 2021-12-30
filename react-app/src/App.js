@@ -11,6 +11,7 @@ import Review from './components/Reviews';
 import Splash from './components/Splash';
 import Hike from './components/Hike';
 import Dashboard from './components/Dashboard';
+import PageNotFound from './components/PageNotFound';
 import { authenticate } from './store/session';
 
 function App() {
@@ -56,6 +57,9 @@ function App() {
         <ProtectedRoute path='/' exact={true} >
           <Splash />
         </ProtectedRoute>
+        <Route>
+          <PageNotFound/>
+        </Route>
       </Switch>
     </BrowserRouter>
   );
