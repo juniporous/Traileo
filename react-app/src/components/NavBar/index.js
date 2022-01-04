@@ -28,9 +28,10 @@ const NavBar = () => {
 
   const guestSplash = (
     <>
-      <nav onClick={() => showModal ? setShowModal(false) : null} id="nav-bar">
-        <div className="header"></div>
-          <NavLink 
+      <nav id="nav-bar">
+        <div className="header" onClick={() => showModal ? setShowModal(false) : null}></div>
+          <NavLink
+          onClick={() => showModal ? setShowModal(false) : null}
           to="/home" 
           exact={true} 
           // activeClassName="active"
@@ -48,6 +49,7 @@ const NavBar = () => {
             
           </NavLink>
         <NavLink
+          onClick={() => showModal ? setShowModal(false) : null}
           to="/home"
           exact={true}
           // activeClassName="active"
@@ -62,7 +64,7 @@ const NavBar = () => {
         </Modal>
       )}
         <input type="checkbox" className="openSidebarMenu" id="openSidebarMenu" />
-        <label htmlFor="openSidebarMenu" className="loginLink">
+        <label onClick={() => showModal ? setShowModal(false) : null} htmlFor="openSidebarMenu" className="loginLink">
           Login
         </label>
 
