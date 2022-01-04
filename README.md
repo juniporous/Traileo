@@ -1,3 +1,16 @@
+# Traileo
+* By Anthony Fahden - [Visit Traileo] (https://traileo.herokuapp.com/)*
+
+## Traileo at a glance
+
+Traileo is a fullstack app the lets users find hiking trails via text search or Google Maps, and share reviews and photos of these hikes.
+
+#### Traileo at a glance
+![Traileo at a glance] (/README-resources/readme-1.gif)
+
+
+
+
 # Flask React Project
 
 This is the starter for the Flask React project.
