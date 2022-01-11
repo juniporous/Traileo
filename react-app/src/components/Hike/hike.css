@@ -114,6 +114,12 @@
     border: thin white solid;
 }
 
+.cond-border {
+    width: inherit;
+    border: thin black solid;
+    
+}
+
 .hike-post-button-no-modal {
     color: #fff;
     width: 8%;
