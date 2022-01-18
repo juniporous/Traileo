@@ -19,10 +19,15 @@ function Hike() {
     const dispatch = useDispatch()
 
     const key = useSelector(state => Object.values(state.key))[0]?.key
-    const [apiKey, setApiKey] = useState();
+    console.log('!#!#@', key)
 
-   
 
+    useEffect(() => {
+        dispatch(getKey())
+    }, [])
+
+
+  
 
 
 
