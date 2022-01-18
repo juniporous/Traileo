@@ -19,22 +19,9 @@ function Hike() {
     const dispatch = useDispatch()
 
     const key = useSelector(state => Object.values(state.key))[0]?.key
-    
     const [apiKey, setApiKey] = useState();
 
-    useEffect(() => {
-        dispatch(getKey())
-    }, [])
-
-    
-    useEffect(() => {
-        if (!key || apiKey === key) {
-            return
-        }
-        else {
-            setApiKey(key)
-        }
-    }, [key])
+   
 
 
 
@@ -105,7 +92,9 @@ function Hike() {
                 </div>
             </div>
             <div className="hike-div3">
-                <button className='hike-toggle-button' onClick={seeReviews}>Reviews</button>
+                <button className='hike-toggle-button' onClick={seeReviews}>
+                    Reviews
+                </button>
                 <div className='hike-toggle-divider'>|</div>
                 <button className='hike-toggle-button' onClick={seePhotos}>Photos</button>
             </div>
@@ -124,8 +113,8 @@ function Hike() {
                 {showReviews ? <HikeReview reviews={reviews} hikeId={hikeId}/> : <HikePhotos hikeId={hikeId} photos={photos}/>}
             </div>
             <div className="hike-div5">
-                {apiKey ? 
-                <AllHikesMap hikes={hikeResult} hike={hike} apiKey={apiKey}/> :
+                {key ? 
+                <AllHikesMap hikes={hikeResult} hike={hike} apiKey={key}/> :
                 null
                 }
             </div>
