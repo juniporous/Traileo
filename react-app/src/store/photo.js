@@ -54,8 +54,8 @@ export const deletePhoto = id => async dispatch => {
 export const addPhoto = photo => async dispatch => {
     const response = await fetch('/api/photos/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(photo),
+        // headers: { 'Content-Type': 'application/json' },
+        body: photo,
     });
     if (response.ok) {
         const data = await response.json();

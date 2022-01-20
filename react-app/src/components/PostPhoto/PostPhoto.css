@@ -16,6 +16,7 @@
 
 .post-photo-text {
     padding-left: 10px;
+    display: none
 }
 
 .post-photo-error-container {
@@ -41,3 +42,7 @@
     border: thin white solid;
     width: 70%;
   }
+
+.upload {
+
+}

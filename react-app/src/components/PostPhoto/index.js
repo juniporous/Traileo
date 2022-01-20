@@ -9,7 +9,9 @@ const PostPhotoForm = ({ userId, hikeId, setShowModal }) => {
 
   const [photo, setPhoto] = useState('');
   const [validationErrors, setValidationErrors] = useState([]);
-  const updatePhoto = (e) => setPhoto(e.target.value);
+
+
+  const updatePhoto = (e) => setPhoto(e.target.files[0]);
   
   function validURL(str) {
     var pattern = new RegExp(
@@ -38,14 +40,16 @@ const PostPhotoForm = ({ userId, hikeId, setShowModal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const errors = validate();
-    if (errors?.length > 0) return setValidationErrors(errors);
+    // const errors = validate();
+    // if (errors?.length > 0) return setValidationErrors(errors);
     
-    const review = await dispatch(addPhoto({
-        user_id: userId,
-        hike_id: hikeId,
-        img_url: photo
-    }));
+    const formData = new FormData()
+
+    formData.append("user_id", userId)
+    formData.append("hike_id", hikeId)
+    formData.append("img_url", photo)
+    console.log("@#@$#% console", formData.get("user_id"))
+    const review = await dispatch(addPhoto(formData));
 
     setShowModal(false)
 };
@@ -55,12 +59,15 @@ const PostPhotoForm = ({ userId, hikeId, setShowModal }) => {
     <div>
       <form className='post-photo-form'>
         <div className='post-photo-field'>
+            <label htmlFor="uploadPhoto" className="upload">PHOTO UPLOAD</label>
             <input
             className='post-photo-text'
-            type="text"
+            type="file"
+            accept=".jpg, .jpeg, .png, .gif"
             name="photo url"
-            placeholder="Image Url"
-            value={photo}
+            id="uploadPhoto"
+            // placeholder="Image Url"
+            // value={photo}
             onChange={updatePhoto} />
         </div>
         <div className='post-photo-error-container'>
