@@ -11,6 +11,7 @@
     padding-bottom: 10px; /* 32:18, i.e. 16:9 */
     margin-bottom: 10px; /* (100-32*3)/2 */
     object-fit: cover;
+    cursor: pointer;
 }
 
 .photo-image {

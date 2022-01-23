@@ -11,11 +11,15 @@
   .post-photo-field {
     display: flex;
     flex-direction: column;
-    margin: 4vh 20px 10px 40px;
+    margin: 2vh 2% 0 20%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .post-photo-text {
     padding-left: 10px;
+    display: none
 }
 
 .post-photo-error-container {
@@ -31,7 +35,7 @@
     color: white;
     width: 100%;
     padding: 10px;
-    margin-top: 50px;
+    margin-top: 30px;
     border-radius: 20px;
     font-size: 15px;
     border: none;
@@ -41,3 +45,80 @@
     border: thin white solid;
     width: 70%;
   }
+
+.upload {
+    color: white;
+    width: 100%;
+    padding: 10px;
+    margin-top: 50px;
+    border-radius: 20px;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: black;
+    border: thin white solid;
+    width: 70%;
+}
+
+.loading-div{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.loading {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 50%;
+}
+
+  .one {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.0s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0.0s;
+}
+
+.two {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.2s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0.2s;
+}
+
+.three {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.3s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0.3s;
+}
+
+@-webkit-keyframes dot {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes dot {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+  
