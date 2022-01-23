@@ -78,7 +78,15 @@ const PostPhotoForm = ({ userId, hikeId, setShowModal }) => {
         {(photo) && <button className='post-photo-button' onClick={handleSubmit}>
           Upload Photo
         </button>}
-        {(imageLoading) && <p className='loading-prompt'>Loading...</p>}
+        {(imageLoading) && 
+          <div className='loading-div'>
+          <p className='loading'>  Loading</p>
+          <p className='one'>.</p>
+          <p className='two'>.</p>
+          <p className='three'>.</p>
+        </div>
+        }
+        
       </form>
     </div>
     
