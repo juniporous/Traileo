@@ -61,7 +61,7 @@ const PostPhotoForm = ({ userId, hikeId, setShowModal }) => {
     <div>
       <form className='post-photo-form'>
         <div className='post-photo-field'>
-            <label htmlFor="uploadPhoto" className="upload">PHOTO UPLOAD</label>
+            <label htmlFor="uploadPhoto" className="upload">Click to Select File...</label>
             <input
             className='post-photo-text'
             type="file"
@@ -75,10 +75,10 @@ const PostPhotoForm = ({ userId, hikeId, setShowModal }) => {
         <div className='post-photo-error-container'>
             {validationErrors.map(err => <div className='post-photo-error-text'>{err}</div>)}
         </div>
-        <button className='post-photo-button' onClick={handleSubmit}>
-          Post Photo
-        </button>
-        {(imageLoading)&& <p className='loading-prompt'>Loading...</p>}
+        {(photo) && <button className='post-photo-button' onClick={handleSubmit}>
+          Upload Photo
+        </button>}
+        {(imageLoading) && <p className='loading-prompt'>Loading...</p>}
       </form>
     </div>
     
