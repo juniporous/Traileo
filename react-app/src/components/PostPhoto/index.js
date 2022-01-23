@@ -8,6 +8,7 @@ const PostPhotoForm = ({ userId, hikeId, setShowModal }) => {
   const dispatch = useDispatch();
 
   const [photo, setPhoto] = useState('');
+  const [imageLoading, setImageLoading] = useState(false);
   const [validationErrors, setValidationErrors] = useState([]);
 
 
@@ -49,6 +50,7 @@ const PostPhotoForm = ({ userId, hikeId, setShowModal }) => {
     formData.append("hike_id", hikeId)
     formData.append("img_url", photo)
     console.log("@#@$#% console", formData.get("user_id"))
+    setImageLoading(true);
     const review = await dispatch(addPhoto(formData));
 
     setShowModal(false)
@@ -76,6 +78,7 @@ const PostPhotoForm = ({ userId, hikeId, setShowModal }) => {
         <button className='post-photo-button' onClick={handleSubmit}>
           Post Photo
         </button>
+        {(imageLoading)&& <p className='loading-prompt'>Loading...</p>}
       </form>
     </div>
     
