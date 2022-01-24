@@ -5,22 +5,22 @@ import './UpdatePhoto.css'
 
 const UpdatePhotoForm = ({ photoId, setShowModal }) => {
   const photo = useSelector(state => state.photo[photoId]);
+  const [imageLoading, setImageLoading] = useState(false);
   const dispatch = useDispatch();
 
   const [imgUrl, setImgUrl] = useState('');
   const [validationErrors, setValidationErrors] = useState([]);
   const updateImgUrl = async (e) => {
-    setImgUrl(e.target.files[0]);
-    // console.log('target file', e.target.files[0])
-    // console.log('imgUrl cons', imgUrl)
+   
 
     const formData = new FormData()
-
+    setImageLoading(true) 
     formData.append("img_url", e.target.files[0])
     formData.append("user_id", photo.user_id)
     formData.append("hike_id", photo.hike_id)
     formData.append("id", photo.id)
-    console.log('formData', formData.get("img_url"))
+    
+    console.log('imageLoading tf', imageLoading)
     const updatedPhoto = await dispatch(updatePhoto(formData));
     setShowModal(false)
   }
@@ -110,7 +110,25 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
             {/* <button className='edit-photo-button' onClick={handleSubmit}>
                 Update Photo 
             </button> */}
+            {(imageLoading) && 
+          <div className='edit-loading-div'>
+          <p className='loading-edit'>  Loading</p>
+          <p className='one-edit'>.</p>
+          <p className='two-edit'>.</p>
+          <p className='three-edit'>.</p>
+        </div>
+        }
         </form>
+        
+        
+        
+       
+          {/* <div className='loading-div'>
+          <p className='loading'>  Loading</p>
+          <p className='one'>.</p>
+          <p className='two'>.</p>
+          <p className='three'>.</p>
+        </div> */}
         <button className='delete-photo-button' onClick={() => handleDelete(photo.id)}>
             Delete Photo
         </button>
