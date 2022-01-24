@@ -9,7 +9,7 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
 
   const [imgUrl, setImgUrl] = useState('');
   const [validationErrors, setValidationErrors] = useState([]);
-  const updateImgUrl = (e) => setImgUrl(e.target.value);
+  const updateImgUrl = (e) => setImgUrl(e.target.files[0]);
 
   const handleDelete = (id) => {
     setImgUrl('')
@@ -47,15 +47,18 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const errors = validate();
-    if (errors?.length > 0) return setValidationErrors(errors);
+    // const errors = validate();
+    // if (errors?.length > 0) return setValidationErrors(errors);
 
-    const payload = {
-      ...photo,
-      img_url: imgUrl
-    };
+    const formData = new FormData()
+
+    formData.append("img_url", imgUrl)
+    // const payload = {
+    //   ...photo,
+    //   img_url: imgUrl
+    // };
     
-    const updatedPhoto = await dispatch(updatePhoto(payload));
+    const updatedPhoto = await dispatch(updatePhoto(formData));
     setShowModal(false)
 
   };
@@ -64,24 +67,26 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
     <>
     <section className='edit-photo-container'>
       <div className='edit-photo-form'>
-        <form  onSubmit={handleSubmit}>
+        <form>
             <div className='edit-hike-photo-field'>
-                <div>
+                {/* <div>
                     <p className='edit-label'>
                         Enter URL
                     </p>
-                </div>
+                </div> */}
+                <label htmlFor="uploadPhoto">Click to Select File...</label>
                 <input
-                type="text"
+                className='post-photo-text'
+                type="file"
+                accept=".jpg, .jpeg, .png, .gif"
                 name="photo url"
-                placeholder="Image URL"
-                value={imgUrl}
+                id="uploadPhoto"
                 onChange={updateImgUrl} />
             </div>
-            <div className='post-photo-error-container'>
+            {/* <div className='post-photo-error-container'>
                 {validationErrors.map(err => <div className='post-photo-error-text'>{err}</div>)}
-            </div>
-            <button className='edit-photo-button' type="submit">
+            </div> */}
+            <button className='edit-photo-button' onClick={handleSubmit}>
                 Update Photo 
             </button>
         </form>

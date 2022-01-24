@@ -67,10 +67,10 @@ export const addPhoto = photo => async dispatch => {
 export const updatePhoto = data => async (dispatch) => {
     const response = await fetch(`/api/photos/${data.id}`, {
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
+      // headers: {
+      //   'Content-Type': 'application/json'
+      // },
+      body: data
     });
 
 
