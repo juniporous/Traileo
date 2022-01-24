@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, session, request
+from flask_login import current_user
 from app.models import Photo, db
 from app.forms import CreatePhotoForm, UpdatePhotoForm
 from app.aws import upload_file_to_s3, get_unique_filename, allowed_file
@@ -34,7 +35,7 @@ def delete_review(id):
 def create_review():
     form = CreatePhotoForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    # insert here
+    
     if "img_url" not in form.data:
         return {"errors": "image required"}, 400
 
@@ -71,10 +72,32 @@ def create_review():
 @photo_routes.route('/<int:id>', methods=['PUT'])
 def update_photo(id):
     form = UpdatePhotoForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     photo = Photo.query.get(id)
+
+    if "img_url" not in form.data:
+        return {"errors": "image required"}, 400
+
+    image = form.data["img_url"]
+
+    if not allowed_file(image.filename):
+        return {"errors": "file type not permitted"}, 400
+    
+    image.filename = get_unique_filename(image.filename)
+
+    upload = upload_file_to_s3(image)
+
+    if "url" not in upload:
+        # if the dictionary doesn't have a url key
+        # it means that there was an error when we tried to upload
+        # so we send back that error message
+        return upload, 400
+
+    url = upload["url"]
     if not photo:
         return jsonify({'message': f'Photo Id {id} Cannot Be Found'}), 404
 
-    photo.img_url = form.data['img_url']
-    db.session.commit()
-    return photo.to_dict()
+    if form.validate_on_submit():
+        photo.img_url = url
+        db.session.commit()
+        return photo.to_dict()

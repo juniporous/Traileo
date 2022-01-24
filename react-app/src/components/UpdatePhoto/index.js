@@ -5,11 +5,25 @@ import './UpdatePhoto.css'
 
 const UpdatePhotoForm = ({ photoId, setShowModal }) => {
   const photo = useSelector(state => state.photo[photoId]);
+  const [imageLoading, setImageLoading] = useState(false);
   const dispatch = useDispatch();
 
   const [imgUrl, setImgUrl] = useState('');
   const [validationErrors, setValidationErrors] = useState([]);
-  const updateImgUrl = (e) => setImgUrl(e.target.value);
+  const updateImgUrl = async (e) => {
+   
+
+    const formData = new FormData()
+    setImageLoading(true) 
+    formData.append("img_url", e.target.files[0])
+    formData.append("user_id", photo.user_id)
+    formData.append("hike_id", photo.hike_id)
+    formData.append("id", photo.id)
+    
+    console.log('imageLoading tf', imageLoading)
+    const updatedPhoto = await dispatch(updatePhoto(formData));
+    setShowModal(false)
+  }
 
   const handleDelete = (id) => {
     setImgUrl('')
@@ -47,15 +61,23 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const errors = validate();
-    if (errors?.length > 0) return setValidationErrors(errors);
+    // const errors = validate();
+    // if (errors?.length > 0) return setValidationErrors(errors);
 
-    const payload = {
-      ...photo,
-      img_url: imgUrl
-    };
+    const formData = new FormData()
+
+    formData.append("img_url", imgUrl)
+    formData.append("user_id", photo.user_id)
+    formData.append("hike_id", photo.hike_id)
+    formData.append("id", photo.id)
+    console.log('formData cons', formData.get("img_url"))
+    console.log('second cons imgUrl', imgUrl)
+    // const payload = {
+    //   ...photo,
+    //   img_url: imgUrl
+    // };
     
-    const updatedPhoto = await dispatch(updatePhoto(payload));
+    const updatedPhoto = await dispatch(updatePhoto(formData));
     setShowModal(false)
 
   };
@@ -64,27 +86,49 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
     <>
     <section className='edit-photo-container'>
       <div className='edit-photo-form'>
-        <form  onSubmit={handleSubmit}>
+        <form>
             <div className='edit-hike-photo-field'>
-                <div>
+                {/* <div>
                     <p className='edit-label'>
                         Enter URL
                     </p>
+                </div> */}
+                <div className='label-div'>
+                    <label className="edit-photo-button" htmlFor="uploadPhoto">Click to Select File...</label>
                 </div>
                 <input
-                type="text"
+                className='post-photo-text'
+                type="file"
+                accept=".jpg, .jpeg, .png, .gif"
                 name="photo url"
-                placeholder="Image URL"
-                value={imgUrl}
+                id="uploadPhoto"
                 onChange={updateImgUrl} />
             </div>
-            <div className='post-photo-error-container'>
+            {/* <div className='post-photo-error-container'>
                 {validationErrors.map(err => <div className='post-photo-error-text'>{err}</div>)}
-            </div>
-            <button className='edit-photo-button' type="submit">
+            </div> */}
+            {/* <button className='edit-photo-button' onClick={handleSubmit}>
                 Update Photo 
-            </button>
+            </button> */}
+            {(imageLoading) && 
+          <div className='edit-loading-div'>
+          <p className='loading-edit'>  Loading</p>
+          <p className='one-edit'>.</p>
+          <p className='two-edit'>.</p>
+          <p className='three-edit'>.</p>
+        </div>
+        }
         </form>
+        
+        
+        
+       
+          {/* <div className='loading-div'>
+          <p className='loading'>  Loading</p>
+          <p className='one'>.</p>
+          <p className='two'>.</p>
+          <p className='three'>.</p>
+        </div> */}
         <button className='delete-photo-button' onClick={() => handleDelete(photo.id)}>
             Delete Photo
         </button>

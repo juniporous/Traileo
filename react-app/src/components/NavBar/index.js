@@ -6,20 +6,26 @@ import LoginForm from '../auth/LoginForm';
 import { logout } from '../../store/session';
 import './NavBar.css'
 import { useState } from 'react';
+import { useHistory } from 'react-router';
 
 import { Modal } from '../../context/Modal';
 import SignUpForm from '../auth/SignUpForm';
 
 const NavBar = () => {
+  
   const user = useSelector((state) => state.session.user);
-
+  
   const dispatch = useDispatch();
-  const onLogout = async (e) => {
-    await dispatch(logout());
-  };
+  
 
 
   const [showModal, setShowModal] = useState(false);
+
+  const onLogout = async (e) => {
+    
+    await dispatch(logout());
+    setShowModal(false)
+  };
 
   const isLoginOpen = document.querySelector("#openSidebarMenu");
   console.log('loginopen?', isLoginOpen)

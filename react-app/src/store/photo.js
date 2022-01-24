@@ -65,12 +65,14 @@ export const addPhoto = photo => async dispatch => {
 
 
 export const updatePhoto = data => async (dispatch) => {
-    const response = await fetch(`/api/photos/${data.id}`, {
+  const photoId = data.get('id');
+  console.log(photoId)  
+  const response = await fetch(`/api/photos/${photoId}`, {
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
+      // headers: {
+      //   'Content-Type': 'application/json'
+      // },
+      body: data
     });
 
 
@@ -101,8 +103,9 @@ switch (action.type) {
       newState = { ...state, [action.payload.id]: action.payload};
       return newState;
     case UPDATE_ONE_PHOTO:
-      newState = { ...state, [action.payload.id]: action.payload }
-      return newState;
+      // newState = { ...state, [action.payload.id]: action.payload }
+      // return newState;
+      return { ...state, [action.payload.id]: action.payload } 
     default:
       return state;
     }
