@@ -27,11 +27,14 @@
     font-size: smaller;
 }
 
+
+
 .edit-hike-photo-field {
     display: flex;
     flex-direction: column;
     margin: 10px 0 0 10px;
     height: 10vh;
+    align-items: center;
 }
 
 .edit-description-text {
@@ -59,11 +62,16 @@
     margin-top: 10px;
 }
 
+.label-div {
+  width: 100%;
+  margin-top: 50px;
+}
+
   .edit-photo-button {
     color: white;
-    width: 100%;
-    padding: 10px;
-    margin-top: 30px;
+    width: 300px;
+    padding: 10px 110px 10px 110px;
+    margin-top: 10px;
     border-radius: 20px;
     font-size: 15px;
     border: none;
@@ -75,9 +83,9 @@
 
   .delete-photo-button {
     color: white;
-    width: 100%;
+    width: 350px;
     padding: 10px;
-    margin-top: 30px;
+    margin-top: 50px;
     border-radius: 20px;
     font-size: 15px;
     border: none;
@@ -85,4 +93,6 @@
     cursor: pointer;
     background-color: black;
     border: thin white solid;
+    position: absolute;
+    left: 4vw;
   }

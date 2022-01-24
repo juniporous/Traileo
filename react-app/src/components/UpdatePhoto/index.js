@@ -11,8 +11,8 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
   const [validationErrors, setValidationErrors] = useState([]);
   const updateImgUrl = async (e) => {
     setImgUrl(e.target.files[0]);
-    console.log('target file', e.target.files[0])
-    console.log('imgUrl cons', imgUrl)
+    // console.log('target file', e.target.files[0])
+    // console.log('imgUrl cons', imgUrl)
 
     const formData = new FormData()
 
@@ -67,9 +67,9 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
     const formData = new FormData()
 
     formData.append("img_url", imgUrl)
-    // formData.append("user_id", photo.user_id)
-    // formData.append("hike_id", photo.hike_id)
-    // formData.append("id", photo.id)
+    formData.append("user_id", photo.user_id)
+    formData.append("hike_id", photo.hike_id)
+    formData.append("id", photo.id)
     console.log('formData cons', formData.get("img_url"))
     console.log('second cons imgUrl', imgUrl)
     // const payload = {
@@ -93,7 +93,9 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
                         Enter URL
                     </p>
                 </div> */}
-                <label htmlFor="uploadPhoto">Click to Select File...</label>
+                <div className='label-div'>
+                    <label className="edit-photo-button" htmlFor="uploadPhoto">Click to Select File...</label>
+                </div>
                 <input
                 className='post-photo-text'
                 type="file"
@@ -105,13 +107,13 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
             {/* <div className='post-photo-error-container'>
                 {validationErrors.map(err => <div className='post-photo-error-text'>{err}</div>)}
             </div> */}
-            <button className='edit-photo-button' onClick={handleSubmit}>
+            {/* <button className='edit-photo-button' onClick={handleSubmit}>
                 Update Photo 
-            </button>
+            </button> */}
         </form>
-        {/* <button className='delete-photo-button' onClick={() => handleDelete(photo.id)}>
+        <button className='delete-photo-button' onClick={() => handleDelete(photo.id)}>
             Delete Photo
-        </button> */}
+        </button>
       </div>
       
     </section>
