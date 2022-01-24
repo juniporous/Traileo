@@ -2,13 +2,19 @@ import React, { useState } from "react";
 import { Modal } from "../../../context/Modal";
 import SignUpForm from "../SignUpForm";
 
+
+
 function SignUpFormModal() {
+
+  
+
   const [showModal, setShowModal] = useState(false);
 
   const isLoginOpen = document.querySelector("#openSidebarMenu");
 
   if (isLoginOpen && showModal === true) isLoginOpen.checked = false;
 
+  
   
 
   return (
