@@ -5,4 +5,4 @@ from wtforms.validators import DataRequired, ValidationError
 
 
 class UpdatePhotoForm(FlaskForm):
-    img_url = FileField('description', validators=[DataRequired()])
+    img_url = FileField('img_url', validators=[DataRequired()])

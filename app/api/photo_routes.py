@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, session, request
+from flask_login import current_user
 from app.models import Photo, db
 from app.forms import CreatePhotoForm, UpdatePhotoForm
 from app.aws import upload_file_to_s3, get_unique_filename, allowed_file
@@ -71,7 +72,7 @@ def create_review():
 @photo_routes.route('/<int:id>', methods=['PUT'])
 def update_photo(id):
     form = UpdatePhotoForm()
-    
+    form['csrf_token'].data = request.cookies['csrf_token']
     photo = Photo.query.get(id)
 
     if "img_url" not in form.data:
@@ -96,6 +97,7 @@ def update_photo(id):
     if not photo:
         return jsonify({'message': f'Photo Id {id} Cannot Be Found'}), 404
 
-    photo.img_url = url
-    db.session.commit()
-    return photo.to_dict()
+    if form.validate_on_submit():
+        photo.img_url = url
+        db.session.commit()
+        return photo.to_dict()

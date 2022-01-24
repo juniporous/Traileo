@@ -9,7 +9,10 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
 
   const [imgUrl, setImgUrl] = useState('');
   const [validationErrors, setValidationErrors] = useState([]);
-  const updateImgUrl = (e) => setImgUrl(e.target.files[0]);
+  const updateImgUrl = (e) => {
+    setImgUrl(e.target.files[0]);
+    console.log('target file', e.target.files[0])
+  }
 
   const handleDelete = (id) => {
     setImgUrl('')
@@ -53,6 +56,7 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
     const formData = new FormData()
 
     formData.append("img_url", imgUrl)
+    console.log('??#$#$', formData.get('img_url'))
     // const payload = {
     //   ...photo,
     //   img_url: imgUrl
@@ -90,9 +94,9 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
                 Update Photo 
             </button>
         </form>
-        <button className='delete-photo-button' onClick={() => handleDelete(photo.id)}>
+        {/* <button className='delete-photo-button' onClick={() => handleDelete(photo.id)}>
             Delete Photo
-        </button>
+        </button> */}
       </div>
       
     </section>

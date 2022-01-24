@@ -101,8 +101,9 @@ switch (action.type) {
       newState = { ...state, [action.payload.id]: action.payload};
       return newState;
     case UPDATE_ONE_PHOTO:
-      newState = { ...state, [action.payload.id]: action.payload }
-      return newState;
+      // newState = { ...state, [action.payload.id]: action.payload }
+      // return newState;
+      return { ...state, [action.payload.id]: action.payload } 
     default:
       return state;
     }

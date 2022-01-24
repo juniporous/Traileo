@@ -12,7 +12,9 @@ const PostPhotoForm = ({ userId, hikeId, setShowModal }) => {
   const [validationErrors, setValidationErrors] = useState([]);
 
 
-  const updatePhoto = (e) => setPhoto(e.target.files[0]);
+  const updatePhoto = (e) => {
+    setPhoto(e.target.files[0]);
+  }
   
   function validURL(str) {
     var pattern = new RegExp(
@@ -49,7 +51,7 @@ const PostPhotoForm = ({ userId, hikeId, setShowModal }) => {
     formData.append("user_id", userId)
     formData.append("hike_id", hikeId)
     formData.append("img_url", photo)
-    console.log("@#@$#% console", formData.get("user_id"))
+    console.log("@#@$#% console", formData.get("img_url"))
     setImageLoading(true);
     const review = await dispatch(addPhoto(formData));
 
