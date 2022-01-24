@@ -9,9 +9,20 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
 
   const [imgUrl, setImgUrl] = useState('');
   const [validationErrors, setValidationErrors] = useState([]);
-  const updateImgUrl = (e) => {
+  const updateImgUrl = async (e) => {
     setImgUrl(e.target.files[0]);
     console.log('target file', e.target.files[0])
+    console.log('imgUrl cons', imgUrl)
+
+    const formData = new FormData()
+
+    formData.append("img_url", e.target.files[0])
+    formData.append("user_id", photo.user_id)
+    formData.append("hike_id", photo.hike_id)
+    formData.append("id", photo.id)
+    console.log('formData', formData.get("img_url"))
+    const updatedPhoto = await dispatch(updatePhoto(formData));
+    setShowModal(false)
   }
 
   const handleDelete = (id) => {
@@ -56,7 +67,11 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
     const formData = new FormData()
 
     formData.append("img_url", imgUrl)
-    console.log('??#$#$', formData.get('img_url'))
+    // formData.append("user_id", photo.user_id)
+    // formData.append("hike_id", photo.hike_id)
+    // formData.append("id", photo.id)
+    console.log('formData cons', formData.get("img_url"))
+    console.log('second cons imgUrl', imgUrl)
     // const payload = {
     //   ...photo,
     //   img_url: imgUrl
