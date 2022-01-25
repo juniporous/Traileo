@@ -19,10 +19,9 @@ const UpdatePhotoForm = ({ photoId, setShowModal, setImageLoading, imageLoading 
     formData.append("hike_id", photo.hike_id)
     formData.append("id", photo.id)
     setImageLoading(true)
-    const no = () => document.getElementById("loading").className = 'reveal'
     const updatedPhoto = await dispatch(updatePhoto(formData));
     setShowModal(false)
-    console.log('imageLoading tf', imgUrl)
+    setImageLoading(false)
   }
 
   
@@ -61,28 +60,28 @@ const UpdatePhotoForm = ({ photoId, setShowModal, setImageLoading, imageLoading 
   };
 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // const errors = validate();
-    // if (errors?.length > 0) return setValidationErrors(errors);
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   // const errors = validate();
+  //   // if (errors?.length > 0) return setValidationErrors(errors);
 
-    const formData = new FormData()
+  //   const formData = new FormData()
 
-    formData.append("img_url", imgUrl)
-    formData.append("user_id", photo.user_id)
-    formData.append("hike_id", photo.hike_id)
-    formData.append("id", photo.id)
-    console.log('formData cons', formData.get("img_url"))
-    console.log('second cons imgUrl', imgUrl)
-    // const payload = {
-    //   ...photo,
-    //   img_url: imgUrl
-    // };
+  //   formData.append("img_url", imgUrl)
+  //   formData.append("user_id", photo.user_id)
+  //   formData.append("hike_id", photo.hike_id)
+  //   formData.append("id", photo.id)
+  //   console.log('formData cons', formData.get("img_url"))
+  //   console.log('second cons imgUrl', imgUrl)
+  //   // const payload = {
+  //   //   ...photo,
+  //   //   img_url: imgUrl
+  //   // };
     
-    const updatedPhoto = await dispatch(updatePhoto(formData));
-    setShowModal(false)
+  //   const updatedPhoto = await dispatch(updatePhoto(formData));
+  //   setShowModal(false)
 
-  };
+  // };
 
   return (
     <>
@@ -90,11 +89,7 @@ const UpdatePhotoForm = ({ photoId, setShowModal, setImageLoading, imageLoading 
       <div className='edit-photo-form'>
         <form>
             <div className='edit-hike-photo-field'>
-                {/* <div>
-                    <p className='edit-label'>
-                        Enter URL
-                    </p>
-                </div> */}
+                
                 <div className='label-div'>
                     <label className="edit-photo-button" htmlFor="uploadPhoto">Click to Select File...</label>
                     <div id="loading" className="hide"> loading</div>
@@ -122,16 +117,6 @@ const UpdatePhotoForm = ({ photoId, setShowModal, setImageLoading, imageLoading 
         </div>
         }
         </form>
-        
-        
-        
-       
-          {/* <div className='loading-div'>
-          <p className='loading'>  Loading</p>
-          <p className='one'>.</p>
-          <p className='two'>.</p>
-          <p className='three'>.</p>
-        </div> */}
         <button className='delete-photo-button' onClick={() => handleDelete(photo.id)}>
             Delete Photo
         </button>
