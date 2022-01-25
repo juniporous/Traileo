@@ -5,24 +5,26 @@ import './UpdatePhoto.css'
 
 const UpdatePhotoForm = ({ photoId, setShowModal }) => {
   const photo = useSelector(state => state.photo[photoId]);
-  const [imageLoading, setImageLoading] = useState(false);
+  
   const dispatch = useDispatch();
 
   const [imgUrl, setImgUrl] = useState('');
   const [validationErrors, setValidationErrors] = useState([]);
-  const updateImgUrl = async (e) => {
-   
+  const [imageLoading, setImageLoading] = useState('');
 
+  const updateImgUrl = async (e) => {
     const formData = new FormData()
-    setImageLoading(true) 
+    
     formData.append("img_url", e.target.files[0])
     formData.append("user_id", photo.user_id)
     formData.append("hike_id", photo.hike_id)
     formData.append("id", photo.id)
+    setImageLoading('abc')
+
     
-    console.log('imageLoading tf', imageLoading)
     const updatedPhoto = await dispatch(updatePhoto(formData));
     setShowModal(false)
+    console.log('imageLoading tf', imageLoading)
   }
 
   const handleDelete = (id) => {
