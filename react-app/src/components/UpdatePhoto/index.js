@@ -92,7 +92,6 @@ const UpdatePhotoForm = ({ photoId, setShowModal, setImageLoading, imageLoading 
                 
                 <div className='label-div'>
                     <label className="edit-photo-button" htmlFor="uploadPhoto">Click to Select File...</label>
-                    <div id="loading" className="hide"> loading</div>
                 </div>
                 <input
                 className='post-photo-text'
@@ -108,6 +107,7 @@ const UpdatePhotoForm = ({ photoId, setShowModal, setImageLoading, imageLoading 
             {/* <button className='edit-photo-button' onClick={handleSubmit}>
                 Update Photo 
             </button> */}
+          <div className='loading-holder'>
             {(imageLoading) && 
           <div className='edit-loading-div'>
           <p className='loading-edit'>  Loading</p>
@@ -116,6 +116,7 @@ const UpdatePhotoForm = ({ photoId, setShowModal, setImageLoading, imageLoading 
           <p className='three-edit'>.</p>
         </div>
         }
+        </div>
         </form>
         <button className='delete-photo-button' onClick={() => handleDelete(photo.id)}>
             Delete Photo
