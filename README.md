@@ -36,6 +36,7 @@ The front end utlizes React, Redux, and Google Maps. The css relies heavily on g
 - Flask
 - PostgreSQL
 - SQLAlchemy
+- S3 storage
 - Docker
 
 ### Components
