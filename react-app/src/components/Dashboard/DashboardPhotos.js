@@ -12,6 +12,7 @@ const DashboardPhotos = ({ userId, photos }) => {
 
     const dispatch = useDispatch()
     const [showModal, setShowModal] = useState(false);
+    const [imageLoading, setImageLoading] = useState(false);
     const [photoId, setPhotoId] = useState();
     // const handleDelete = (id) => {
     //     dispatch(deletePhoto(id));
@@ -31,7 +32,7 @@ const DashboardPhotos = ({ userId, photos }) => {
                         {showModal && (
                             <Modal onClose={() => setShowModal(false)}>
                                 <div className='modal-box'>
-                                    <UpdatePhotoForm photoId={photoId} setShowModal={setShowModal} />
+                                    <UpdatePhotoForm photoId={photoId} setShowModal={setShowModal} setImageLoading={setImageLoading} imageLoading={imageLoading}/>
                 
                                 </div>
                             </Modal>

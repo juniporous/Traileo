@@ -3,14 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updatePhoto, deletePhoto } from '../../store/photo';
 import './UpdatePhoto.css'
 
-const UpdatePhotoForm = ({ photoId, setShowModal }) => {
+const UpdatePhotoForm = ({ photoId, setShowModal, setImageLoading, imageLoading }) => {
   const photo = useSelector(state => state.photo[photoId]);
   
   const dispatch = useDispatch();
 
   const [imgUrl, setImgUrl] = useState('');
   const [validationErrors, setValidationErrors] = useState([]);
-  const [imageLoading, setImageLoading] = useState('');
 
   const updateImgUrl = async (e) => {
     const formData = new FormData()
@@ -19,13 +18,14 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
     formData.append("user_id", photo.user_id)
     formData.append("hike_id", photo.hike_id)
     formData.append("id", photo.id)
-    setImageLoading('abc')
-
-    
+    setImageLoading(true)
+    const no = () => document.getElementById("loading").className = 'reveal'
     const updatedPhoto = await dispatch(updatePhoto(formData));
     setShowModal(false)
-    console.log('imageLoading tf', imageLoading)
+    console.log('imageLoading tf', imgUrl)
   }
+
+  
 
   const handleDelete = (id) => {
     setImgUrl('')
@@ -97,6 +97,7 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
                 </div> */}
                 <div className='label-div'>
                     <label className="edit-photo-button" htmlFor="uploadPhoto">Click to Select File...</label>
+                    <div id="loading" className="hide"> loading</div>
                 </div>
                 <input
                 className='post-photo-text'
