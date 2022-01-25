@@ -91,7 +91,7 @@ const UpdatePhotoForm = ({ photoId, setShowModal, setImageLoading, imageLoading 
             <div className='edit-hike-photo-field'>
                 
                 <div className='label-div'>
-                    <label className="edit-photo-button" htmlFor="uploadPhoto">Click to Select File...</label>
+                    <label className="edit-photo-button" htmlFor="uploadPhoto">Click to replace photo...</label>
                 </div>
                 <input
                 className='post-photo-text'
