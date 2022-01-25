@@ -85,7 +85,7 @@
     color: white;
     width: 350px;
     padding: 10px;
-    margin-top: 50px;
+    margin-top: 40px;
     border-radius: 20px;
     font-size: 15px;
     border: none;
@@ -161,4 +161,11 @@
     100% {
         opacity: 1;
     }
+}
+
+.loading-holder {
+  height: 50px;
+  width: 85%;
+  display: flex;
+  justify-content: center;
 }

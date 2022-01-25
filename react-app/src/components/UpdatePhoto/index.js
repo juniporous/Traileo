@@ -3,27 +3,28 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updatePhoto, deletePhoto } from '../../store/photo';
 import './UpdatePhoto.css'
 
-const UpdatePhotoForm = ({ photoId, setShowModal }) => {
+const UpdatePhotoForm = ({ photoId, setShowModal, setImageLoading, imageLoading }) => {
   const photo = useSelector(state => state.photo[photoId]);
-  const [imageLoading, setImageLoading] = useState(false);
+  
   const dispatch = useDispatch();
 
   const [imgUrl, setImgUrl] = useState('');
   const [validationErrors, setValidationErrors] = useState([]);
-  const updateImgUrl = async (e) => {
-   
 
+  const updateImgUrl = async (e) => {
     const formData = new FormData()
-    setImageLoading(true) 
+    
     formData.append("img_url", e.target.files[0])
     formData.append("user_id", photo.user_id)
     formData.append("hike_id", photo.hike_id)
     formData.append("id", photo.id)
-    
-    console.log('imageLoading tf', imageLoading)
+    setImageLoading(true)
     const updatedPhoto = await dispatch(updatePhoto(formData));
     setShowModal(false)
+    setImageLoading(false)
   }
+
+  
 
   const handleDelete = (id) => {
     setImgUrl('')
@@ -59,28 +60,28 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
   };
 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // const errors = validate();
-    // if (errors?.length > 0) return setValidationErrors(errors);
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   // const errors = validate();
+  //   // if (errors?.length > 0) return setValidationErrors(errors);
 
-    const formData = new FormData()
+  //   const formData = new FormData()
 
-    formData.append("img_url", imgUrl)
-    formData.append("user_id", photo.user_id)
-    formData.append("hike_id", photo.hike_id)
-    formData.append("id", photo.id)
-    console.log('formData cons', formData.get("img_url"))
-    console.log('second cons imgUrl', imgUrl)
-    // const payload = {
-    //   ...photo,
-    //   img_url: imgUrl
-    // };
+  //   formData.append("img_url", imgUrl)
+  //   formData.append("user_id", photo.user_id)
+  //   formData.append("hike_id", photo.hike_id)
+  //   formData.append("id", photo.id)
+  //   console.log('formData cons', formData.get("img_url"))
+  //   console.log('second cons imgUrl', imgUrl)
+  //   // const payload = {
+  //   //   ...photo,
+  //   //   img_url: imgUrl
+  //   // };
     
-    const updatedPhoto = await dispatch(updatePhoto(formData));
-    setShowModal(false)
+  //   const updatedPhoto = await dispatch(updatePhoto(formData));
+  //   setShowModal(false)
 
-  };
+  // };
 
   return (
     <>
@@ -88,11 +89,7 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
       <div className='edit-photo-form'>
         <form>
             <div className='edit-hike-photo-field'>
-                {/* <div>
-                    <p className='edit-label'>
-                        Enter URL
-                    </p>
-                </div> */}
+                
                 <div className='label-div'>
                     <label className="edit-photo-button" htmlFor="uploadPhoto">Click to Select File...</label>
                 </div>
@@ -110,6 +107,7 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
             {/* <button className='edit-photo-button' onClick={handleSubmit}>
                 Update Photo 
             </button> */}
+          <div className='loading-holder'>
             {(imageLoading) && 
           <div className='edit-loading-div'>
           <p className='loading-edit'>  Loading</p>
@@ -118,17 +116,8 @@ const UpdatePhotoForm = ({ photoId, setShowModal }) => {
           <p className='three-edit'>.</p>
         </div>
         }
+        </div>
         </form>
-        
-        
-        
-       
-          {/* <div className='loading-div'>
-          <p className='loading'>  Loading</p>
-          <p className='one'>.</p>
-          <p className='two'>.</p>
-          <p className='three'>.</p>
-        </div> */}
         <button className='delete-photo-button' onClick={() => handleDelete(photo.id)}>
             Delete Photo
         </button>
