@@ -91,7 +91,7 @@ const UpdatePhotoForm = ({ photoId, setShowModal, setImageLoading, imageLoading 
             <div className='edit-hike-photo-field'>
                 
                 <div className='label-div'>
-                    <label className="edit-photo-button" htmlFor="uploadPhoto">Click to replace photo...</label>
+                    <label className="edit-photo-button" htmlFor="uploadPhoto">Click to update photo...</label>
                 </div>
                 <input
                 className='post-photo-text'
@@ -117,6 +117,7 @@ const UpdatePhotoForm = ({ photoId, setShowModal, setImageLoading, imageLoading 
         </div>
         }
         </div>
+        
         </form>
         <button className='delete-photo-button' onClick={() => handleDelete(photo.id)}>
             Delete Photo
