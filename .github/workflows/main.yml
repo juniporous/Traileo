@@ -13,8 +13,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Login to Heroku Container registry
       run: heroku container:login
-    - name: Update requirements
-      run: pipenv lock -r > requirements.txt 
     - name: Build and push
       run: heroku container:push -a traileo web
     - name: Release
