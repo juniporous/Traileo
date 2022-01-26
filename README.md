@@ -13,7 +13,7 @@ Traileo is a fullstack app the lets users find hiking trails via text search or 
   <br> 
 </p>
 
-Users can visually explore the map, click on map markers of various hike, and navigate to those respective pages.
+Users can visually explore the map, click on hike map markers, and navigate to those respective pages.
 
 ## Application Architecture
 
