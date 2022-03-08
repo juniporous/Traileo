@@ -18,7 +18,7 @@ function Review() {
     useEffect(()=>{
         dispatch(searchHikes(search))
     }, [dispatch, search])
-    console.log('######', hikeResult)
+    
 
 
     useEffect(() => {
