@@ -51,7 +51,6 @@ const PostPhotoForm = ({ userId, hikeId, setShowModal }) => {
     formData.append("user_id", userId)
     formData.append("hike_id", hikeId)
     formData.append("img_url", photo)
-    console.log("@#@$#% console", formData.get("img_url"))
     setImageLoading(true);
     const review = await dispatch(addPhoto(formData));
 

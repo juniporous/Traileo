@@ -59,30 +59,6 @@ const UpdatePhotoForm = ({ photoId, setShowModal, setImageLoading, imageLoading 
     
   };
 
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   // const errors = validate();
-  //   // if (errors?.length > 0) return setValidationErrors(errors);
-
-  //   const formData = new FormData()
-
-  //   formData.append("img_url", imgUrl)
-  //   formData.append("user_id", photo.user_id)
-  //   formData.append("hike_id", photo.hike_id)
-  //   formData.append("id", photo.id)
-  //   console.log('formData cons', formData.get("img_url"))
-  //   console.log('second cons imgUrl', imgUrl)
-  //   // const payload = {
-  //   //   ...photo,
-  //   //   img_url: imgUrl
-  //   // };
-    
-  //   const updatedPhoto = await dispatch(updatePhoto(formData));
-  //   setShowModal(false)
-
-  // };
-
   return (
     <>
     <section className='edit-photo-container'>
@@ -101,12 +77,7 @@ const UpdatePhotoForm = ({ photoId, setShowModal, setImageLoading, imageLoading 
                 id="uploadPhoto"
                 onChange={updateImgUrl} />
             </div>
-            {/* <div className='post-photo-error-container'>
-                {validationErrors.map(err => <div className='post-photo-error-text'>{err}</div>)}
-            </div> */}
-            {/* <button className='edit-photo-button' onClick={handleSubmit}>
-                Update Photo 
-            </button> */}
+           
           <div className='loading-holder'>
             {(imageLoading) && 
           <div className='edit-loading-div'>

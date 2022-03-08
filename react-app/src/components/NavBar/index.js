@@ -28,7 +28,6 @@ const NavBar = () => {
   };
 
   const isLoginOpen = document.querySelector("#openSidebarMenu");
-  console.log('loginopen?', isLoginOpen)
 
   if (isLoginOpen && showModal === true) isLoginOpen.checked = false;
 

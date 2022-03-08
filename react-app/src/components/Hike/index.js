@@ -19,7 +19,6 @@ function Hike() {
     const dispatch = useDispatch()
 
     const key = useSelector(state => Object.values(state.key))[0]?.key
-    console.log('!#!#@', key)
 
 
     useEffect(() => {
